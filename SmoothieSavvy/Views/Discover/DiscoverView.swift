@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum FilterOption: String, CaseIterable {
-    case favorites
+    case all, favorites
 }
 
 struct DiscoverView: View {
@@ -16,7 +16,7 @@ struct DiscoverView: View {
 
     let columns = [GridItem(.adaptive(minimum: 175))]
     
-    @State private var filterMode = FilterOption.favorites
+    @State private var filterMode = FilterOption.all
     @State private var searchText = ""
     
     var body: some View {
@@ -42,12 +42,15 @@ struct DiscoverView: View {
                     .padding()
                 }
                 .searchable(text: $searchText)
-                .navigationTitle("SmoothySavvy")
+                .navigationTitle("SmoothieSavvy")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Menu {
                             Picker(selection: $filterMode, label: Text("Filter options")) {
-                                Label("Favorites Only", systemImage: "star").tag(FilterOption.favorites)
+                                Label("All", systemImage: "list.bullet")
+                                    .tag(FilterOption.all)
+                                Label("Favorites Only", systemImage: "heart")
+                                    .tag(FilterOption.favorites)
                             }
                         } label: {
                             Label("Options", systemImage: "ellipsis.circle")

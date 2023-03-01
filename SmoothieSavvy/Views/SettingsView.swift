@@ -34,7 +34,7 @@ struct SettingsView: View {
                             .alignmentGuide(.midAboutAndName) { d in d[VerticalAlignment.center] }
                         
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("SmoothySavvy")
+                            Text("SmoothieSavvy")
                                 .font(.title.bold())
                             Group {
                                 Text("Made with ❤️ for Turkey")
