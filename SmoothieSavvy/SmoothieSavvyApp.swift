@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SmoothieSavvyApp: App {
+    @StateObject var smoothieManager = RecipeManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(smoothieManager)
         }
     }
 }

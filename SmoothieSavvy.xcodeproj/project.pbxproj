@@ -8,18 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */; };
-		0A24FC5129A2A56F007DE5BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC5029A2A56F007DE5BC /* ContentView.swift */; };
 		0A24FC5329A2A570007DE5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5229A2A570007DE5BC /* Assets.xcassets */; };
 		0A24FC5729A2A570007DE5BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */; };
+		0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */; };
+		0A24FC6429A31D1E007DE5BC /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6329A31D1E007DE5BC /* GRPC */; };
+		0A24FC6629A31D1E007DE5BC /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */; };
+		0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */; };
+		0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* RecipeManager.swift */; };
+		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
+		0A6B268129AD9D8400509560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
+		0A6B268329ADA1E700509560 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268229ADA1E700509560 /* DiscoverView.swift */; };
+		0A6B268529ADA54D00509560 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268429ADA54D00509560 /* SettingsView.swift */; };
+		0A6B268729AECC9300509560 /* DiscoverItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268629AECC9300509560 /* DiscoverItemView.swift */; };
+		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
+		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieSavvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieSavvyApp.swift; sourceTree = "<group>"; };
-		0A24FC5029A2A56F007DE5BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A24FC5229A2A570007DE5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmoothieSavvy.entitlements; sourceTree = "<group>"; };
 		0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipe.swift; sourceTree = "<group>"; };
+		0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieView.swift; sourceTree = "<group>"; };
+		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A6B268229ADA1E700509560 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		0A6B268429ADA54D00509560 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0A6B268629AECC9300509560 /* DiscoverItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
+		0A6B268929AED1F000509560 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		0A6B268B29AED2A400509560 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A24FC6629A31D1E007DE5BC /* protoc-gen-grpc-swift in Frameworks */,
+				0A24FC6429A31D1E007DE5BC /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */,
-				0A24FC5029A2A56F007DE5BC /* ContentView.swift */,
+				0A6B268029AD9D8400509560 /* ContentView.swift */,
+				0A6B267E29AD9BA900509560 /* Views */,
+				0A6B268829AED1E100509560 /* Extensions */,
+				0A6B267F29AD9BB200509560 /* Model */,
 				0A24FC5229A2A570007DE5BC /* Assets.xcassets */,
 				0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */,
 				0A24FC5529A2A570007DE5BC /* Preview Content */,
@@ -67,6 +92,52 @@
 				0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0A6B267E29AD9BA900509560 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AD500EF29AF14F600F9EA84 /* Discover */,
+				0AD500F029AF150400F9EA84 /* Smoothie */,
+				0A6B268429ADA54D00509560 /* SettingsView.swift */,
+				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0A6B267F29AD9BB200509560 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A6B267929AD00E700509560 /* RecipeManager.swift */,
+				0A6B267B29AD747B00509560 /* Ingredient.swift */,
+				0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A6B268829AED1E100509560 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A6B268929AED1F000509560 /* Color+Theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0AD500EF29AF14F600F9EA84 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
+				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		0AD500F029AF150400F9EA84 /* Smoothie */ = {
+			isa = PBXGroup;
+			children = (
+				0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */,
+			);
+			path = Smoothie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +156,10 @@
 			dependencies = (
 			);
 			name = SmoothieSavvy;
+			packageProductDependencies = (
+				0A24FC6329A31D1E007DE5BC /* GRPC */,
+				0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */,
+			);
 			productName = SmoothieSavvy;
 			productReference = 0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +188,9 @@
 				Base,
 			);
 			mainGroup = 0A24FC4229A2A56F007DE5BC;
+			packageReferences = (
+				0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */,
+			);
 			productRefGroup = 0A24FC4C29A2A56F007DE5BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +217,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A24FC5129A2A56F007DE5BC /* ContentView.swift in Sources */,
+				0A6B268129AD9D8400509560 /* ContentView.swift in Sources */,
+				0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */,
+				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
+				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,
+				0A6B268529ADA54D00509560 /* SettingsView.swift in Sources */,
+				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
+				0A6B268329ADA1E700509560 /* DiscoverView.swift in Sources */,
+				0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */,
 				0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */,
+				0A6B268729AECC9300509560 /* DiscoverItemView.swift in Sources */,
+				0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +356,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -307,6 +395,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -354,6 +443,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A24FC6329A31D1E007DE5BC /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = "protoc-gen-grpc-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A24FC4329A2A56F007DE5BC /* Project object */;
 }
