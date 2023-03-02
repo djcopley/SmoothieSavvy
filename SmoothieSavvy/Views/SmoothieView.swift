@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SmoothieView: View {
     @Binding var recipe: SmoothieRecipe
+    @EnvironmentObject var recipeManager: RecipeManager
             
     var body: some View {
         ScrollView {
@@ -38,7 +39,13 @@ struct SmoothieView: View {
                 
                 Text("Directions")
                     .font(.headline)
-                Text(recipe.directions)
+                
+                ForEach(recipe.directions.indices, id: \.self) { index in
+                    HStack(alignment: .top) {
+                        Text("\(index + 1). ")
+                        Text("\(recipe.directions[index])")
+                    }
+                }
                 
                 Divider()
                 Text("Related Smoothies")
@@ -46,36 +53,11 @@ struct SmoothieView: View {
             }
             .padding(.horizontal)
             
-            // MARK: Related smoothies
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    Image(recipe.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 80)
-                        .blur(radius: 3)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    
-                    Image(recipe.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 80)
-                        .blur(radius: 3)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    
-                    Image(recipe.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 80)
-                        .blur(radius: 3)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    
-                    Image(recipe.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 80)
-                        .blur(radius: 3)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    ForEach(recipeManager.recipesRelated(to: recipe)) { relatedRecipe in
+                        SmoothieThumbnail(recipe: relatedRecipe)
+                    }
                 }
                 .padding(.horizontal)
             }
@@ -89,14 +71,16 @@ struct SmoothieView: View {
 struct SmoothieView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SmoothieView(recipe: .constant(.riseAndShine))
+            SmoothieView(recipe: .constant(.breakfastSmoothie))
         }
+        .environmentObject(RecipeManager())
         .previewDisplayName("Rise & Shine")
 
         
         NavigationStack {
             SmoothieView(recipe: .constant(.bananaBreakfastShake))
         }
+        .environmentObject(RecipeManager())
         .previewDisplayName("Banana Breakfast Shake")
     }
 }

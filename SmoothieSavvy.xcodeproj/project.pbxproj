@@ -22,6 +22,11 @@
 		0A6B268729AECC9300509560 /* DiscoverItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268629AECC9300509560 /* DiscoverItemView.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
 		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
+		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
+		0AF1707529B030220022D268 /* SmoothieThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707429B030220022D268 /* SmoothieThumbnail.swift */; };
+		0AF1707729B036590022D268 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707629B036590022D268 /* RecipeListView.swift */; };
+		0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707829B0384E0022D268 /* FavoritesView.swift */; };
+		0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707A29B054B10022D268 /* IngredientsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		0A6B268629AECC9300509560 /* DiscoverItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
 		0A6B268929AED1F000509560 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		0A6B268B29AED2A400509560 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
+		0AF1707429B030220022D268 /* SmoothieThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieThumbnail.swift; sourceTree = "<group>"; };
+		0AF1707629B036590022D268 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+		0AF1707829B0384E0022D268 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		0AF1707A29B054B10022D268 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +87,8 @@
 				0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */,
 				0A6B268029AD9D8400509560 /* ContentView.swift */,
 				0A6B267E29AD9BA900509560 /* Views */,
-				0A6B268829AED1E100509560 /* Extensions */,
 				0A6B267F29AD9BB200509560 /* Model */,
+				0A6B268829AED1E100509560 /* Extensions */,
 				0A24FC5229A2A570007DE5BC /* Assets.xcassets */,
 				0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */,
 				0A24FC5529A2A570007DE5BC /* Preview Content */,
@@ -97,10 +107,15 @@
 		0A6B267E29AD9BA900509560 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0AD500EF29AF14F600F9EA84 /* Discover */,
-				0AD500F029AF150400F9EA84 /* Smoothie */,
-				0A6B268429ADA54D00509560 /* SettingsView.swift */,
 				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
+				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
+				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
+				0AF1707629B036590022D268 /* RecipeListView.swift */,
+				0AF1707829B0384E0022D268 /* FavoritesView.swift */,
+				0AF1707A29B054B10022D268 /* IngredientsView.swift */,
+				0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */,
+				0AF1707429B030220022D268 /* SmoothieThumbnail.swift */,
+				0A6B268429ADA54D00509560 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				0A6B267929AD00E700509560 /* RecipeManager.swift */,
-				0A6B267B29AD747B00509560 /* Ingredient.swift */,
 				0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */,
+				0A6B267B29AD747B00509560 /* Ingredient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,25 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				0A6B268929AED1F000509560 /* Color+Theme.swift */,
+				0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0AD500EF29AF14F600F9EA84 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
-				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
-				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
-			);
-			path = Discover;
-			sourceTree = "<group>";
-		};
-		0AD500F029AF150400F9EA84 /* Smoothie */ = {
-			isa = PBXGroup;
-			children = (
-				0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */,
-			);
-			path = Smoothie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,8 +220,13 @@
 				0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */,
 				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
 				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,
+				0AF1707529B030220022D268 /* SmoothieThumbnail.swift in Sources */,
+				0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */,
 				0A6B268529ADA54D00509560 /* SettingsView.swift in Sources */,
+				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
 				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
+				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
+				0AF1707729B036590022D268 /* RecipeListView.swift in Sources */,
 				0A6B268329ADA1E700509560 /* DiscoverView.swift in Sources */,
 				0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */,
 				0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */,

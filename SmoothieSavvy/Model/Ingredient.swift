@@ -8,15 +8,19 @@
 import Foundation
 import SwiftUI
 
-enum Ingredient2 {
-    case blueberry, banana
-}
-
-struct Ingredient {
+struct RawIngredient: Hashable, Codable, Identifiable {
+    var id = UUID()
     var name: String
-    var category: String
 }
 
-extension Ingredient {
+extension RawIngredient {
+    static let rawIngredients = [apple, blueberry]
     
+    static let apple = RawIngredient(name: "apple")
+    static let blueberry = RawIngredient(name: "blueberry")
+}
+
+struct RecipeIngredient {
+    var ingredient: RawIngredient
+    var displayName: String
 }

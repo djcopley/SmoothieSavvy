@@ -11,8 +11,18 @@ class RecipeManager: ObservableObject {
     @Published var recipes: [SmoothieRecipe] = [
         .bananaBreakfastShake,
         .breakfastBar,
-        .riseAndShine
+        .riseAndShine,
+        .breakfastSmoothie,
+        .wakeUpSweetie,
     ]
+    
+    var favoriteRecipes: [SmoothieRecipe] {
+        recipes.filter { $0.isFavorite }
+    }
+    
+    func recipesRelated(to recipe: SmoothieRecipe) -> [SmoothieRecipe]{
+        recipes
+    }
     
     func filteredRecipes(_ searchText: String) -> Binding<[SmoothieRecipe]> {
         Binding<[SmoothieRecipe]>(
