@@ -19,11 +19,6 @@ struct ContentView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
-            
-            IngredientsView()
-                .tabItem {
-                    Label("Ingredients", systemImage: "carrot")
-                }
         }
     }
 }

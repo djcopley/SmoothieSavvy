@@ -41,4 +41,16 @@ class RecipeManager: ObservableObject {
             }
         )
     }
+    
+    func getBinding(for recipe: SmoothieRecipe) -> Binding<SmoothieRecipe> {
+        let index = self.recipes.firstIndex(where: { $0.id == recipe.id })!
+
+        return .init {
+            return self.recipes[index]
+        } set: { recipe in
+            if let index = self.recipes.firstIndex(where: { $0.id == recipe.id }) {
+                self.recipes[index] = recipe
+            }
+        }
+    }
 }

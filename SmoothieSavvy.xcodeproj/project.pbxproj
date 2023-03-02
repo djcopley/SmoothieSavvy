@@ -27,6 +27,7 @@
 		0AF1707729B036590022D268 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707629B036590022D268 /* RecipeListView.swift */; };
 		0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707829B0384E0022D268 /* FavoritesView.swift */; };
 		0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707A29B054B10022D268 /* IngredientsView.swift */; };
+		0AF1707D29B071B10022D268 /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707C29B071B10022D268 /* FeaturedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		0AF1707629B036590022D268 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
 		0AF1707829B0384E0022D268 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		0AF1707A29B054B10022D268 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		0AF1707C29B071B10022D268 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
 				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
 				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
+				0AF1707C29B071B10022D268 /* FeaturedView.swift */,
 				0AF1707629B036590022D268 /* RecipeListView.swift */,
 				0AF1707829B0384E0022D268 /* FavoritesView.swift */,
 				0AF1707A29B054B10022D268 /* IngredientsView.swift */,
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6B268129AD9D8400509560 /* ContentView.swift in Sources */,
+				0AF1707D29B071B10022D268 /* FeaturedView.swift in Sources */,
 				0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */,
 				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
 				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,

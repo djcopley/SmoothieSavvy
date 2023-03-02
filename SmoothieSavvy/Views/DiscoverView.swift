@@ -19,13 +19,12 @@ struct DiscoverView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 0) {
                 ScrollView {
-                    Image("example")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.horizontal)
-                    
+                    NavigationLink {
+                        SmoothieView(recipe: recipeManager.getBinding(for: .breakfastSmoothie))
+                    } label: {
+                        FeaturedView(recipe: .breakfastSmoothie)
+                            .padding(.horizontal)
+                    }
                     LazyVGrid(columns: columns) {
                         ForEach(recipeManager.filteredRecipes(searchText)) { $recipe in
                             NavigationLink {
@@ -47,6 +46,9 @@ struct DiscoverView: View {
                             Label("Filter", systemImage: "slider.horizontal.3")
                         }
                     }
+                }
+                .sheet(isPresented: $ingredientPickerIsPreseneted) {
+                    IngredientsView()
                 }
             }
             .background(BackgroundView())
