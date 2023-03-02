@@ -58,7 +58,7 @@ extension SmoothieRecipe {
         "Add the eggs and frozen bananas and process until smooth.",
         "Pour the mixture into glasses and decorate the rims with whole bananas or slices of banana. Serve."
         ],
-        ingredients: ["1 Cup Orange Juice", " 1/2 Cup Plain Yogurt", "2 Eggs"]
+        ingredients: ["1 Cup Orange Juice", "1/2 Cup Plain Yogurt", "2 Eggs"]
     )
     
     static let wakeUpSweetie = Self(

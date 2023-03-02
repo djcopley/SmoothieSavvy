@@ -35,7 +35,12 @@ struct SmoothieView: View {
                 
                 Text("Ingredients")
                     .font(.headline)
-                Text(recipe.ingredients, format: .list(type: .and))
+                ForEach(recipe.ingredients.indices, id: \.self) { index in
+                    HStack(alignment: .top) {
+                        Text("\(index + 1). ")
+                        Text("\(recipe.ingredients[index])")
+                    }
+                }
                 
                 Text("Directions")
                     .font(.headline)
