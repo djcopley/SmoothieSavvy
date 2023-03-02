@@ -7,17 +7,11 @@
 
 import SwiftUI
 
-enum FilterOption: String, CaseIterable {
-    case all, favorites
-}
-
 struct DiscoverView: View {
     @EnvironmentObject var recipeManager: RecipeManager
 
     let columns = [GridItem(.adaptive(minimum: 175))]
-    
-    @State private var filterMode = FilterOption.all
-    
+        
     @State private var ingredientPickerIsPreseneted = false
     @State private var searchText = ""
     
@@ -53,18 +47,6 @@ struct DiscoverView: View {
                             Label("Filter", systemImage: "slider.horizontal.3")
                         }
                     }
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        Menu {
-//                            Picker(selection: $filterMode, label: Text("Filter options")) {
-//                                Label("All", systemImage: "list.bullet")
-//                                    .tag(FilterOption.all)
-//                                Label("Favorites Only", systemImage: "heart")
-//                                    .tag(FilterOption.favorites)
-//                            }
-//                        } label: {
-//                            Label("Options", systemImage: "ellipsis.circle")
-//                        }
-//                    }
                 }
             }
             .background(BackgroundView())
