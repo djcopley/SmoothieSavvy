@@ -11,7 +11,7 @@ struct FeaturedView: View {
     var recipe: SmoothieRecipe
     
     var body: some View {
-        Image(recipe.imageName)
+        Image(recipe.image)
             .resizable()
             .scaledToFill()
             .frame(height: 200)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FavoritesView: View {
+struct Favorites: View {
     @EnvironmentObject var recipeManager: RecipeManager
     
     var body: some View {
@@ -31,15 +31,15 @@ struct FavoritesView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(BackgroundView())
+            .background(Background())
             .navigationTitle("Favorites")
         }
     }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
+struct Favorites_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView()
+        Favorites()
             .environmentObject(RecipeManager())
     }
 }

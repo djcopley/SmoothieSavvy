@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct RecipeListView: View {
+struct Recipes: View {
     @EnvironmentObject var recipeManager: RecipeManager
     
     @State private var searchText = ""
+    
+    // todo: remove this, it is just a placeholder
+    @State private var isFavorite = true
     
     var body: some View {
         NavigationStack {
@@ -18,17 +21,17 @@ struct RecipeListView: View {
                 HStack {
                     Text(recipe.name)
                     Spacer()
-                    if recipe.isFavorite {
+                    if isFavorite {
                         Image(systemName: "heart.fill")
                             .foregroundColor(.red)
                             .onTapGesture {
-                                recipe.isFavorite.toggle()
+                                isFavorite.toggle()
                             }
                     }
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(BackgroundView())
+            .background(Background())
             .searchable(text: $searchText, placement: .toolbar)
             .navigationTitle("Recipes")
         }
@@ -45,9 +48,9 @@ struct RecipeListView: View {
     }
 }
 
-struct RecipeListView_Previews: PreviewProvider {
+struct Recipes_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeListView()
+        Recipes()
             .environmentObject(RecipeManager())
     }
 }

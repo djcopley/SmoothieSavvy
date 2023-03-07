@@ -33,7 +33,7 @@ struct DiscoverItemView: View {
 struct GridItemView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            BackgroundView()
+            Background()
             DiscoverItemView(recipe: RecipeManager().recipes[0])
         }
     }

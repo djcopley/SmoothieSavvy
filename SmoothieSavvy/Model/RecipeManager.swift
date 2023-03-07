@@ -16,8 +16,12 @@ class RecipeManager: ObservableObject {
         .wakeUpSweetie,
     ]
     
+    func favorite(recipe: SmoothieRecipe) {
+        
+    }
+    
     var favoriteRecipes: [SmoothieRecipe] {
-        recipes.filter { $0.isFavorite }
+        recipes
     }
     
     func recipesRelated(to recipe: SmoothieRecipe) -> [SmoothieRecipe]{
@@ -42,7 +46,7 @@ class RecipeManager: ObservableObject {
         )
     }
     
-    func getBinding(for recipe: SmoothieRecipe) -> Binding<SmoothieRecipe> {
+    func getBinding(to recipe: SmoothieRecipe) -> Binding<SmoothieRecipe> {
         let index = self.recipes.firstIndex(where: { $0.id == recipe.id })!
 
         return .init {

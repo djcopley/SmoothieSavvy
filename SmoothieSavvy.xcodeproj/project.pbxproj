@@ -13,20 +13,21 @@
 		0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */; };
 		0A24FC6429A31D1E007DE5BC /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6329A31D1E007DE5BC /* GRPC */; };
 		0A24FC6629A31D1E007DE5BC /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */; };
-		0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */; };
+		0A24FC6A29A31E8B007DE5BC /* Smoothie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6929A31E8B007DE5BC /* Smoothie.swift */; };
 		0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* RecipeManager.swift */; };
 		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
-		0A6B268129AD9D8400509560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
 		0A6B268329ADA1E700509560 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268229ADA1E700509560 /* DiscoverView.swift */; };
 		0A6B268529ADA54D00509560 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268429ADA54D00509560 /* SettingsView.swift */; };
 		0A6B268729AECC9300509560 /* DiscoverItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268629AECC9300509560 /* DiscoverItemView.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
-		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
+		0A6B268C29AED2A400509560 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* Background.swift */; };
+		0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */; };
+		0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
 		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
 		0AF1707529B030220022D268 /* SmoothieThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707429B030220022D268 /* SmoothieThumbnail.swift */; };
-		0AF1707729B036590022D268 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707629B036590022D268 /* RecipeListView.swift */; };
-		0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707829B0384E0022D268 /* FavoritesView.swift */; };
-		0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707A29B054B10022D268 /* IngredientsView.swift */; };
+		0AF1707729B036590022D268 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707629B036590022D268 /* Recipes.swift */; };
+		0AF1707929B0384E0022D268 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707829B0384E0022D268 /* Favorites.swift */; };
+		0AF1707B29B054B10022D268 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707A29B054B10022D268 /* Ingredients.swift */; };
 		0AF1707D29B071B10022D268 /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707C29B071B10022D268 /* FeaturedView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +38,7 @@
 		0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmoothieSavvy.entitlements; sourceTree = "<group>"; };
 		0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipe.swift; sourceTree = "<group>"; };
-		0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieView.swift; sourceTree = "<group>"; };
+		0A24FC6929A31E8B007DE5BC /* Smoothie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smoothie.swift; sourceTree = "<group>"; };
 		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,12 +46,14 @@
 		0A6B268429ADA54D00509560 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0A6B268629AECC9300509560 /* DiscoverItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
 		0A6B268929AED1F000509560 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
-		0A6B268B29AED2A400509560 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0A6B268B29AED2A400509560 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		0A75AEA429B6DE8600D74C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmoothieRecipe+Recipes.swift"; sourceTree = "<group>"; };
 		0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
 		0AF1707429B030220022D268 /* SmoothieThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieThumbnail.swift; sourceTree = "<group>"; };
-		0AF1707629B036590022D268 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
-		0AF1707829B0384E0022D268 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		0AF1707A29B054B10022D268 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		0AF1707629B036590022D268 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		0AF1707829B0384E0022D268 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		0AF1707A29B054B10022D268 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		0AF1707C29B071B10022D268 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +95,7 @@
 				0A6B267F29AD9BB200509560 /* Model */,
 				0A6B268829AED1E100509560 /* Extensions */,
 				0A24FC5229A2A570007DE5BC /* Assets.xcassets */,
+				0A75AEA429B6DE8600D74C9D /* Info.plist */,
 				0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */,
 				0A24FC5529A2A570007DE5BC /* Preview Content */,
 			);
@@ -109,16 +113,13 @@
 		0A6B267E29AD9BA900509560 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
-				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
-				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
-				0AF1707C29B071B10022D268 /* FeaturedView.swift */,
-				0AF1707629B036590022D268 /* RecipeListView.swift */,
-				0AF1707829B0384E0022D268 /* FavoritesView.swift */,
-				0AF1707A29B054B10022D268 /* IngredientsView.swift */,
-				0A24FC6929A31E8B007DE5BC /* SmoothieView.swift */,
+				0A75AEA729B6EA1D00D74C9D /* IgnoredForNow */,
+				0AF1707629B036590022D268 /* Recipes.swift */,
+				0AF1707829B0384E0022D268 /* Favorites.swift */,
+				0AF1707A29B054B10022D268 /* Ingredients.swift */,
+				0A24FC6929A31E8B007DE5BC /* Smoothie.swift */,
 				0AF1707429B030220022D268 /* SmoothieThumbnail.swift */,
-				0A6B268429ADA54D00509560 /* SettingsView.swift */,
+				0A6B268B29AED2A400509560 /* Background.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,10 +137,22 @@
 		0A6B268829AED1E100509560 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */,
 				0A6B268929AED1F000509560 /* Color+Theme.swift */,
 				0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0A75AEA729B6EA1D00D74C9D /* IgnoredForNow */ = {
+			isa = PBXGroup;
+			children = (
+				0A6B268429ADA54D00509560 /* SettingsView.swift */,
+				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
+				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
+				0AF1707C29B071B10022D268 /* FeaturedView.swift */,
+			);
+			path = IgnoredForNow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,23 +232,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6B268129AD9D8400509560 /* ContentView.swift in Sources */,
 				0AF1707D29B071B10022D268 /* FeaturedView.swift in Sources */,
-				0A24FC6A29A31E8B007DE5BC /* SmoothieView.swift in Sources */,
+				0A24FC6A29A31E8B007DE5BC /* Smoothie.swift in Sources */,
 				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
 				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,
 				0AF1707529B030220022D268 /* SmoothieThumbnail.swift in Sources */,
-				0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */,
+				0AF1707929B0384E0022D268 /* Favorites.swift in Sources */,
 				0A6B268529ADA54D00509560 /* SettingsView.swift in Sources */,
-				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
+				0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */,
+				0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */,
+				0AF1707B29B054B10022D268 /* Ingredients.swift in Sources */,
 				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
 				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
-				0AF1707729B036590022D268 /* RecipeListView.swift in Sources */,
+				0AF1707729B036590022D268 /* Recipes.swift in Sources */,
 				0A6B268329ADA1E700509560 /* DiscoverView.swift in Sources */,
 				0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */,
 				0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */,
 				0A6B268729AECC9300509560 /* DiscoverItemView.swift in Sources */,
-				0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */,
+				0A6B268C29AED2A400509560 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +378,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -373,8 +388,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -383,7 +398,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.copley.SmoothieSavvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,6 +420,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -412,8 +430,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -422,7 +440,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.copley.SmoothieSavvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

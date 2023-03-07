@@ -7,26 +7,28 @@
 
 import SwiftUI
 
-struct SmoothieView: View {
+struct Smoothie: View {
     @Binding var recipe: SmoothieRecipe
     @EnvironmentObject var recipeManager: RecipeManager
+    
+    @State private var isFavorite = false
             
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Image(recipe.imageName)
+                Image(recipe.image)
                     .resizable()
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
                     .overlay(alignment: .bottomTrailing) {
-                        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
+                        Image(systemName: isFavorite ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .padding(10)
                             .background(.regularMaterial)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .onTapGesture {
-                                recipe.isFavorite.toggle()
+                                isFavorite.toggle()
                             }
                             .padding()
                     }
@@ -68,22 +70,22 @@ struct SmoothieView: View {
             }
         }
         .navigationTitle(recipe.name)
-        .background(BackgroundView())
+        .background(Background())
     }
 }
 
 // MARK: Previews
-struct SmoothieView_Previews: PreviewProvider {
+struct Smoothie_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SmoothieView(recipe: .constant(.breakfastSmoothie))
+            Smoothie(recipe: .constant(.breakfastSmoothie))
         }
         .environmentObject(RecipeManager())
         .previewDisplayName("Rise & Shine")
 
         
         NavigationStack {
-            SmoothieView(recipe: .constant(.bananaBreakfastShake))
+            Smoothie(recipe: .constant(.bananaBreakfastShake))
         }
         .environmentObject(RecipeManager())
         .previewDisplayName("Banana Breakfast Shake")
