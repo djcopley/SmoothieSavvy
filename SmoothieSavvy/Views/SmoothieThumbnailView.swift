@@ -1,5 +1,5 @@
 //
-//  SmoothieThumbnail.swift
+//  SmoothieThumbnailView.swift
 //  SmoothieSavvy
 //
 //  Created by Daniel Copley on 3/1/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SmoothieThumbnail: View {
+struct SmoothieThumbnailView: View {
     var recipe: SmoothieRecipe
     
     var body: some View {
@@ -28,6 +28,6 @@ struct SmoothieThumbnail: View {
 
 struct SmoothieThumbnail_Previews: PreviewProvider {
     static var previews: some View {
-        SmoothieThumbnail(recipe: SmoothieRecipe.breakfastSmoothie)
+        SmoothieThumbnailView(recipe: SmoothieRecipe.breakfastSmoothie)
     }
 }

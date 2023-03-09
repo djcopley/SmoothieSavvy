@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Ingredients: View {
+struct IngredientsView: View {
     @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
             Text("No results found for '\(searchText)'")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Background())
+                .background(BackgroundView())
                 .searchable(text: $searchText)
                 .navigationTitle("Ingredients")
         }
@@ -23,6 +23,6 @@ struct Ingredients: View {
 
 struct Ingredients_Previews: PreviewProvider {
     static var previews: some View {
-        Ingredients()
+        IngredientsView()
     }
 }

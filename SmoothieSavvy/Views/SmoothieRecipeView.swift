@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct Smoothie: View {
-    @Binding var recipe: SmoothieRecipe
+struct SmoothieRecipeView: View {
     @EnvironmentObject var recipeManager: RecipeManager
     
-    @State private var isFavorite = false
-            
+    var recipe: SmoothieRecipe
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -22,13 +21,13 @@ struct Smoothie: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
                     .overlay(alignment: .bottomTrailing) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        Image(systemName: recipeManager.isFavorite(recipe: recipe) ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .padding(10)
                             .background(.regularMaterial)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .onTapGesture {
-                                isFavorite.toggle()
+                                recipeManager.toggleFavorite(recipe: recipe)
                             }
                             .padding()
                     }
@@ -63,14 +62,14 @@ struct Smoothie: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(recipeManager.recipesRelated(to: recipe)) { relatedRecipe in
-                        SmoothieThumbnail(recipe: relatedRecipe)
+                        SmoothieThumbnailView(recipe: relatedRecipe)
                     }
                 }
                 .padding(.horizontal)
             }
         }
         .navigationTitle(recipe.name)
-        .background(Background())
+        .background(BackgroundView())
     }
 }
 
@@ -78,14 +77,14 @@ struct Smoothie: View {
 struct Smoothie_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            Smoothie(recipe: .constant(.breakfastSmoothie))
+            SmoothieRecipeView(recipe: .breakfastSmoothie)
         }
         .environmentObject(RecipeManager())
         .previewDisplayName("Rise & Shine")
 
         
         NavigationStack {
-            Smoothie(recipe: .constant(.bananaBreakfastShake))
+            SmoothieRecipeView(recipe: .bananaBreakfastShake)
         }
         .environmentObject(RecipeManager())
         .previewDisplayName("Banana Breakfast Shake")

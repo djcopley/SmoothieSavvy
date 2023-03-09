@@ -1,5 +1,5 @@
 //
-//  Background.swift
+//  BackgroundView.swift
 //  SmoothieSavvy
 //
 //  Created by Daniel Copley on 2/28/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Background: View {
+struct BackgroundView: View {
     @Environment(\.colorScheme) var colorScheme
     
     func bgGradient(_ radius: CGFloat) -> RadialGradient {
@@ -35,6 +35,6 @@ struct Background: View {
 
 struct Background_Previews: PreviewProvider {
     static var previews: some View {
-        Background()
+        BackgroundView()
     }
 }

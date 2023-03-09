@@ -20,7 +20,7 @@ struct DiscoverView: View {
             VStack(alignment: .leading, spacing: 0) {
                 ScrollView {
                     NavigationLink {
-                        Smoothie(recipe: recipeManager.getBinding(to: .breakfastSmoothie))
+                        Smoothie(recipe: .breakfastSmoothie)
                     } label: {
                         FeaturedView(recipe: .breakfastSmoothie)
                             .padding(.horizontal)
@@ -28,7 +28,7 @@ struct DiscoverView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(recipeManager.filteredRecipes(searchText)) { $recipe in
                             NavigationLink {
-                                Smoothie(recipe: $recipe)
+                                Smoothie(recipe: recipe)
                             } label: {
                                 DiscoverItemView(recipe: recipe)
                             }
