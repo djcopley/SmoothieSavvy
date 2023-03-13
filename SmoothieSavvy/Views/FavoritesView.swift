@@ -23,15 +23,8 @@ struct FavoritesView: View {
     
     var body: some View {
         NavigationStack {
-            Group {
-                if recipeManager.favoriteRecipes.isEmpty {
-                    noFavoriteRecipes()
-                } else {
-                    List(recipeManager.favoriteRecipes) { recipe in
-                        NavigationLink(recipe.name, value: recipe)
-                    }
-                    .scrollContentBackground(.hidden)
-                }
+            ListWithBackground(recipeManager.favoriteRecipes, defaultView: noFavoriteRecipes) { recipe in
+                NavigationLink(recipe.name, value: recipe)
             }
             .searchable(text: $searchText)
             .background(BackgroundView())
@@ -44,7 +37,7 @@ struct FavoritesView: View {
     
     // MARK: Computed views
     @ViewBuilder
-    func noFavoriteRecipes() -> some View {
+    var noFavoriteRecipes: some View {
         VStack(spacing: 8) {
             Text("No Favorites Yet")
                 .font(.largeTitle)

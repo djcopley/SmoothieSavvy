@@ -27,15 +27,8 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationStack {
-            Group {
-                if filteredRecipes.isEmpty {
-                    noMatchingRecipes()
-                } else {
-                    List(filteredRecipes) { recipe in
-                        NavigationLink(recipe.name, value: recipe)
-                    }
-                    .scrollContentBackground(.hidden)
-                }
+            ListWithBackground(filteredRecipes, defaultView: noMatchingRecipes) { recipe in
+                NavigationLink(recipe.name, value: recipe)
             }
             .background(BackgroundView())
             .searchable(text: $searchText, placement: .toolbar)
@@ -76,7 +69,7 @@ struct RecipesView: View {
     }
 
     @ViewBuilder
-    func noMatchingRecipes() -> some View {
+    var noMatchingRecipes: some View {
         VStack(spacing: 8) {
             Text("No Recipes Found")
                 .font(.largeTitle)
