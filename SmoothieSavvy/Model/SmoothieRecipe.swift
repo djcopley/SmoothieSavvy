@@ -12,8 +12,9 @@ struct SmoothieRecipe: Identifiable, Hashable, Codable {
     var name: String
     var description: String
     var directions: [String]
-    var ingredients: [String]
+    var ingredientMeasurements: [String]
+    var ingredients: [Ingredient] = []
     var decoration: String?
-    var image = "defaultSmoothie"
+    var imageAssetName: String = "defaultSmoothie"
     var tags: [String] = []
 }

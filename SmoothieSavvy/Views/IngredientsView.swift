@@ -19,8 +19,9 @@ struct IngredientsView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(ingredients, id: \.self) { ingredient in
                         ZStack {
-                            RoundedRectangle(cornerRadius: 8)
+                            Color.clear
                                 .background(.regularMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(lineWidth: 3)

@@ -20,8 +20,8 @@ struct RecipesView: View {
             return searchedRecipes
         }
         return searchedRecipes.filter { recipe in
-            let ingredientIds = recipe.ingredients.map { $0 }
-            return selectedIngredients.union(ingredientIds).isEmpty
+            let ingredientIds = recipe.ingredients.map { $0.id }
+            return selectedIngredients.isStrictSubset(of: ingredientIds)
         }
     }
     

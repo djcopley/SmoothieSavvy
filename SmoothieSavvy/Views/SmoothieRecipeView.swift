@@ -15,7 +15,7 @@ struct SmoothieRecipeView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Image(recipe.image)
+                Image(recipe.imageAssetName)
                     .resizable()
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -36,10 +36,10 @@ struct SmoothieRecipeView: View {
                 
                 Text("Ingredients")
                     .font(.headline)
-                ForEach(recipe.ingredients.indices, id: \.self) { index in
+                ForEach(recipe.ingredientMeasurements.indices, id: \.self) { index in
                     HStack(alignment: .top) {
                         Text("\(index + 1). ")
-                        Text("\(recipe.ingredients[index])")
+                        Text("\(recipe.ingredientMeasurements[index])")
                     }
                 }
                 

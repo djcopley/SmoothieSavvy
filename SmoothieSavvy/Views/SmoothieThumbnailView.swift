@@ -11,7 +11,7 @@ struct SmoothieThumbnailView: View {
     var recipe: SmoothieRecipe
     
     var body: some View {
-        Image(recipe.image)
+        Image(recipe.imageAssetName)
             .resizable()
             .scaledToFill()
             .frame(width: 120, height: 80)

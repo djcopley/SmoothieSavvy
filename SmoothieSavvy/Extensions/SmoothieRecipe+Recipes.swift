@@ -23,7 +23,9 @@ extension SmoothieRecipe {
             "Put the bananas, yogurt, skim milk, and vanilla extract into a food processor or blender and process until smooth.",
             "Serve at once."
         ],
-        ingredients: ["2 Ripe Bananas", "3/4 Cup Yogurt", "1/2 Cup Skim Milk", "1/2 Tsp Vanilla Extract"])
+        ingredientMeasurements: ["2 Ripe Bananas", "3/4 Cup Yogurt", "1/2 Cup Skim Milk", "1/2 Tsp Vanilla Extract"],
+        ingredients: [.banana, .yogurt, .milk]
+    )
     
     static let breakfastBar = Self(
         name: "Breakfast Bar",
@@ -33,7 +35,8 @@ extension SmoothieRecipe {
             "Add the lemon, lime, and orange juice and process until smooth.",
             "Pour into chilled glasses and serve."
         ],
-        ingredients: ["14 oz or 400g Canned Grapefruit and Orange Segments", "4 Tbsp Lemon Juice", "3 Tbsp Lime Juice", "Scant 2 Cups Orange Juice, Chilled"]
+        ingredientMeasurements: ["14 oz or 400g Canned Grapefruit and Orange Segments", "4 Tbsp Lemon Juice", "3 Tbsp Lime Juice", "Scant 2 Cups Orange Juice, Chilled"],
+        ingredients: [.grapefruit, .orange, .lemon, .lime, .orange]
     )
     
     static let riseAndShine = Self(
@@ -42,7 +45,8 @@ extension SmoothieRecipe {
         directions: [
             "Put the tomatoes, carrot, and lime juice into processor or blender and process for a few seconds until smooth."
         ],
-        ingredients: ["4 Tomatoes, Quartered", "Scant 1/2 Cup Grated Carrot", "1 Tbsp Lime Juice"]
+        ingredientMeasurements: ["4 Tomatoes, Quartered", "Scant 1/2 Cup Grated Carrot", "1 Tbsp Lime Juice"],
+        ingredients: [.tomato, .carrot, .lime]
     )
     
     static let breakfastSmoothie = Self(
@@ -53,7 +57,8 @@ extension SmoothieRecipe {
         "Add the eggs and frozen bananas and process until smooth.",
         "Pour the mixture into glasses and decorate the rims with whole bananas or slices of banana. Serve."
         ],
-        ingredients: ["1 Cup Orange Juice", "1/2 Cup Plain Yogurt", "2 Eggs"],
+        ingredientMeasurements: ["1 Cup Orange Juice", "1/2 Cup Plain Yogurt", "2 Eggs"],
+        ingredients: [.orange, .yogurt, .egg],
         decoration: "Whole bananas or slices of banana"
     )
     
@@ -61,6 +66,6 @@ extension SmoothieRecipe {
         name: "Wake Up Sweetie",
         description: "testing",
         directions: [],
-        ingredients: []
+        ingredientMeasurements: []
     )
 }

@@ -9,6 +9,17 @@ import SwiftUI
 
 struct FavoritesView: View {
     @EnvironmentObject var recipeManager: RecipeManager
+    @State private var searchText = ""
+    
+    var favoriteRecipes: [SmoothieRecipe] {
+        let favorites = recipeManager.favoriteRecipes
+        guard !searchText.isEmpty else {
+            return favorites
+        }
+        return favorites.filter { recipe in
+            recipe.name.localizedCaseInsensitiveContains(searchText)
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -22,6 +33,7 @@ struct FavoritesView: View {
                     .scrollContentBackground(.hidden)
                 }
             }
+            .searchable(text: $searchText)
             .background(BackgroundView())
             .navigationTitle("Favorites")
             .navigationDestination(for: SmoothieRecipe.self) { recipe in
