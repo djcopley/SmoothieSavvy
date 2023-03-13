@@ -37,6 +37,7 @@
 		0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeView.swift; sourceTree = "<group>"; };
 		0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+Ingredients.swift"; sourceTree = "<group>"; };
 		0A606E1C29BECC22001F3252 /* ListWithBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithBackground.swift; sourceTree = "<group>"; };
+		0A606E1E29BED742001F3252 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		0A24FC4229A2A56F007DE5BC = {
 			isa = PBXGroup;
 			children = (
+				0A606E1E29BED742001F3252 /* README.md */,
 				0A24FC4D29A2A56F007DE5BC /* SmoothieSavvy */,
 				0A24FC4C29A2A56F007DE5BC /* Products */,
 			);
