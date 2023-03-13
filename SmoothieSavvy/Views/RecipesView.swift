@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipesView: View {
     @EnvironmentObject var recipeManager: RecipeManager
     
+    @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
     @State private var searchText = ""
@@ -41,12 +42,22 @@ struct RecipesView: View {
                     Button {
                         ingredientPickerIsPreseneted = true
                     } label: {
-                        Label("Filter", systemImage: "slider.horizontal.3")
+                        Label("Filter", systemImage: "line.3.horizontal.decrease")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        addRecipeViewIsPresented = true
+                    } label: {
+                        Label("Add Recipe", systemImage: "plus")
                     }
                 }
             }
             .sheet(isPresented: $ingredientPickerIsPreseneted) {
                 IngredientsView(selectedIngredients: $selectedIngredients)
+            }
+            .sheet(isPresented: $addRecipeViewIsPresented) {
+                AddRecipeView()
             }
         }
     }

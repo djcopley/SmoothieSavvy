@@ -12,6 +12,8 @@ struct IngredientsView: View {
     @Binding var selectedIngredients: Set<Ingredient.ID>
     @State private var searchText = ""
     
+    @Environment(\.dismiss) var dismiss
+    
     // MARK: Body property
     var body: some View {
         NavigationStack {
@@ -42,6 +44,9 @@ struct IngredientsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .searchable(text: $searchText)
+            .toolbar {
+                Button("Done") { dismiss() }
+            }
             .navigationTitle("Ingredients")
         }
     }
