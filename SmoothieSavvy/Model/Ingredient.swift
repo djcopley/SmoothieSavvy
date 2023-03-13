@@ -8,19 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RawIngredient: Hashable, Codable, Identifiable {
-    var id = UUID()
+struct Ingredient: Identifiable, Hashable, Codable {
+    var id: String { name }
     var name: String
-}
-
-extension RawIngredient {
-    static let rawIngredients = [apple, blueberry]
-    
-    static let apple = RawIngredient(name: "apple")
-    static let blueberry = RawIngredient(name: "blueberry")
-}
-
-struct RecipeIngredient {
-    var ingredient: RawIngredient
-    var displayName: String
 }

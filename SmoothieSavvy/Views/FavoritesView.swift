@@ -17,13 +17,16 @@ struct FavoritesView: View {
                     noFavoriteRecipes()
                 } else {
                     List(recipeManager.favoriteRecipes) { recipe in
-                        Text(recipe.name)
+                        NavigationLink(recipe.name, value: recipe)
                     }
                     .scrollContentBackground(.hidden)
                 }
             }
             .background(BackgroundView())
             .navigationTitle("Favorites")
+            .navigationDestination(for: SmoothieRecipe.self) { recipe in
+                SmoothieRecipeView(recipe: recipe)
+            }
         }
     }
     

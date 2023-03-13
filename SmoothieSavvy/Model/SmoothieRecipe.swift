@@ -8,7 +8,7 @@
 import Foundation
 
 struct SmoothieRecipe: Identifiable, Hashable, Codable {
-    var id = UUID()
+    var id: String { name }
     var name: String
     var description: String
     var directions: [String]

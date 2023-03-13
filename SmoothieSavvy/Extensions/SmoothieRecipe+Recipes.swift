@@ -8,6 +8,14 @@
 import Foundation
 
 extension SmoothieRecipe {
+    static let recipes: [SmoothieRecipe] = [
+        bananaBreakfastShake,
+        breakfastBar,
+        riseAndShine,
+        breakfastSmoothie,
+        wakeUpSweetie,
+    ]
+    
     static let bananaBreakfastShake = Self(
         name: "Banana Breakfast Shake",
         description: "Get your day off to a healthy start with this quick but nutritious banana shake. Bananas are a great source of potassium, which is said to play a role in controlling high blood pressure.",

@@ -11,9 +11,8 @@
 		0A24FC5329A2A570007DE5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5229A2A570007DE5BC /* Assets.xcassets */; };
 		0A24FC5729A2A570007DE5BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */; };
 		0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */; };
-		0A24FC6429A31D1E007DE5BC /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6329A31D1E007DE5BC /* GRPC */; };
-		0A24FC6629A31D1E007DE5BC /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */; };
 		0A24FC6A29A31E8B007DE5BC /* SmoothieRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */; };
+		0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */; };
 		0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* RecipeManager.swift */; };
 		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
@@ -35,6 +34,7 @@
 		0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipe.swift; sourceTree = "<group>"; };
 		0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeView.swift; sourceTree = "<group>"; };
+		0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+Ingredients.swift"; sourceTree = "<group>"; };
 		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,8 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A24FC6629A31D1E007DE5BC /* protoc-gen-grpc-swift in Frameworks */,
-				0A24FC6429A31D1E007DE5BC /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */,
+				0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */,
 				0A6B268929AED1F000509560 /* Color+Theme.swift */,
 				0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */,
 			);
@@ -168,8 +167,6 @@
 			);
 			name = SmoothieSavvy;
 			packageProductDependencies = (
-				0A24FC6329A31D1E007DE5BC /* GRPC */,
-				0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */,
 			);
 			productName = SmoothieSavvy;
 			productReference = 0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */;
@@ -236,6 +233,7 @@
 				0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */,
 				0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */,
 				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
+				0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */,
 				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
 				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
 				0AF1707729B036590022D268 /* RecipesView.swift in Sources */,
@@ -474,19 +472,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0A24FC6329A31D1E007DE5BC /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		0A24FC6529A31D1E007DE5BC /* protoc-gen-grpc-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = "protoc-gen-grpc-swift";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A24FC4329A2A56F007DE5BC /* Project object */;
 }
