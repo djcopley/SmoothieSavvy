@@ -10,25 +10,22 @@ import PhotosUI
 
 struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
-    
+
     @State private var name = ""
     @State private var description = ""
-    
+
     @State private var ingredients: [Ingredient] = []
     @State private var newIngredientIsPresented = false
     @State private var newIngredientName = ""
     @FocusState private var focusedIngredientIndex: Int?
-    
-    
+
     @State private var directions: [String] = []
     @State private var newStepIsPresented = false
     @State private var newStep = ""
     @FocusState private var focusedStepIndex: Int?
-    
+
     @State private var notes = ""
-    
-    
-        
+
     var body: some View {
         NavigationStack {
             Form {
@@ -36,10 +33,11 @@ struct AddRecipeView: View {
                     TextField("Name", text: $name)
                     TextField("Description", text: $description)
                 }
-                
+
                 Section("Ingredients") {
-                    ForEach(0..<ingredients.count, id: \.self) { index in
+                    ForEach(ingredients.indices, id: \.self) { index in
                         TextField(ingredients[index].name, text: $ingredients[index].name)
+                            .tag(index)
                             .focused($focusedIngredientIndex, equals: index)
                     }
                     .onDelete {
@@ -48,7 +46,7 @@ struct AddRecipeView: View {
                     .onMove {
                         ingredients.move(fromOffsets: $0, toOffset: $1)
                     }
-                    
+
                     if newIngredientIsPresented {
                         TextField("New Ingredient", text: $newIngredientName)
                             .onSubmit {
@@ -60,7 +58,7 @@ struct AddRecipeView: View {
                             }
                             .focused($focusedIngredientIndex, equals: -1)
                     }
-                    
+
                     Button {
                         focusedIngredientIndex = -1
                         newIngredientIsPresented = true
@@ -68,11 +66,10 @@ struct AddRecipeView: View {
                         Label("Add Ingredient", systemImage: "plus")
                     }
                 }
-                
+
                 Section("Directions") {
-                    ForEach(0..<directions.count, id: \.self) { index in
-                        TextField(directions[index], text: $directions[index])
-                            .focused($focusedStepIndex, equals: index)
+                    ForEach(directions, id: \.self) { direction in
+                        Text(direction)
                     }
                     .onDelete {
                         directions.remove(atOffsets: $0)
@@ -80,7 +77,7 @@ struct AddRecipeView: View {
                     .onMove {
                         directions.move(fromOffsets: $0, toOffset: $1)
                     }
-                    
+
                     if newStepIsPresented {
                         TextField("New Ingredient", text: $newStep)
                             .onSubmit {
@@ -92,7 +89,7 @@ struct AddRecipeView: View {
                             }
                             .focused($focusedStepIndex, equals: -1)
                     }
-                    
+
                     Button {
                         focusedStepIndex = -1
                         newStepIsPresented = true
@@ -100,19 +97,19 @@ struct AddRecipeView: View {
                         Label("Add Step", systemImage: "plus")
                     }
                 }
-                
+
                 Section("Picture") {
                     Button {
-                        
+                        // TODO: Add ability to import images from photo library
                     } label: {
                         Label("Photo", systemImage: "camera.fill")
                     }
                     .frame(height: 60)
                 }
-                
+
                 Section("Notes") {
-                    TextEditorWithDefault(text: $notes)
-                        .frame(height: 200)
+                    TextEditor(text: $notes)
+                        .frame(height: 100)
                 }
             }
             .scrollContentBackground(.hidden)
@@ -128,6 +125,7 @@ struct AddRecipeView: View {
         }
     }
 }
+
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {

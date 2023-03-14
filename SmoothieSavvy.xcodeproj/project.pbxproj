@@ -15,7 +15,6 @@
 		0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */; };
 		0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1C29BECC22001F3252 /* ListWithBackground.swift */; };
 		0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */; };
-		0A606E2229BFAD27001F3252 /* TextEditorWithDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E2129BFAD27001F3252 /* TextEditorWithDefault.swift */; };
 		0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* RecipeManager.swift */; };
 		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
@@ -41,7 +40,6 @@
 		0A606E1C29BECC22001F3252 /* ListWithBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithBackground.swift; sourceTree = "<group>"; };
 		0A606E1E29BED742001F3252 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
-		0A606E2129BFAD27001F3252 /* TextEditorWithDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithDefault.swift; sourceTree = "<group>"; };
 		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				0AF1707429B030220022D268 /* SmoothieThumbnailView.swift */,
 				0A606E1C29BECC22001F3252 /* ListWithBackground.swift */,
 				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
-				0A606E2129BFAD27001F3252 /* TextEditorWithDefault.swift */,
 				0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */,
 			);
 			path = Views;
@@ -238,7 +235,6 @@
 			files = (
 				0A24FC6A29A31E8B007DE5BC /* SmoothieRecipeView.swift in Sources */,
 				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
-				0A606E2229BFAD27001F3252 /* TextEditorWithDefault.swift in Sources */,
 				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,
 				0AF1707529B030220022D268 /* SmoothieThumbnailView.swift in Sources */,
 				0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */,
