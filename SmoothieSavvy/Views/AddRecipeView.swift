@@ -17,12 +17,10 @@ struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = []
     @State private var newIngredientIsPresented = false
     @State private var newIngredientName = ""
-    @FocusState private var focusedIngredientIndex: Int?
 
     @State private var directions: [String] = []
     @State private var newStepIsPresented = false
     @State private var newStep = ""
-    @FocusState private var focusedStepIndex: Int?
 
     @State private var notes = ""
 
@@ -37,8 +35,6 @@ struct AddRecipeView: View {
                 Section("Ingredients") {
                     ForEach(ingredients.indices, id: \.self) { index in
                         TextField(ingredients[index].name, text: $ingredients[index].name)
-                            .tag(index)
-                            .focused($focusedIngredientIndex, equals: index)
                     }
                     .onDelete {
                         ingredients.remove(atOffsets: $0)
@@ -56,11 +52,9 @@ struct AddRecipeView: View {
                                 newIngredientName = ""
                                 newIngredientIsPresented = false
                             }
-                            .focused($focusedIngredientIndex, equals: -1)
                     }
 
                     Button {
-                        focusedIngredientIndex = -1
                         newIngredientIsPresented = true
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
@@ -87,11 +81,9 @@ struct AddRecipeView: View {
                                 newStep = ""
                                 newStepIsPresented = false
                             }
-                            .focused($focusedStepIndex, equals: -1)
                     }
 
                     Button {
-                        focusedStepIndex = -1
                         newStepIsPresented = true
                     } label: {
                         Label("Add Step", systemImage: "plus")
