@@ -23,6 +23,8 @@ struct AddRecipeView: View {
     @State private var newStep = ""
 
     @State private var notes = ""
+    
+    @FocusState private var view: Bool
 
     var body: some View {
         NavigationStack {
@@ -33,8 +35,8 @@ struct AddRecipeView: View {
                 }
 
                 Section("Ingredients") {
-                    ForEach(ingredients.indices, id: \.self) { index in
-                        TextField(ingredients[index].name, text: $ingredients[index].name)
+                    ForEach($ingredients, id: \.self) { $ingredient in
+                        TextField(ingredient.name, text: $ingredient.name)
                     }
                     .onDelete {
                         ingredients.remove(atOffsets: $0)

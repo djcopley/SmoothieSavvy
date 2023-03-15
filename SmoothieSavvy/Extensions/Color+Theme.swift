@@ -8,12 +8,20 @@
 import SwiftUI
 
 extension ShapeStyle where Self == Color {
-    static var darkBackground: Color {
-        Color(red: 0.1, green: 0.1, blue: 0.2)
+    static var lightBgAccent: Color {
+        Color(red: 0.8, green: 1.0, blue: 0.95)
     }
     
-    static var lightBackground: Color {
-        Color(red: 0.2, green: 0.2, blue: 0.3)
+    static var lightBgBase: Color {
+        Color(red: 0.6, green: 1.0, blue: 0.85)
+    }
+    
+    static var darkBgAccent: Color {
+        Color(red: 0.3, green: 0.0, blue: 0.4)
+    }
+    
+    static var darkBgBase: Color {
+        Color(red: 0.24, green: 0.0, blue: 0.4)
     }
 }
 
@@ -21,8 +29,10 @@ struct Color_Theme_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             VStack(spacing: 0) {
-                Color.lightBackground
-                Color.darkBackground
+                Color.lightBgBase
+                Color.lightBgAccent
+                Color.darkBgBase
+                Color.darkBgAccent
             }
             .ignoresSafeArea()
             

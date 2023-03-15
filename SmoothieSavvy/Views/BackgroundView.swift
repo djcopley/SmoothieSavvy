@@ -12,12 +12,12 @@ struct BackgroundView: View {
     
     func bgGradient(_ radius: CGFloat) -> RadialGradient {
         let lightStops: [Gradient.Stop] = [
-            .init(color: Color(red: 0.8, green: 1.0, blue: 0.95), location: 0.0),
-            .init(color: Color(red: 0.6, green: 1.0, blue: 0.85), location: 1.0)
+            .init(color: .lightBgAccent, location: 0.0),
+            .init(color: .lightBgBase, location: 1.0)
         ]
         let darkStops: [Gradient.Stop] = [
-            .init(color: Color(red: 0.3, green: 0.0, blue: 0.4), location: 0.0),
-            .init(color: Color(red: 0.24, green: 0.0, blue: 0.43), location: 1.0),
+            .init(color: .darkBgAccent, location: 0.0),
+            .init(color: .darkBgBase, location: 1.0)
         ]
         let stops = colorScheme == .light ? lightStops : darkStops
         

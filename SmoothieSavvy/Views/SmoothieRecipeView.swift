@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct SmoothieRecipeView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var recipeManager: RecipeManager
     
     var recipe: SmoothieRecipe
+    
+    @State private var notes = ""
     
     var body: some View {
         ScrollView {
@@ -52,6 +55,14 @@ struct SmoothieRecipeView: View {
                         Text("\(recipe.directions[index])")
                     }
                 }
+                
+                Text("Notes")
+                    .font(.headline)
+                TextEditor(text: $notes)
+                    .scrollContentBackground(.hidden)
+                    .background(colorScheme == .dark ? .darkBgAccent : .lightBgAccent)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .frame(height: 150)
                 
                 Divider()
                 Text("Related Smoothies")
