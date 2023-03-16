@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 struct SmoothieRecipe: Identifiable, Hashable, Codable {
-    var id: String { name }
+    var id: UUID = UUID()
     var name: String
     var description: String
     var directions: [String] = []
@@ -18,4 +19,9 @@ struct SmoothieRecipe: Identifiable, Hashable, Codable {
     var imageAssetName: String = "defaultSmoothie"
     var tags: [String] = []
     var notes: String = ""
+    var isFavorite: Bool = false
+}
+
+extension UTType {
+    static let smoothieRecipe: UTType = UTType(exportedAs: "dev.copley.smoothie-recipe")
 }

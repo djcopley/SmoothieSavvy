@@ -15,7 +15,8 @@
 		0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */; };
 		0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1C29BECC22001F3252 /* ListWithBackground.swift */; };
 		0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */; };
-		0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* RecipeManager.swift */; };
+		0A606E2729C2C5D6001F3252 /* SmoothieSavvy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */; };
+		0A6B267A29AD00E700509560 /* SmoothieRecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */; };
 		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
 		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
@@ -40,7 +41,8 @@
 		0A606E1C29BECC22001F3252 /* ListWithBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithBackground.swift; sourceTree = "<group>"; };
 		0A606E1E29BED742001F3252 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
-		0A6B267929AD00E700509560 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmoothieSavvy.xcdatamodel; sourceTree = "<group>"; };
+		0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeData.swift; sourceTree = "<group>"; };
 		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A6B268229ADA1E700509560 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
@@ -129,9 +131,10 @@
 		0A6B267F29AD9BB200509560 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A6B267929AD00E700509560 /* RecipeManager.swift */,
+				0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */,
 				0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */,
 				0A6B267B29AD747B00509560 /* Ingredient.swift */,
+				0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,11 +246,12 @@
 				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
 				0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */,
 				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
+				0A606E2729C2C5D6001F3252 /* SmoothieSavvy.xcdatamodeld in Sources */,
 				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
 				0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */,
 				0AF1707729B036590022D268 /* RecipesView.swift in Sources */,
 				0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */,
-				0A6B267A29AD00E700509560 /* RecipeManager.swift in Sources */,
+				0A6B267A29AD00E700509560 /* SmoothieRecipeData.swift in Sources */,
 				0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */,
 				0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */,
 			);
@@ -380,6 +384,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -422,6 +427,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -482,6 +488,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCVersionGroup section */
+		0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */,
+			);
+			currentVersion = 0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */;
+			path = SmoothieSavvy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0A24FC4329A2A56F007DE5BC /* Project object */;
 }

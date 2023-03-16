@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoverView: View {
-    @EnvironmentObject var recipeManager: RecipeManager
+    @EnvironmentObject var recipeData: SmoothieRecipeData
 
     let columns = [GridItem(.adaptive(minimum: 175))]
         
@@ -26,7 +26,7 @@ struct DiscoverView: View {
                             .padding(.horizontal)
                     }
                     LazyVGrid(columns: columns) {
-                        ForEach(recipeManager.filteredRecipes(searchText)) { $recipe in
+                        ForEach(recipeData.filteredRecipes(searchText)) { $recipe in
                             NavigationLink {
                                 Smoothie(recipe: recipe)
                             } label: {
@@ -59,6 +59,6 @@ struct DiscoverView: View {
 struct RecipesGridView_Previews: PreviewProvider {
     static var previews: some View {
         DiscoverView()
-            .environmentObject(RecipeManager())
+            .environmentObject(SmoothieRecipeData())
     }
 }

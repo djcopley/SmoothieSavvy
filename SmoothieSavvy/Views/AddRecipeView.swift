@@ -10,6 +10,7 @@ import PhotosUI
 
 struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var recipeData: SmoothieRecipeData
 
     @State private var name = ""
     @State private var description = ""
@@ -36,7 +37,7 @@ struct AddRecipeView: View {
 
                 Section("Ingredients") {
                     ForEach($ingredients, id: \.self) { $ingredient in
-                        TextField(ingredient.name, text: $ingredient.name)
+                        TextField("Ingredient", text: $ingredient.name)
                     }
                     .onDelete {
                         ingredients.remove(atOffsets: $0)
@@ -64,8 +65,8 @@ struct AddRecipeView: View {
                 }
 
                 Section("Directions") {
-                    ForEach(directions, id: \.self) { direction in
-                        Text(direction)
+                    ForEach($directions, id: \.self) { $direction in
+                        TextField("Step", text: $direction)
                     }
                     .onDelete {
                         directions.remove(atOffsets: $0)
@@ -75,7 +76,7 @@ struct AddRecipeView: View {
                     }
 
                     if newStepIsPresented {
-                        TextField("New Ingredient", text: $newStep)
+                        TextField("New Step", text: $newStep)
                             .onSubmit {
                                 if !newStep.trimmingCharacters(in: .whitespaces).isEmpty {
                                     directions.append(newStep)
@@ -110,8 +111,23 @@ struct AddRecipeView: View {
             .background(BackgroundView())
             .navigationTitle("Add Recipe")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(role: .cancel) {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("Add") {
+                        let newRecipe = SmoothieRecipe(
+                            name: name,
+                            description: description,
+                            directions: directions,
+                            ingredients: ingredients,
+                            notes: notes
+                        )
+                        recipeData.add(recipe: newRecipe)
                         dismiss()
                     }
                 }

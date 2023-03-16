@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @EnvironmentObject var recipeManager: RecipeManager
+    @EnvironmentObject var recipeData: SmoothieRecipeData
     
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
     @State private var searchText = ""
     
-    private var filteredRecipes: [SmoothieRecipe] {
-        let searchedRecipes = recipeManager.filteredRecipes(searchText)
-        guard !selectedIngredients.isEmpty else {
-            return searchedRecipes
-        }
-        return searchedRecipes.filter { recipe in
-            let ingredientIds = recipe.ingredients.map { $0.id }
-            return selectedIngredients.isStrictSubset(of: ingredientIds)
-        }
-    }
+//    private var filteredRecipes: [SmoothieRecipe] {
+//        let searchedRecipes = recipeData.filteredRecipes(searchText)
+//        guard !selectedIngredients.isEmpty else {
+//            return searchedRecipes
+//        }
+//        return searchedRecipes.filter { recipe in
+//            let ingredientIds = recipe.ingredients.map { $0.id }
+//            return selectedIngredients.isStrictSubset(of: ingredientIds)
+//        }
+//    }
     
     var body: some View {
         NavigationStack {
-            ListWithBackground(filteredRecipes, defaultView: noMatchingRecipes) { recipe in
+            ListWithBackground(recipeData.recipes, defaultView: noMatchingRecipes) { recipe in
                 NavigationLink(recipe.name, value: recipe)
             }
             .background(BackgroundView())
             .searchable(text: $searchText, placement: .toolbar)
             .navigationTitle("Recipes")
             .navigationDestination(for: SmoothieRecipe.self) { recipe in
-                SmoothieRecipeView(recipe: recipe)
+                SmoothieRecipeView(recipe: recipeData.getBinding(for: recipe)!)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -69,12 +69,9 @@ struct RecipesView: View {
         HStack {
             Text(recipe.name)
             Spacer()
-            if recipeManager.favorites.contains(recipe.id) {
+            if recipe.isFavorite {
                 Image(systemName: "heart.fill")
                     .foregroundColor(.red)
-                    .onTapGesture {
-                        recipeManager.favorites.remove(recipe.id)
-                    }
             }
         }
     }
@@ -102,6 +99,6 @@ struct RecipesView: View {
 struct Recipes_Previews: PreviewProvider {
     static var previews: some View {
         RecipesView()
-            .environmentObject(RecipeManager())
+            .environmentObject(SmoothieRecipeData())
     }
 }

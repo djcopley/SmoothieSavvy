@@ -32,9 +32,11 @@ struct ListWithBackground<Item: Identifiable, DefaultContent: View, RowContent: 
 }
 
 struct ListWithBackground_Previews: PreviewProvider {
+    @StateObject static private var recipeData = SmoothieRecipeData()
+    
     static var previews: some View {
         NavigationStack {
-            ListWithBackground(SmoothieRecipe.recipes, defaultView: Text("Testing")) { item in
+            ListWithBackground(recipeData.recipes, defaultView: Text("Testing")) { item in
                 NavigationLink(item.name, value: item)
             }
         }

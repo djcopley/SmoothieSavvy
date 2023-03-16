@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @EnvironmentObject var recipeManager: RecipeManager
+    @EnvironmentObject var recipeData: SmoothieRecipeData
     @State private var searchText = ""
     
-    var favoriteRecipes: [SmoothieRecipe] {
-        let favorites = recipeManager.favoriteRecipes
+    var filteredFavorites: [SmoothieRecipe] {
+        let favorites = recipeData.favorites
         guard !searchText.isEmpty else {
             return favorites
         }
@@ -23,14 +23,14 @@ struct FavoritesView: View {
     
     var body: some View {
         NavigationStack {
-            ListWithBackground(recipeManager.favoriteRecipes, defaultView: noFavoriteRecipes) { recipe in
+            ListWithBackground(filteredFavorites, defaultView: noFavoriteRecipes) { recipe in
                 NavigationLink(recipe.name, value: recipe)
             }
             .searchable(text: $searchText)
             .background(BackgroundView())
             .navigationTitle("Favorites")
             .navigationDestination(for: SmoothieRecipe.self) { recipe in
-                SmoothieRecipeView(recipe: recipe)
+                SmoothieRecipeView(recipe: recipeData.getBinding(for: recipe)!)
             }
         }
     }
@@ -53,6 +53,6 @@ struct FavoritesView: View {
 struct Favorites_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
-            .environmentObject(RecipeManager())
+            .environmentObject(SmoothieRecipeData())
     }
 }

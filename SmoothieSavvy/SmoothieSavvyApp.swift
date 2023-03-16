@@ -9,12 +9,18 @@ import SwiftUI
 
 @main
 struct SmoothieSavvyApp: App {
-    @StateObject var smoothieManager = RecipeManager()
+    @StateObject var recipeData = SmoothieRecipeData()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(smoothieManager)
+                .environmentObject(recipeData)
+                .task {
+                    recipeData.load()
+                }
+                .onChange(of: recipeData.recipes) { _ in
+                    recipeData.save()
+                }
         }
     }
 }

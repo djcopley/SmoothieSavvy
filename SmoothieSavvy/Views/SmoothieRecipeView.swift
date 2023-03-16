@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SmoothieRecipeView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var recipeManager: RecipeManager
-    
-    var recipe: SmoothieRecipe
-    
-    @State private var notes = ""
-    
+    @EnvironmentObject var recipeData: SmoothieRecipeData
+
+    @Binding var recipe: SmoothieRecipe
+
+    @FocusState var notesIsFocused
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -24,13 +24,13 @@ struct SmoothieRecipeView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
                     .overlay(alignment: .bottomTrailing) {
-                        Image(systemName: recipeManager.isFavorite(recipe: recipe) ? "heart.fill" : "heart")
+                        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .padding(10)
                             .background(.regularMaterial)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .onTapGesture {
-                                recipeManager.toggleFavorite(recipe: recipe)
+                                recipe.isFavorite.toggle()
                             }
                             .padding()
                     }
@@ -39,26 +39,26 @@ struct SmoothieRecipeView: View {
                 
                 Text("Ingredients")
                     .font(.headline)
-                ForEach(recipe.ingredientMeasurements.indices, id: \.self) { index in
+                ForEach(recipe.ingredientMeasurements.enumeratedArray(), id: \.element) { (offset, element) in
                     HStack(alignment: .top) {
-                        Text("\(index + 1). ")
-                        Text("\(recipe.ingredientMeasurements[index])")
+                        Text("\(offset + 1). ")
+                        Text(element)
                     }
                 }
                 
                 Text("Directions")
                     .font(.headline)
-                
-                ForEach(recipe.directions.indices, id: \.self) { index in
+                ForEach(recipe.directions.enumeratedArray(), id: \.element) { (offset, element) in
                     HStack(alignment: .top) {
-                        Text("\(index + 1). ")
-                        Text("\(recipe.directions[index])")
+                        Text("\(offset + 1). ")
+                        Text(element)
                     }
                 }
                 
                 Text("Notes")
                     .font(.headline)
-                TextEditor(text: $notes)
+                TextEditor(text: $recipe.notes)
+                    .focused($notesIsFocused)
                     .scrollContentBackground(.hidden)
                     .background(colorScheme == .dark ? .darkBgAccent : .lightBgAccent)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -72,11 +72,19 @@ struct SmoothieRecipeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(recipeManager.recipesRelated(to: recipe)) { relatedRecipe in
+                    ForEach(recipeData.recipesRelated(to: recipe)) { relatedRecipe in
                         SmoothieThumbnailView(recipe: relatedRecipe)
                     }
                 }
                 .padding(.horizontal)
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    notesIsFocused = false
+                }
             }
         }
         .navigationTitle(recipe.name)
@@ -88,16 +96,16 @@ struct SmoothieRecipeView: View {
 struct Smoothie_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SmoothieRecipeView(recipe: .breakfastSmoothie)
+            SmoothieRecipeView(recipe: .constant(.breakfastSmoothie))
         }
-        .environmentObject(RecipeManager())
+        .environmentObject(SmoothieRecipeData())
         .previewDisplayName("Rise & Shine")
 
         
         NavigationStack {
-            SmoothieRecipeView(recipe: .bananaBreakfastShake)
+            SmoothieRecipeView(recipe: .constant(.bananaBreakfastShake))
         }
-        .environmentObject(RecipeManager())
+        .environmentObject(SmoothieRecipeData())
         .previewDisplayName("Banana Breakfast Shake")
     }
 }
