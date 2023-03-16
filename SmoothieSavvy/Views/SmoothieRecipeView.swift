@@ -79,14 +79,18 @@ struct SmoothieRecipeView: View {
                 .padding(.horizontal)
             }
         }
+        #if os(iOS)
         .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Done") {
-                    notesIsFocused = false
+            if notesIsFocused {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Spacer()
+                    Button("Done") {
+                        notesIsFocused = false
+                    }
                 }
             }
         }
+        #endif
         .navigationTitle(recipe.name)
         .background(BackgroundView())
     }
