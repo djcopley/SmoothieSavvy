@@ -64,7 +64,7 @@ struct SmoothieRecipeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(recipeData.recipesRelated(to: recipe)) { relatedRecipe in
+                    ForEach(relatedRecipes) { relatedRecipe in
                         SmoothieThumbnailView(recipe: relatedRecipe)
                     }
                 }
@@ -96,6 +96,14 @@ struct SmoothieRecipeView: View {
                 recipe.isFavorite.toggle()
             }
             .padding()
+    }
+    
+    
+    /// Recommends a list of smoothie recipes that are similar
+    /// - Parameter recipe: recipe from which to generate recommendations
+    /// - Returns: similar smoothie recommendations
+    var relatedRecipes: [SmoothieRecipe] {
+        recipeData.recipes
     }
 }
 

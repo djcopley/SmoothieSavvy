@@ -7,7 +7,6 @@
 
 import SwiftUI
 import PhotosUI
-import Camera_SwiftUI
 
 struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
@@ -17,20 +16,15 @@ struct AddRecipeView: View {
     @State private var description = ""
 
     @State private var ingredients: [Ingredient] = []
-    @State private var newIngredientIsPresented = false
-    @State private var newIngredientName = ""
     @FocusState private var focusedIngredient: Ingredient?
 
     @State private var directions: [String] = []
-    @State private var newStepIsPresented = false
-    @State private var newStep = ""
-    @FocusState private var focusedDirections: String?
+    @FocusState private var focusedDirection: String?
 
     @State private var notes = ""
+    
     @State private var cameraIsPresented = false
-    
     @State private var isTargeted = false
-    
     var session = AVCaptureSession()
     
     var body: some View {
@@ -44,6 +38,7 @@ struct AddRecipeView: View {
                 Section("Ingredients") {
                     ForEach($ingredients, id: \.self) { $ingredient in
                         TextField("New Ingredient", text: $ingredient.name)
+                            .focused($focusedIngredient, equals: ingredient)
                     }
                     .onDelete {
                         ingredients.remove(atOffsets: $0)
@@ -52,19 +47,10 @@ struct AddRecipeView: View {
                         ingredients.move(fromOffsets: $0, toOffset: $1)
                     }
 
-                    if newIngredientIsPresented {
-                        TextField("New Ingredient", text: $newIngredientName)
-                            .onSubmit {
-                                if !newIngredientName.trimmingCharacters(in: .whitespaces).isEmpty {
-                                    ingredients.append(Ingredient(name: newIngredientName))
-                                }
-                                newIngredientName = ""
-                                newIngredientIsPresented = false
-                            }
-                    }
-
                     Button {
-                        newIngredientIsPresented = true
+                        let newIngredient = Ingredient(name: "\(Int.random(in: 0...100))")
+                        focusedIngredient = newIngredient
+                        ingredients.append(newIngredient)
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
                     }
@@ -73,6 +59,7 @@ struct AddRecipeView: View {
                 Section("Directions") {
                     ForEach($directions, id: \.self) { $direction in
                         TextField("New Step", text: $direction)
+                            .focused($focusedDirection, equals: direction)
                     }
                     .onDelete {
                         directions.remove(atOffsets: $0)
@@ -81,19 +68,10 @@ struct AddRecipeView: View {
                         directions.move(fromOffsets: $0, toOffset: $1)
                     }
 
-                    if newStepIsPresented {
-                        TextField("New Step", text: $newStep)
-                            .onSubmit {
-                                if !newStep.trimmingCharacters(in: .whitespaces).isEmpty {
-                                    directions.append(newStep)
-                                }
-                                newStep = ""
-                                newStepIsPresented = false
-                            }
-                    }
-
                     Button {
-                        newStepIsPresented = true
+                        let newStep = ""
+                        focusedDirection = newStep
+                        directions.append(newStep)
                     } label: {
                         Label("Add Step", systemImage: "plus")
                     }
@@ -101,7 +79,7 @@ struct AddRecipeView: View {
 
                 Section("Picture") {
                     Button {
-//                        cameraIsPresented = true
+                        focusedIngredient = ingredients.first!
                     } label: {
                         Label("Photo", systemImage: "camera.fill")
                     }

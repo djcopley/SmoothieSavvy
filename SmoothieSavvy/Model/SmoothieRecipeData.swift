@@ -29,13 +29,6 @@ class SmoothieRecipeData: ObservableObject {
         recipes.removeAll { $0.id == recipe.id }
     }
     
-    /// Recommends a list of smoothie recipes that are similar
-    /// - Parameter recipe: recipe from which to generate recommendations
-    /// - Returns: similar smoothie recommendations
-    func recipesRelated(to recipe: SmoothieRecipe) -> [SmoothieRecipe] {
-        recipes
-    }
-    
     func getBinding(for recipe: SmoothieRecipe) -> Binding<SmoothieRecipe>? {
         guard let index = recipes.firstIndex(where: { $0.id == recipe.id }) else {
             return nil
