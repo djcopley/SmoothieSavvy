@@ -15,20 +15,22 @@ struct RecipesView: View {
     @State private var selectedIngredients: Set<Ingredient.ID> = []
     @State private var searchText = ""
     
-//    private var filteredRecipes: [SmoothieRecipe] {
-//        let searchedRecipes = recipeData.filteredRecipes(searchText)
-//        guard !selectedIngredients.isEmpty else {
-//            return searchedRecipes
-//        }
-//        return searchedRecipes.filter { recipe in
-//            let ingredientIds = recipe.ingredients.map { $0.id }
-//            return selectedIngredients.isStrictSubset(of: ingredientIds)
-//        }
-//    }
+    private var filteredRecipes: [SmoothieRecipe] {
+        let searchedRecipes = recipeData.recipes.filter {
+            searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)
+        }
+        guard !selectedIngredients.isEmpty else {
+            return searchedRecipes
+        }
+        return searchedRecipes.filter { recipe in
+            let ingredientIds = recipe.ingredients.map { $0.id }
+            return selectedIngredients.isStrictSubset(of: ingredientIds)
+        }
+    }
     
     var body: some View {
         NavigationStack {
-            ListWithBackground(recipeData.recipes, defaultView: noMatchingRecipes) { recipe in
+            ListWithBackground(filteredRecipes, defaultView: noMatchingRecipes) { recipe in
                 NavigationLink(recipe.name, value: recipe)
             }
             .background(BackgroundView())
