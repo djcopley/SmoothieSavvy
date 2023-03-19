@@ -18,25 +18,30 @@ struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = []
     @FocusState private var focusedIngredient: Ingredient?
 
-    @State private var directions: [String] = []
-    @FocusState private var focusedDirection: String?
+    @State private var directions: [Direction] = []
+    @FocusState private var focusedDirection: Direction?
 
     @State private var notes = ""
-    
-    @State private var cameraIsPresented = false
-    @State private var isTargeted = false
-    var session = AVCaptureSession()
-    
+
     var body: some View {
         NavigationStack {
             Form {
+                Section("Picture") {
+                    Button {
+                        
+                    } label: {
+                        Label("Photo", systemImage: "camera.fill")
+                    }
+                    .frame(height: 60)
+                }
+                
                 Section("Details") {
                     TextField("Name", text: $name)
                     TextField("Description", text: $description)
                 }
 
                 Section("Ingredients") {
-                    ForEach($ingredients, id: \.self) { $ingredient in
+                    ForEach($ingredients) { $ingredient in
                         TextField("New Ingredient", text: $ingredient.name)
                             .focused($focusedIngredient, equals: ingredient)
                     }
@@ -48,17 +53,17 @@ struct AddRecipeView: View {
                     }
 
                     Button {
-                        let newIngredient = Ingredient(name: "\(Int.random(in: 0...100))")
-                        focusedIngredient = newIngredient
+                        let newIngredient = Ingredient(name: "")
                         ingredients.append(newIngredient)
+                        focusedIngredient = newIngredient
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
                     }
                 }
 
                 Section("Directions") {
-                    ForEach($directions, id: \.self) { $direction in
-                        TextField("New Step", text: $direction)
+                    ForEach($directions) { $direction in
+                        TextField("New Step", text: $direction.text)
                             .focused($focusedDirection, equals: direction)
                     }
                     .onDelete {
@@ -69,26 +74,14 @@ struct AddRecipeView: View {
                     }
 
                     Button {
-                        let newStep = ""
-                        focusedDirection = newStep
+                        let newStep = Direction(text: "")
                         directions.append(newStep)
+                        focusedDirection = newStep
                     } label: {
                         Label("Add Step", systemImage: "plus")
                     }
                 }
 
-                Section("Picture") {
-                    Button {
-                        focusedIngredient = ingredients.first!
-                    } label: {
-                        Label("Photo", systemImage: "camera.fill")
-                    }
-                    .frame(height: 60)
-                    .onDrop(of: [.image], isTargeted: $isTargeted) { imageProvider in
-                        print(imageProvider.description)
-                        return true
-                    }
-                }
 
                 Section("Notes") {
                     TextEditor(text: $notes)
@@ -111,7 +104,7 @@ struct AddRecipeView: View {
                         let newRecipe = SmoothieRecipe(
                             name: name,
                             description: description,
-                            directions: directions,
+                            directions: directions.map { $0.text },
                             ingredients: ingredients,
                             notes: notes
                         )
@@ -123,7 +116,6 @@ struct AddRecipeView: View {
         }
     }
 }
-
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,6 +9,6 @@ import Foundation
 import SwiftUI
 
 struct Ingredient: Identifiable, Hashable, Codable {
-    var id: String { name }
+    var id = UUID()
     var name: String
 }

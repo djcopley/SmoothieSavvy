@@ -21,6 +21,7 @@
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
 		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
 		0A73467229C6B99C003DFB3B /* Camera-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A73467129C6B99C003DFB3B /* Camera-SwiftUI */; };
+		0A73467429C79BDA003DFB3B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A73467329C79BDA003DFB3B /* Direction.swift */; };
 		0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */; };
 		0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
 		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
@@ -51,6 +52,7 @@
 		0A6B268629AECC9300509560 /* DiscoverItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
 		0A6B268929AED1F000509560 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		0A6B268B29AED2A400509560 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0A73467329C79BDA003DFB3B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		0A75AEA429B6DE8600D74C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmoothieRecipe+Recipes.swift"; sourceTree = "<group>"; };
 		0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */,
 				0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */,
 				0A6B267B29AD747B00509560 /* Ingredient.swift */,
+				0A73467329C79BDA003DFB3B /* Direction.swift */,
 				0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */,
 			);
 			path = Model;
@@ -253,6 +256,7 @@
 				0A606E2729C2C5D6001F3252 /* SmoothieSavvy.xcdatamodeld in Sources */,
 				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
 				0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */,
+				0A73467429C79BDA003DFB3B /* Direction.swift in Sources */,
 				0AF1707729B036590022D268 /* RecipesView.swift in Sources */,
 				0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */,
 				0A6B267A29AD00E700509560 /* SmoothieRecipeData.swift in Sources */,
