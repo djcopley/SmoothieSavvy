@@ -39,10 +39,17 @@ struct FavoritesView: View {
     @ViewBuilder
     var noFavoriteRecipes: some View {
         VStack(spacing: 8) {
-            Text("No Favorites Yet")
-                .font(.largeTitle)
-            Text("Head back over to your favorite smoothie recipes and use the ❤️ button to save them here.")
-                .foregroundColor(.secondary)
+            if recipeData.favorites.isEmpty {
+                Text("No Favorites Yet")
+                    .font(.largeTitle)
+                Text("Head back over to your favorite smoothie recipes and use the ❤️ button to save them here.")
+                    .foregroundColor(.secondary)
+            } else {
+                Text("No Recipes Found")
+                    .font(.largeTitle)
+                Text("Try a different search and try again.")
+                    .foregroundColor(.secondary)
+            }
         }
         .padding()
         .font(.callout)

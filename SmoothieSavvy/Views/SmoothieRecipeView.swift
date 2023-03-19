@@ -9,10 +9,9 @@ import SwiftUI
 
 struct SmoothieRecipeView: View {
     @Environment(\.colorScheme) var colorScheme
+    
     @EnvironmentObject var recipeData: SmoothieRecipeData
-
     @Binding var recipe: SmoothieRecipe
-
     @FocusState var notesIsFocused
 
     var body: some View {
@@ -21,18 +20,11 @@ struct SmoothieRecipeView: View {
                 Image(recipe.imageAssetName)
                     .resizable()
                     .scaledToFill()
+                    .frame(maxHeight: 300)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
                     .overlay(alignment: .bottomTrailing) {
-                        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(.red)
-                            .padding(10)
-                            .background(.regularMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .onTapGesture {
-                                recipe.isFavorite.toggle()
-                            }
-                            .padding()
+                        favoriteButton
                     }
 
                 Text(recipe.description)
@@ -79,20 +71,31 @@ struct SmoothieRecipeView: View {
                 .padding(.horizontal)
             }
         }
-        #if os(iOS)
         .toolbar {
             if notesIsFocused {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Spacer()
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         notesIsFocused = false
                     }
                 }
             }
         }
-        #endif
         .navigationTitle(recipe.name)
         .background(BackgroundView())
+    }
+    
+    // MARK: View Builders
+    @ViewBuilder
+    var favoriteButton: some View {
+        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
+            .foregroundColor(.red)
+            .padding(10)
+            .background(.regularMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .onTapGesture {
+                recipe.isFavorite.toggle()
+            }
+            .padding()
     }
 }
 
