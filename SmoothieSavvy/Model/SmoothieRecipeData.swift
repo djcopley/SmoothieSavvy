@@ -49,15 +49,20 @@ class SmoothieRecipeData: ObservableObject {
         )
     }
     
-    // MARK: Persist favorites
-    private static func getRecipesFileURL() throws -> URL {
+    // MARK: Persist recipes
+    private func getRecipesFileURL() throws -> URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("recipes.data")
+            .appending(component: "recipes.data")
+    }
+    
+    private func getRecipesImageURL(for imageName: String) throws -> URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appending(components: "images", imageName, directoryHint: .notDirectory)
     }
     
     func load() {
         do {
-            let fileURL = try Self.getRecipesFileURL()
+            let fileURL = try getRecipesFileURL()
             let data = try Data(contentsOf: fileURL)
             recipes = try JSONDecoder().decode([SmoothieRecipe].self, from: data)
             print("Favorite recipes loaded: \(favorites.count)")
@@ -68,7 +73,7 @@ class SmoothieRecipeData: ObservableObject {
     
     func save() {
         do {
-            let fileURL = try Self.getRecipesFileURL()
+            let fileURL = try getRecipesFileURL()
             let data = try JSONEncoder().encode(recipes)
             try data.write(to: fileURL, options: [.atomic, .completeFileProtection])
             print("Smoothie recipes saved.")
@@ -77,33 +82,7 @@ class SmoothieRecipeData: ObservableObject {
         }
     }
     
-    // MARK: Dead Code
-//    @Published var favorites: Set<SmoothieRecipe.ID> = []
-//
-//    var favoriteRecipes: [SmoothieRecipe] {
-//        recipes.filter { recipe in
-//            favorites.contains(recipe.id)
-//        }
-//    }
-//    
-//    func isFavorite(recipe: SmoothieRecipe) -> Bool {
-//        return favorites.contains(recipe.id)
-//    }
-//    
-//    func toggleFavorite(recipe: SmoothieRecipe) {
-//        if !favorites.contains(recipe.id) {
-//            favorites.update(with: recipe.id)
-//        } else {
-//            favorites.remove(recipe.id)
-//        }
-//    }
-//    
-//    func filteredRecipes(_ searchText: String) -> [SmoothieRecipe] {
-//        guard !searchText.isEmpty else {
-//            return recipes
-//        }
-//        return recipes.filter { recipe in
-//            recipe.name.localizedCaseInsensitiveContains(searchText)
-//        }
-//    }
+    func saveImage() {
+        
+    }
 }

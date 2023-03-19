@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import Camera_SwiftUI
 
 struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
@@ -18,15 +19,20 @@ struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = []
     @State private var newIngredientIsPresented = false
     @State private var newIngredientName = ""
+    @FocusState private var focusedIngredient: Ingredient?
 
     @State private var directions: [String] = []
     @State private var newStepIsPresented = false
     @State private var newStep = ""
+    @FocusState private var focusedDirections: String?
 
     @State private var notes = ""
+    @State private var cameraIsPresented = false
     
-    @FocusState private var view: Bool
-
+    @State private var isTargeted = false
+    
+    var session = AVCaptureSession()
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -37,7 +43,7 @@ struct AddRecipeView: View {
 
                 Section("Ingredients") {
                     ForEach($ingredients, id: \.self) { $ingredient in
-                        TextField("Ingredient", text: $ingredient.name)
+                        TextField("New Ingredient", text: $ingredient.name)
                     }
                     .onDelete {
                         ingredients.remove(atOffsets: $0)
@@ -66,7 +72,7 @@ struct AddRecipeView: View {
 
                 Section("Directions") {
                     ForEach($directions, id: \.self) { $direction in
-                        TextField("Step", text: $direction)
+                        TextField("New Step", text: $direction)
                     }
                     .onDelete {
                         directions.remove(atOffsets: $0)
@@ -95,11 +101,15 @@ struct AddRecipeView: View {
 
                 Section("Picture") {
                     Button {
-                        // TODO: Add ability to import images from photo library
+//                        cameraIsPresented = true
                     } label: {
                         Label("Photo", systemImage: "camera.fill")
                     }
                     .frame(height: 60)
+                    .onDrop(of: [.image], isTargeted: $isTargeted) { imageProvider in
+                        print(imageProvider.description)
+                        return true
+                    }
                 }
 
                 Section("Notes") {

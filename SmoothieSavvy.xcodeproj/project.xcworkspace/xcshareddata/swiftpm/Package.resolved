@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "camera-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rorodriguez116/Camera-SwiftUI",
+      "state" : {
+        "revision" : "a83ad04ec213095e14d71491af8b55e7575a7b40",
+        "version" : "0.5.0"
+      }
+    },
+    {
       "identity" : "grpc-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift.git",

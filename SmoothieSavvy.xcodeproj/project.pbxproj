@@ -20,6 +20,7 @@
 		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
 		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
 		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
+		0A73467229C6B99C003DFB3B /* Camera-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A73467129C6B99C003DFB3B /* Camera-SwiftUI */; };
 		0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */; };
 		0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
 		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A73467229C6B99C003DFB3B /* Camera-SwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +180,7 @@
 			);
 			name = SmoothieSavvy;
 			packageProductDependencies = (
+				0A73467129C6B99C003DFB3B /* Camera-SwiftUI */,
 			);
 			productName = SmoothieSavvy;
 			productReference = 0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */;
@@ -209,6 +212,7 @@
 			mainGroup = 0A24FC4229A2A56F007DE5BC;
 			packageReferences = (
 				0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */,
 			);
 			productRefGroup = 0A24FC4C29A2A56F007DE5BC /* Products */;
 			projectDirPath = "";
@@ -385,6 +389,7 @@
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take pictures of your smoothies";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -428,6 +433,7 @@
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take pictures of your smoothies";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -487,7 +493,23 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rorodriguez116/Camera-SwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A73467129C6B99C003DFB3B /* Camera-SwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */;
+			productName = "Camera-SwiftUI";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */ = {
