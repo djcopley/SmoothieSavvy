@@ -12,49 +12,47 @@ struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var recipeData: SmoothieRecipeData
 
-    @State private var name = ""
-    @State private var description = ""
-
-    @State private var ingredients: [Ingredient] = []
-    @FocusState private var focusedIngredient: Ingredient?
-
-    @State private var directions: [Direction] = []
-    @FocusState private var focusedDirection: Direction?
-
-    @State private var notes = ""
+    @StateObject private var viewModel = AddRecipeModel()
+    
+    @FocusState var focusedIngredient: Ingredient?
+    @FocusState var focusedDirection: Direction?
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("Picture") {
-                    Button {
-                        
-                    } label: {
-                        Label("Photo", systemImage: "camera.fill")
+                    PhotosPicker(selection: $viewModel.imageSelection, matching: .images) {
+                        HStack {
+                            Label("Smoothie Photo", systemImage: "photo.on.rectangle.angled")
+                            
+                            Spacer()
+                            
+                            RoundedRectangleRecipeImage(imageState: viewModel.imageState)
+                        }
+                        .frame(height: 60)
                     }
-                    .frame(height: 60)
                 }
                 
                 Section("Details") {
-                    TextField("Name", text: $name)
-                    TextField("Description", text: $description)
+                    TextField("Name", text: $viewModel.name)
+                    TextField("Description", text: $viewModel.description)
                 }
 
                 Section("Ingredients") {
-                    ForEach($ingredients) { $ingredient in
+                    ForEach($viewModel.ingredients) { $ingredient in
                         TextField("New Ingredient", text: $ingredient.name)
                             .focused($focusedIngredient, equals: ingredient)
                     }
                     .onDelete {
-                        ingredients.remove(atOffsets: $0)
+                        viewModel.ingredients.remove(atOffsets: $0)
                     }
                     .onMove {
-                        ingredients.move(fromOffsets: $0, toOffset: $1)
+                        viewModel.ingredients.move(fromOffsets: $0, toOffset: $1)
                     }
 
                     Button {
                         let newIngredient = Ingredient(name: "")
-                        ingredients.append(newIngredient)
+                        viewModel.ingredients.append(newIngredient)
                         focusedIngredient = newIngredient
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
@@ -62,29 +60,28 @@ struct AddRecipeView: View {
                 }
 
                 Section("Directions") {
-                    ForEach($directions) { $direction in
+                    ForEach($viewModel.directions) { $direction in
                         TextField("New Step", text: $direction.text)
                             .focused($focusedDirection, equals: direction)
                     }
                     .onDelete {
-                        directions.remove(atOffsets: $0)
+                        viewModel.directions.remove(atOffsets: $0)
                     }
                     .onMove {
-                        directions.move(fromOffsets: $0, toOffset: $1)
+                        viewModel.directions.move(fromOffsets: $0, toOffset: $1)
                     }
 
                     Button {
                         let newStep = Direction(text: "")
-                        directions.append(newStep)
+                        viewModel.directions.append(newStep)
                         focusedDirection = newStep
                     } label: {
                         Label("Add Step", systemImage: "plus")
                     }
                 }
 
-
                 Section("Notes") {
-                    TextEditor(text: $notes)
+                    TextEditor(text: $viewModel.notes)
                         .frame(height: 100)
                 }
             }
@@ -102,18 +99,23 @@ struct AddRecipeView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         let newRecipe = SmoothieRecipe(
-                            name: name,
-                            description: description,
-                            directions: directions.map { $0.text },
-                            ingredients: ingredients,
-                            notes: notes
+                            name: viewModel.name,
+                            description: viewModel.description,
+                            directions: viewModel.directions.map { $0.text },
+                            ingredients: viewModel.ingredients,
+                            notes: viewModel.notes
                         )
                         recipeData.add(recipe: newRecipe)
                         dismiss()
                     }
+                    .disabled(!recipeIsValid)
                 }
             }
         }
+    }
+    
+    var recipeIsValid: Bool {
+        !viewModel.name.trimmingCharacters(in: .whitespaces).isEmpty
     }
 }
 
