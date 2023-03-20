@@ -22,22 +22,14 @@ struct SmoothieRecipeView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Image(recipe.imageAssetName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxHeight: 300)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 5)
-                    .overlay(alignment: .bottomTrailing) {
-                        favoriteButton
-                    }
+            VStack(alignment: .leading, spacing: 15) {
+                HeaderImage(recipe.imageAssetName, isFavorite: $recipe.isFavorite)
+                    .padding(.horizontal)
 
                 Text(recipe.description)
-                Group {
-                    Text("Ingredients")
-                        .font(.headline)
-                    
+                    .padding(.horizontal)
+
+                RecipeSection("Ingredients") {
                     LazyVGrid(columns: columns) {
                         ForEach(recipe.ingredients) { ingredient in
                             ZStack {
@@ -51,6 +43,7 @@ struct SmoothieRecipeView: View {
                             }
                         }
                     }
+
                     ForEach(recipe.ingredientMeasurements.enumeratedArray(), id: \.element) { (offset, element) in
                         HStack(alignment: .top) {
                             Text("\(offset + 1). ")
@@ -58,38 +51,43 @@ struct SmoothieRecipeView: View {
                         }
                     }
                 }
-                
-                Text("Directions")
-                    .font(.headline)
-                ForEach(recipe.directions.enumeratedArray(), id: \.element) { (offset, element) in
-                    HStack(alignment: .top) {
-                        Text("\(offset + 1). ")
-                        Text(element)
-                    }
-                }
-                
-                Text("Notes")
-                    .font(.headline)
-                TextEditor(text: $recipe.notes)
-                    .focused($notesIsFocused)
-                    .scrollContentBackground(.hidden)
-                    .background(accentColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .frame(height: 150)
-                
-                Divider()
-                Text("Related Smoothies")
-                    .font(.headline)
-            }
-            .padding(.horizontal)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(relatedRecipes) { relatedRecipe in
-                        SmoothieThumbnailView(recipe: relatedRecipe)
+                .padding(.horizontal)
+
+                RecipeSection("Directions") {
+                    ForEach(recipe.directions.enumeratedArray(), id: \.element) { (offset, element) in
+                        HStack(alignment: .top) {
+                            Text("\(offset + 1). ")
+                            Text(element)
+                        }
                     }
                 }
                 .padding(.horizontal)
+
+                
+                RecipeSection("Notes") {
+                    TextEditor(text: $recipe.notes)
+                        .focused($notesIsFocused)
+                        .scrollContentBackground(.hidden)
+                        .background(accentColor)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .frame(height: 150)
+                }
+                .padding(.horizontal)
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Related Smoothies")
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(relatedRecipes) { relatedRecipe in
+                                SmoothieThumbnailView(recipe: relatedRecipe)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                }
             }
         }
         .toolbar {
@@ -104,21 +102,6 @@ struct SmoothieRecipeView: View {
         .navigationTitle(recipe.name)
         .background(BackgroundView())
     }
-    
-    // MARK: View Builders
-    @ViewBuilder
-    var favoriteButton: some View {
-        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
-            .foregroundColor(.red)
-            .padding(10)
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .onTapGesture {
-                recipe.isFavorite.toggle()
-            }
-            .padding()
-    }
-    
     
     /// Recommends a list of smoothie recipes that are similar
     /// - Parameter recipe: recipe from which to generate recommendations
