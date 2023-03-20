@@ -28,7 +28,7 @@ extension SmoothieRecipe {
             "Pour into chilled glasses and serve."
         ],
         ingredientMeasurements: ["14 oz or 400g Canned Grapefruit and Orange Segments", "4 Tbsp Lemon Juice", "3 Tbsp Lime Juice", "Scant 2 Cups Orange Juice, Chilled"],
-        ingredients: [.grapefruit, .orange, .lemon, .lime, .orange]
+        ingredients: [.grapefruit, .orange, .lemon, .lime]
     )
     
     static let riseAndShine = Self(
@@ -58,6 +58,7 @@ extension SmoothieRecipe {
         name: "Wake Up Sweetie",
         description: "testing",
         directions: [],
-        ingredientMeasurements: []
+        ingredientMeasurements: [],
+        ingredients: [.orange]
     )
 }
