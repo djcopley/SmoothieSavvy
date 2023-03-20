@@ -16,11 +16,8 @@ class AddRecipeModel: ObservableObject {
     
     @Published var name = ""
     @Published var description = ""
-
     @Published var ingredients: [Ingredient] = []
-
     @Published var directions: [Direction] = []
-
     @Published var notes = ""
     
     // MARK: - Recipe Image
@@ -77,7 +74,7 @@ class AddRecipeModel: ObservableObject {
     
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
         return imageSelection.loadTransferable(type: RecipeImage.self) { result in
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 guard imageSelection == self.imageSelection else {
                     print("Failed to get the selected item.")
                     return
