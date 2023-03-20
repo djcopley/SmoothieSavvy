@@ -13,6 +13,12 @@ struct SmoothieRecipeView: View {
     @EnvironmentObject var recipeData: SmoothieRecipeData
     @Binding var recipe: SmoothieRecipe
     @FocusState var notesIsFocused
+    
+    let columns: [GridItem] = [GridItem(.adaptive(minimum: 150))]
+    
+    private var accentColor: Color {
+        colorScheme == .dark ? .darkBgAccent : .lightBgAccent
+    }
 
     var body: some View {
         ScrollView {
@@ -28,13 +34,28 @@ struct SmoothieRecipeView: View {
                     }
 
                 Text(recipe.description)
-                
-                Text("Ingredients")
-                    .font(.headline)
-                ForEach(recipe.ingredientMeasurements.enumeratedArray(), id: \.element) { (offset, element) in
-                    HStack(alignment: .top) {
-                        Text("\(offset + 1). ")
-                        Text(element)
+                Group {
+                    Text("Ingredients")
+                        .font(.headline)
+                    
+                    LazyVGrid(columns: columns) {
+                        ForEach(recipe.ingredients) { ingredient in
+                            ZStack {
+                                Color.clear
+                                    .background(accentColor)
+                                    .clipShape(Capsule())
+                                
+                                Text(ingredient.name)
+                                    .lineLimit(1)
+                                    .padding(8)
+                            }
+                        }
+                    }
+                    ForEach(recipe.ingredientMeasurements.enumeratedArray(), id: \.element) { (offset, element) in
+                        HStack(alignment: .top) {
+                            Text("\(offset + 1). ")
+                            Text(element)
+                        }
                     }
                 }
                 
@@ -52,7 +73,7 @@ struct SmoothieRecipeView: View {
                 TextEditor(text: $recipe.notes)
                     .focused($notesIsFocused)
                     .scrollContentBackground(.hidden)
-                    .background(colorScheme == .dark ? .darkBgAccent : .lightBgAccent)
+                    .background(accentColor)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     .frame(height: 150)
                 
@@ -118,7 +139,7 @@ struct Smoothie_Previews: PreviewProvider {
 
         
         NavigationStack {
-            SmoothieRecipeView(recipe: .constant(.bananaBreakfastShake))
+            SmoothieRecipeView(recipe: .constant(.breakfastBar))
         }
         .environmentObject(SmoothieRecipeData())
         .previewDisplayName("Banana Breakfast Shake")

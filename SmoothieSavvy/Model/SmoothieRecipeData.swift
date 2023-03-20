@@ -43,35 +43,40 @@ class SmoothieRecipeData: ObservableObject {
     }
     
     // MARK: Persist recipes
-    private func getRecipesFileURL() throws -> URL {
+    private func getRecipesFileURL() -> URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appending(component: "recipes.data")
     }
     
     private func getRecipesImageURL(for imageName: String) throws -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appending(components: "images", imageName, directoryHint: .notDirectory)
+        let recipesImageUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appending(components: "images")
+        if !recipesImageUrl.isDirectory {
+            try FileManager.default.createDirectory(at: recipesImageUrl, withIntermediateDirectories: false)
+        }
+        return recipesImageUrl
+            .appending(components: imageName)
     }
     
     func load() {
         do {
-            let fileURL = try getRecipesFileURL()
+            let fileURL = getRecipesFileURL()
             let data = try Data(contentsOf: fileURL)
             recipes = try JSONDecoder().decode([SmoothieRecipe].self, from: data)
             print("Favorite recipes loaded: \(favorites.count)")
         } catch {
-            print("Failed to load favorite recipes from file. Using backup.")
+            print("Failed to load favorite recipes from file. Using backup. \(error.localizedDescription)")
         }
     }
     
     func save() {
         do {
-            let fileURL = try getRecipesFileURL()
+            let fileURL = getRecipesFileURL()
             let data = try JSONEncoder().encode(recipes)
             try data.write(to: fileURL, options: [.atomic, .completeFileProtection])
-            print("Smoothie recipes saved.")
+            print("Smoothie recipes saved. \(fileURL)")
         } catch {
-            print("Unable to save smoothie recipes.")
+            print("Unable to save smoothie recipes. \(error.localizedDescription)")
         }
     }
     
