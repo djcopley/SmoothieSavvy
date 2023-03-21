@@ -27,6 +27,7 @@
 		0A740BFD29C8A7CD00274E87 /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BFC29C8A7CD00274E87 /* RecipeImageView.swift */; };
 		0A740C0029C8B14A00274E87 /* HeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BFF29C8B14A00274E87 /* HeaderImage.swift */; };
 		0A740C0229C8B20A00274E87 /* RecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740C0129C8B20A00274E87 /* RecipeSection.swift */; };
+		0A740C0429CA532700274E87 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740C0329CA532700274E87 /* DefaultView.swift */; };
 		0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */; };
 		0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
 		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
@@ -63,6 +64,7 @@
 		0A740BFC29C8A7CD00274E87 /* RecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
 		0A740BFF29C8B14A00274E87 /* HeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImage.swift; sourceTree = "<group>"; };
 		0A740C0129C8B20A00274E87 /* RecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSection.swift; sourceTree = "<group>"; };
+		0A740C0329CA532700274E87 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		0A75AEA429B6DE8600D74C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmoothieRecipe+Recipes.swift"; sourceTree = "<group>"; };
 		0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				0AF1707629B036590022D268 /* RecipesView.swift */,
 				0AF1707829B0384E0022D268 /* FavoritesView.swift */,
 				0AF1707A29B054B10022D268 /* IngredientsView.swift */,
+				0A740C0329CA532700274E87 /* DefaultView.swift */,
 				0A606E1C29BECC22001F3252 /* ListWithBackground.swift */,
 				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
 				0A740BFE29C8AED700274E87 /* SmoothieRecipe */,
@@ -283,6 +286,7 @@
 				0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */,
 				0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */,
 				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
+				0A740C0429CA532700274E87 /* DefaultView.swift in Sources */,
 				0A740C0029C8B14A00274E87 /* HeaderImage.swift in Sources */,
 				0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */,
 				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,

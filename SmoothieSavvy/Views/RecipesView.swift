@@ -30,8 +30,18 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationStack {
-            ListWithBackground(filteredRecipes, defaultView: noMatchingRecipes) { recipe in
-                NavigationLink(recipe.name, value: recipe)
+            DefaultView(when: filteredRecipes.isEmpty, show: noMatchingRecipes) {
+                List {
+                    ForEach(filteredRecipes) { recipe in
+                        NavigationLink(recipe.name, value: recipe)
+                    }
+                    .onDelete { indices in
+                        for index in indices {
+                            recipeData.remove(recipe: filteredRecipes[index])
+                        }
+                    }
+                }
+                .scrollContentBackground(.hidden)
             }
             .background(BackgroundView())
             .searchable(text: $searchText, placement: .toolbar)
@@ -79,7 +89,7 @@ struct RecipesView: View {
     }
 
     @ViewBuilder
-    var noMatchingRecipes: some View {
+    func noMatchingRecipes() -> some View {
         VStack(spacing: 8) {
             Text("No Recipes Found")
                 .font(.largeTitle)
