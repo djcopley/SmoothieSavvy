@@ -12,7 +12,7 @@ struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var recipeData: SmoothieRecipeData
 
-    @StateObject private var viewModel = AddRecipeModel()
+    @StateObject private var viewModel = AddRecipeViewModel()
     
     @FocusState var focusedIngredient: Ingredient?
     @FocusState var focusedDirection: Direction?
@@ -27,10 +27,18 @@ struct AddRecipeView: View {
                             
                             Spacer()
                             
-                            RoundedRectangleRecipeImage(imageState: viewModel.imageState)
+                            RoundedRectangleRecipeImageView(imageState: viewModel.imageState)
                         }
                         .frame(height: 60)
                     }
+                    .dropDestination(for: RecipeImage.self) { recipeImages, location in
+                        guard let recipeImage = recipeImages.first else {
+                            viewModel.imageState = .failure(TransferError.importFailed)
+                            return false
+                        }
+                        viewModel.imageState = .success(recipeImage)
+                        return true
+                    } isTargeted: { _ in }
                 }
                 
                 Section("Details") {

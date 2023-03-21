@@ -8,13 +8,20 @@ The profile image that reflects the selected item state.
 import SwiftUI
 import PhotosUI
 
-struct RecipeImage: View {
-    let imageState: AddRecipeModel.ImageState
+struct RecipeImageView: View {
+    let imageState: ImageState
     
     var body: some View {
         switch imageState {
-        case .success(let image):
-            image.resizable()
+        case .success(let recipeImage):
+            recipeImage.image
+                .resizable()
+                .draggable(recipeImage) {
+                    recipeImage.image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: height)
+                }
         case .loading:
             ProgressView()
         case .empty:
@@ -25,20 +32,23 @@ struct RecipeImage: View {
                 .font(.system(size: 40))
         }
     }
+    
+    let height: CGFloat = 55
+    let width: CGFloat = 55
 }
 
-struct RoundedRectangleRecipeImage: View {
-    let imageState: AddRecipeModel.ImageState
+struct RoundedRectangleRecipeImageView: View {
+    let imageState: ImageState
     
     var body: some View {
-        RecipeImage(imageState: imageState)
+        RecipeImageView(imageState: imageState)
             .scaledToFill()
             .frame(width: width, height: height)
             .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
     
-    private let height: CGFloat = 55
-    private let width: CGFloat = 55
-    private let cornerRadius: CGFloat = 6
+    let height: CGFloat = 55
+    let width: CGFloat = 55
+    let cornerRadius: CGFloat = 6
 }

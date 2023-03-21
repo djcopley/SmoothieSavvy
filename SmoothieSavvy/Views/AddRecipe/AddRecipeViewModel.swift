@@ -10,7 +10,7 @@ import PhotosUI
 import CoreTransferable
 
 @MainActor
-class AddRecipeModel: ObservableObject {
+class AddRecipeViewModel: ObservableObject {
     
     // MARK: - Recipe Details
     
@@ -22,43 +22,7 @@ class AddRecipeModel: ObservableObject {
     
     // MARK: - Recipe Image
     
-    enum ImageState {
-        case empty
-        case loading(Progress)
-        case success(Image)
-        case failure(Error)
-    }
-    
-    enum TransferError: Error {
-        case importFailed
-    }
-    
-    struct RecipeImage: Transferable {
-        let image: Image
-        
-        static var transferRepresentation: some TransferRepresentation {
-            DataRepresentation(importedContentType: .image) { data in
-            #if canImport(AppKit)
-                guard let nsImage = NSImage(data: data) else {
-                    throw TransferError.importFailed
-                }
-                let image = Image(nsImage: nsImage)
-                return ProfileImage(image: image)
-            #elseif canImport(UIKit)
-                guard let uiImage = UIImage(data: data) else {
-                    throw TransferError.importFailed
-                }
-                let image = Image(uiImage: uiImage)
-                return RecipeImage(image: image)
-            #else
-                throw TransferError.importFailed
-            #endif
-            }
-        }
-    }
-    
-    @Published private(set) var imageState: ImageState = .empty
-    
+    @Published var imageState: ImageState = .empty
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
             if let imageSelection {
@@ -80,14 +44,49 @@ class AddRecipeModel: ObservableObject {
                     return
                 }
                 switch result {
-                case .success(let profileImage?):
-                    self.imageState = .success(profileImage.image)
+                case .success(let recipeImage?):
+                    self.imageState = .success(recipeImage)
                 case .success(nil):
                     self.imageState = .empty
                 case .failure(let error):
                     self.imageState = .failure(error)
                 }
             }
+        }
+    }
+}
+
+enum TransferError: Error {
+    case importFailed
+}
+
+enum ImageState {
+    case empty
+    case loading(Progress)
+    case success(RecipeImage)
+    case failure(Error)
+}
+
+struct RecipeImage: Transferable {
+    let image: Image
+    
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(importedContentType: .image) { data in
+        #if canImport(AppKit)
+            guard let nsImage = NSImage(data: data) else {
+                throw TransferError.importFailed
+            }
+            let image = Image(nsImage: nsImage)
+            return RecipeImage(image: image)
+        #elseif canImport(UIKit)
+            guard let uiImage = UIImage(data: data) else {
+                throw TransferError.importFailed
+            }
+            let image = Image(uiImage: uiImage)
+            return RecipeImage(image: image)
+        #else
+            throw TransferError.importFailed
+        #endif
         }
     }
 }
