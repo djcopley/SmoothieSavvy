@@ -22,6 +22,10 @@ class SmoothieRecipeData: ObservableObject {
     }
     
     func add(recipe: SmoothieRecipe) {
+        guard !recipes.map({ $0.id }).contains(recipe.id) else {
+            print("\(recipe.name) already exists. Skipping.")
+            return
+        }
         recipes.append(recipe)
     }
     
