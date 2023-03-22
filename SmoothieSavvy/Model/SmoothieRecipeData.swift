@@ -78,7 +78,7 @@ class SmoothieRecipeData: ObservableObject {
             let fileURL = getRecipesFileURL()
             let data = try JSONEncoder().encode(recipes)
             try data.write(to: fileURL, options: [.atomic, .completeFileProtection])
-            print("Smoothie recipes saved. \(fileURL)")
+            print("Smoothie recipes saved.")
         } catch {
             print("Unable to save smoothie recipes. \(error.localizedDescription)")
         }

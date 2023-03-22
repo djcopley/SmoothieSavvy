@@ -15,6 +15,12 @@ struct SmoothieSavvyApp: App {
     @State private var showingImportAlertIsPresented = false
     @State private var importedRecipe: SmoothieRecipe?
     
+    init() {
+        // Fix for alerts not showing correct accent color until touched
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self])
+            .tintColor = UIColor(named: "AccentColor")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -48,7 +54,7 @@ struct SmoothieSavvyApp: App {
                     Button("Import") { recipeData.add(recipe: recipe) }
                     Button("Cancel", role: .cancel) { }
                 } message: { recipe in
-                    Text("Do you want to import recipe: \(recipe.name)?")
+                    Text("Do you want to import the recipe:\n\(recipe.name)?")
                 }
         }
     }
