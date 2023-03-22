@@ -132,8 +132,8 @@
 		0A59576C29CABC66008ED873 /* SmoothieSavvy */ = {
 			isa = PBXGroup;
 			children = (
-				0A59579429CABC66008ED873 /* ContentView.swift */,
 				0A59577629CABC66008ED873 /* SmoothieSavvyApp.swift */,
+				0A59579429CABC66008ED873 /* ContentView.swift */,
 				0A59577E29CABC66008ED873 /* Views */,
 				0A59577729CABC66008ED873 /* Model */,
 				0A59577029CABC66008ED873 /* Extensions */,

@@ -14,11 +14,10 @@ struct SmoothieSavvyApp: App {
     
     @State private var showingImportAlertIsPresented = false
     @State private var importedRecipe: SmoothieRecipe?
-    
+
     init() {
-        // Fix for alerts not showing correct accent color until touched
-        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self])
-            .tintColor = UIColor(named: "AccentColor")
+        // https://leaves.one/2023/01/16/swiftui-fix-alert-and-action-sheet-buttons-not-using-accent-color/
+        UIView.appearance().tintColor = UIColor(named: "AccentColor")
     }
     
     var body: some Scene {
