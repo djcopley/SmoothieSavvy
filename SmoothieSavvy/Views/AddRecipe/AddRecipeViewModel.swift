@@ -45,7 +45,7 @@ class AddRecipeViewModel: ObservableObject {
                 }
                 switch result {
                 case .success(let recipeImage?):
-                    self.imageState = .success(recipeImage)
+                    self.imageState = .success(recipeImage.image)
                 case .success(nil):
                     self.imageState = .empty
                 case .failure(let error):
@@ -63,7 +63,7 @@ enum TransferError: Error {
 enum ImageState {
     case empty
     case loading(Progress)
-    case success(RecipeImage)
+    case success(Image)
     case failure(Error)
 }
 

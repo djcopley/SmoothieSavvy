@@ -7,6 +7,7 @@
 
 import Foundation
 import UniformTypeIdentifiers
+import CoreTransferable
 
 struct SmoothieRecipe: Identifiable, Hashable, Codable {
     var id: UUID = UUID()
@@ -22,6 +23,12 @@ struct SmoothieRecipe: Identifiable, Hashable, Codable {
     var isFavorite: Bool = false
 }
 
+extension SmoothieRecipe: Transferable {
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .smoothieRecipe)
+    }
+}
+
 extension UTType {
-    static let smoothieRecipe: UTType = UTType(exportedAs: "dev.copley.smoothie-recipe")
+    public static let smoothieRecipe = UTType(exportedAs: "dev.copley.smoothie-recipe")
 }

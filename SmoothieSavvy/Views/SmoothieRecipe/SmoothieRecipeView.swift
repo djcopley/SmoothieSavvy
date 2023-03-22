@@ -91,6 +91,9 @@ struct SmoothieRecipeView: View {
             }
         }
         .toolbar {
+            ShareLink(item: recipe, preview: SharePreview(recipe.name, image: Image(recipe.imageAssetName)))
+        }
+        .toolbar {
             if notesIsFocused {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {

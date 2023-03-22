@@ -7,238 +7,260 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */; };
-		0A24FC5329A2A570007DE5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5229A2A570007DE5BC /* Assets.xcassets */; };
-		0A24FC5729A2A570007DE5BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */; };
-		0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */; };
-		0A24FC6A29A31E8B007DE5BC /* SmoothieRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */; };
-		0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */; };
-		0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1C29BECC22001F3252 /* ListWithBackground.swift */; };
-		0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */; };
-		0A606E2729C2C5D6001F3252 /* SmoothieSavvy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */; };
-		0A6B267A29AD00E700509560 /* SmoothieRecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */; };
-		0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B267B29AD747B00509560 /* Ingredient.swift */; };
-		0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268929AED1F000509560 /* Color+Theme.swift */; };
-		0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268B29AED2A400509560 /* BackgroundView.swift */; };
-		0A73467229C6B99C003DFB3B /* Camera-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A73467129C6B99C003DFB3B /* Camera-SwiftUI */; };
-		0A73467429C79BDA003DFB3B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A73467329C79BDA003DFB3B /* Direction.swift */; };
-		0A740BF829C7CBFC00274E87 /* URL+IsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BF729C7CBFC00274E87 /* URL+IsDirectory.swift */; };
-		0A740BFB29C8A78600274E87 /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BFA29C8A78600274E87 /* AddRecipeViewModel.swift */; };
-		0A740BFD29C8A7CD00274E87 /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BFC29C8A7CD00274E87 /* RecipeImageView.swift */; };
-		0A740C0029C8B14A00274E87 /* HeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740BFF29C8B14A00274E87 /* HeaderImage.swift */; };
-		0A740C0229C8B20A00274E87 /* RecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740C0129C8B20A00274E87 /* RecipeSection.swift */; };
-		0A740C0429CA532700274E87 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A740C0329CA532700274E87 /* DefaultView.swift */; };
-		0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */; };
-		0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B268029AD9D8400509560 /* ContentView.swift */; };
-		0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */; };
-		0AF1707529B030220022D268 /* SmoothieThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707429B030220022D268 /* SmoothieThumbnailView.swift */; };
-		0AF1707729B036590022D268 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707629B036590022D268 /* RecipesView.swift */; };
-		0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707829B0384E0022D268 /* FavoritesView.swift */; };
-		0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1707A29B054B10022D268 /* IngredientsView.swift */; };
+		0A59579629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */; };
+		0A59579729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */; };
+		0A59579829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png */; };
+		0A59579929CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png */; };
+		0A59579A29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576929CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png */; };
+		0A59579B29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576A29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png */; };
+		0A59579C29CABC66008ED873 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576B29CABC66008ED873 /* README.md */; };
+		0A59579D29CABC66008ED873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576D29CABC66008ED873 /* Assets.xcassets */; };
+		0A59579E29CABC66008ED873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576F29CABC66008ED873 /* Preview Assets.xcassets */; };
+		0A59579F29CABC66008ED873 /* Ingredient+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577129CABC66008ED873 /* Ingredient+Ingredients.swift */; };
+		0A5957A029CABC66008ED873 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577229CABC66008ED873 /* Color+Theme.swift */; };
+		0A5957A129CABC66008ED873 /* Collection+EnumeratedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577329CABC66008ED873 /* Collection+EnumeratedArray.swift */; };
+		0A5957A229CABC66008ED873 /* SmoothieRecipe+Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577429CABC66008ED873 /* SmoothieRecipe+Recipes.swift */; };
+		0A5957A329CABC66008ED873 /* URL+IsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577529CABC66008ED873 /* URL+IsDirectory.swift */; };
+		0A5957A429CABC66008ED873 /* SmoothieSavvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577629CABC66008ED873 /* SmoothieSavvyApp.swift */; };
+		0A5957A529CABC66008ED873 /* SmoothieRecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577829CABC66008ED873 /* SmoothieRecipeData.swift */; };
+		0A5957A629CABC66008ED873 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577929CABC66008ED873 /* Ingredient.swift */; };
+		0A5957A729CABC66008ED873 /* SmoothieSavvy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */; };
+		0A5957A829CABC66008ED873 /* SmoothieRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577C29CABC66008ED873 /* SmoothieRecipe.swift */; };
+		0A5957A929CABC66008ED873 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577D29CABC66008ED873 /* Direction.swift */; };
+		0A5957AA29CABC66008ED873 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577F29CABC66008ED873 /* FavoritesView.swift */; };
+		0A5957AB29CABC66008ED873 /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578129CABC66008ED873 /* RecipeImageView.swift */; };
+		0A5957AC29CABC66008ED873 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578229CABC66008ED873 /* AddRecipeView.swift */; };
+		0A5957AD29CABC66008ED873 /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578329CABC66008ED873 /* AddRecipeViewModel.swift */; };
+		0A5957B229CABC66008ED873 /* ListWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578929CABC66008ED873 /* ListWithBackground.swift */; };
+		0A5957B329CABC66008ED873 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578A29CABC66008ED873 /* DefaultView.swift */; };
+		0A5957B429CABC66008ED873 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578B29CABC66008ED873 /* RecipesView.swift */; };
+		0A5957B529CABC66008ED873 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578C29CABC66008ED873 /* BackgroundView.swift */; };
+		0A5957B629CABC66008ED873 /* SmoothieRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578E29CABC66008ED873 /* SmoothieRecipeView.swift */; };
+		0A5957B729CABC66008ED873 /* SmoothieThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578F29CABC66008ED873 /* SmoothieThumbnailView.swift */; };
+		0A5957B829CABC66008ED873 /* HeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579029CABC66008ED873 /* HeaderImage.swift */; };
+		0A5957B929CABC66008ED873 /* RecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579129CABC66008ED873 /* RecipeSection.swift */; };
+		0A5957BA29CABC66008ED873 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579229CABC66008ED873 /* IngredientsView.swift */; };
+		0A5957BB29CABC66008ED873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579429CABC66008ED873 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieSavvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieSavvyApp.swift; sourceTree = "<group>"; };
-		0A24FC5229A2A570007DE5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmoothieSavvy.entitlements; sourceTree = "<group>"; };
-		0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipe.swift; sourceTree = "<group>"; };
-		0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeView.swift; sourceTree = "<group>"; };
-		0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+Ingredients.swift"; sourceTree = "<group>"; };
-		0A606E1C29BECC22001F3252 /* ListWithBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithBackground.swift; sourceTree = "<group>"; };
-		0A606E1E29BED742001F3252 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
-		0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmoothieSavvy.xcdatamodel; sourceTree = "<group>"; };
-		0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeData.swift; sourceTree = "<group>"; };
-		0A6B267B29AD747B00509560 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
-		0A6B268029AD9D8400509560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0A6B268229ADA1E700509560 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
-		0A6B268429ADA54D00509560 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0A6B268629AECC9300509560 /* DiscoverItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
-		0A6B268929AED1F000509560 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
-		0A6B268B29AED2A400509560 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		0A73467329C79BDA003DFB3B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
-		0A740BF729C7CBFC00274E87 /* URL+IsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+IsDirectory.swift"; sourceTree = "<group>"; };
-		0A740BFA29C8A78600274E87 /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
-		0A740BFC29C8A7CD00274E87 /* RecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
-		0A740BFF29C8B14A00274E87 /* HeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImage.swift; sourceTree = "<group>"; };
-		0A740C0129C8B20A00274E87 /* RecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSection.swift; sourceTree = "<group>"; };
-		0A740C0329CA532700274E87 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
-		0A75AEA429B6DE8600D74C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmoothieRecipe+Recipes.swift"; sourceTree = "<group>"; };
-		0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
-		0AF1707429B030220022D268 /* SmoothieThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieThumbnailView.swift; sourceTree = "<group>"; };
-		0AF1707629B036590022D268 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
-		0AF1707829B0384E0022D268 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		0AF1707A29B054B10022D268 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
-		0AF1707C29B071B10022D268 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
+		0A59575329CABC33008ED873 /* SmoothieSavvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieSavvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png"; sourceTree = "<group>"; };
+		0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png"; sourceTree = "<group>"; };
+		0A59576729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png"; sourceTree = "<group>"; };
+		0A59576829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png"; sourceTree = "<group>"; };
+		0A59576929CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png"; sourceTree = "<group>"; };
+		0A59576A29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png"; sourceTree = "<group>"; };
+		0A59576B29CABC66008ED873 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0A59576D29CABC66008ED873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A59576F29CABC66008ED873 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A59577129CABC66008ED873 /* Ingredient+Ingredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ingredient+Ingredients.swift"; sourceTree = "<group>"; };
+		0A59577229CABC66008ED873 /* Color+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		0A59577329CABC66008ED873 /* Collection+EnumeratedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+EnumeratedArray.swift"; sourceTree = "<group>"; };
+		0A59577429CABC66008ED873 /* SmoothieRecipe+Recipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SmoothieRecipe+Recipes.swift"; sourceTree = "<group>"; };
+		0A59577529CABC66008ED873 /* URL+IsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+IsDirectory.swift"; sourceTree = "<group>"; };
+		0A59577629CABC66008ED873 /* SmoothieSavvyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieSavvyApp.swift; sourceTree = "<group>"; };
+		0A59577829CABC66008ED873 /* SmoothieRecipeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeData.swift; sourceTree = "<group>"; };
+		0A59577929CABC66008ED873 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		0A59577B29CABC66008ED873 /* SmoothieSavvy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmoothieSavvy.xcdatamodel; sourceTree = "<group>"; };
+		0A59577C29CABC66008ED873 /* SmoothieRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieRecipe.swift; sourceTree = "<group>"; };
+		0A59577D29CABC66008ED873 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		0A59577F29CABC66008ED873 /* FavoritesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		0A59578129CABC66008ED873 /* RecipeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
+		0A59578229CABC66008ED873 /* AddRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		0A59578329CABC66008ED873 /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		0A59578529CABC66008ED873 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0A59578629CABC66008ED873 /* DiscoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		0A59578729CABC66008ED873 /* DiscoverItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverItemView.swift; sourceTree = "<group>"; };
+		0A59578829CABC66008ED873 /* FeaturedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
+		0A59578929CABC66008ED873 /* ListWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithBackground.swift; sourceTree = "<group>"; };
+		0A59578A29CABC66008ED873 /* DefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
+		0A59578B29CABC66008ED873 /* RecipesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		0A59578C29CABC66008ED873 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0A59578E29CABC66008ED873 /* SmoothieRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeView.swift; sourceTree = "<group>"; };
+		0A59578F29CABC66008ED873 /* SmoothieThumbnailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieThumbnailView.swift; sourceTree = "<group>"; };
+		0A59579029CABC66008ED873 /* HeaderImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderImage.swift; sourceTree = "<group>"; };
+		0A59579129CABC66008ED873 /* RecipeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSection.swift; sourceTree = "<group>"; };
+		0A59579229CABC66008ED873 /* IngredientsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		0A59579329CABC66008ED873 /* SmoothieSavvy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SmoothieSavvy.entitlements; sourceTree = "<group>"; };
+		0A59579429CABC66008ED873 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A59579529CABC66008ED873 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A24FC4829A2A56F007DE5BC /* Frameworks */ = {
+		0A59575029CABC33008ED873 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A73467229C6B99C003DFB3B /* Camera-SwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A24FC4229A2A56F007DE5BC = {
+		0A59574A29CABC33008ED873 = {
 			isa = PBXGroup;
 			children = (
-				0A606E1E29BED742001F3252 /* README.md */,
-				0A24FC4D29A2A56F007DE5BC /* SmoothieSavvy */,
-				0A24FC4C29A2A56F007DE5BC /* Products */,
+				0A59576C29CABC66008ED873 /* SmoothieSavvy */,
+				0A59576429CABC66008ED873 /* Images */,
+				0A59576B29CABC66008ED873 /* README.md */,
+				0A59575429CABC33008ED873 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A24FC4C29A2A56F007DE5BC /* Products */ = {
+		0A59575429CABC33008ED873 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */,
+				0A59575329CABC33008ED873 /* SmoothieSavvy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A24FC4D29A2A56F007DE5BC /* SmoothieSavvy */ = {
+		0A59576429CABC66008ED873 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				0A24FC4E29A2A56F007DE5BC /* SmoothieSavvyApp.swift */,
-				0A6B268029AD9D8400509560 /* ContentView.swift */,
-				0A6B267E29AD9BA900509560 /* Views */,
-				0A6B267F29AD9BB200509560 /* Model */,
-				0A6B268829AED1E100509560 /* Extensions */,
-				0A24FC5229A2A570007DE5BC /* Assets.xcassets */,
-				0A75AEA429B6DE8600D74C9D /* Info.plist */,
-				0A24FC5429A2A570007DE5BC /* SmoothieSavvy.entitlements */,
-				0A24FC5529A2A570007DE5BC /* Preview Content */,
+				0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */,
+				0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */,
+				0A59576729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png */,
+				0A59576829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png */,
+				0A59576929CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png */,
+				0A59576A29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0A59576C29CABC66008ED873 /* SmoothieSavvy */ = {
+			isa = PBXGroup;
+			children = (
+				0A59579429CABC66008ED873 /* ContentView.swift */,
+				0A59577629CABC66008ED873 /* SmoothieSavvyApp.swift */,
+				0A59577E29CABC66008ED873 /* Views */,
+				0A59577729CABC66008ED873 /* Model */,
+				0A59577029CABC66008ED873 /* Extensions */,
+				0A59579529CABC66008ED873 /* Info.plist */,
+				0A59579329CABC66008ED873 /* SmoothieSavvy.entitlements */,
+				0A59576D29CABC66008ED873 /* Assets.xcassets */,
+				0A59576E29CABC66008ED873 /* Preview Content */,
 			);
 			path = SmoothieSavvy;
 			sourceTree = "<group>";
 		};
-		0A24FC5529A2A570007DE5BC /* Preview Content */ = {
+		0A59576E29CABC66008ED873 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				0A24FC5629A2A570007DE5BC /* Preview Assets.xcassets */,
+				0A59576F29CABC66008ED873 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0A6B267E29AD9BA900509560 /* Views */ = {
+		0A59577029CABC66008ED873 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0A75AEA729B6EA1D00D74C9D /* IgnoredForNow */,
-				0AF1707629B036590022D268 /* RecipesView.swift */,
-				0AF1707829B0384E0022D268 /* FavoritesView.swift */,
-				0AF1707A29B054B10022D268 /* IngredientsView.swift */,
-				0A740C0329CA532700274E87 /* DefaultView.swift */,
-				0A606E1C29BECC22001F3252 /* ListWithBackground.swift */,
-				0A6B268B29AED2A400509560 /* BackgroundView.swift */,
-				0A740BFE29C8AED700274E87 /* SmoothieRecipe */,
-				0A740BF929C8A77800274E87 /* AddRecipe */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		0A6B267F29AD9BB200509560 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0A6B267929AD00E700509560 /* SmoothieRecipeData.swift */,
-				0A24FC6029A31BEC007DE5BC /* SmoothieRecipe.swift */,
-				0A6B267B29AD747B00509560 /* Ingredient.swift */,
-				0A73467329C79BDA003DFB3B /* Direction.swift */,
-				0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0A6B268829AED1E100509560 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0A75AEA529B6E09900D74C9D /* SmoothieRecipe+Recipes.swift */,
-				0A3CE0E929BE97E5005172D6 /* Ingredient+Ingredients.swift */,
-				0A6B268929AED1F000509560 /* Color+Theme.swift */,
-				0AF1707229B0218D0022D268 /* Collection+EnumeratedArray.swift */,
-				0A740BF729C7CBFC00274E87 /* URL+IsDirectory.swift */,
+				0A59577129CABC66008ED873 /* Ingredient+Ingredients.swift */,
+				0A59577229CABC66008ED873 /* Color+Theme.swift */,
+				0A59577329CABC66008ED873 /* Collection+EnumeratedArray.swift */,
+				0A59577429CABC66008ED873 /* SmoothieRecipe+Recipes.swift */,
+				0A59577529CABC66008ED873 /* URL+IsDirectory.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0A740BF929C8A77800274E87 /* AddRecipe */ = {
+		0A59577729CABC66008ED873 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A606E1F29BF6AE9001F3252 /* AddRecipeView.swift */,
-				0A740BFC29C8A7CD00274E87 /* RecipeImageView.swift */,
-				0A740BFA29C8A78600274E87 /* AddRecipeViewModel.swift */,
+				0A59577829CABC66008ED873 /* SmoothieRecipeData.swift */,
+				0A59577C29CABC66008ED873 /* SmoothieRecipe.swift */,
+				0A59577929CABC66008ED873 /* Ingredient.swift */,
+				0A59577D29CABC66008ED873 /* Direction.swift */,
+				0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A59577E29CABC66008ED873 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A59578429CABC66008ED873 /* IgnoredForNow */,
+				0A59578B29CABC66008ED873 /* RecipesView.swift */,
+				0A59577F29CABC66008ED873 /* FavoritesView.swift */,
+				0A59579229CABC66008ED873 /* IngredientsView.swift */,
+				0A59578A29CABC66008ED873 /* DefaultView.swift */,
+				0A59578929CABC66008ED873 /* ListWithBackground.swift */,
+				0A59578C29CABC66008ED873 /* BackgroundView.swift */,
+				0A59578D29CABC66008ED873 /* SmoothieRecipe */,
+				0A59578029CABC66008ED873 /* AddRecipe */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0A59578029CABC66008ED873 /* AddRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				0A59578129CABC66008ED873 /* RecipeImageView.swift */,
+				0A59578229CABC66008ED873 /* AddRecipeView.swift */,
+				0A59578329CABC66008ED873 /* AddRecipeViewModel.swift */,
 			);
 			path = AddRecipe;
 			sourceTree = "<group>";
 		};
-		0A740BFE29C8AED700274E87 /* SmoothieRecipe */ = {
+		0A59578429CABC66008ED873 /* IgnoredForNow */ = {
 			isa = PBXGroup;
 			children = (
-				0A24FC6929A31E8B007DE5BC /* SmoothieRecipeView.swift */,
-				0AF1707429B030220022D268 /* SmoothieThumbnailView.swift */,
-				0A740BFF29C8B14A00274E87 /* HeaderImage.swift */,
-				0A740C0129C8B20A00274E87 /* RecipeSection.swift */,
-			);
-			path = SmoothieRecipe;
-			sourceTree = "<group>";
-		};
-		0A75AEA729B6EA1D00D74C9D /* IgnoredForNow */ = {
-			isa = PBXGroup;
-			children = (
-				0A6B268429ADA54D00509560 /* SettingsView.swift */,
-				0A6B268229ADA1E700509560 /* DiscoverView.swift */,
-				0A6B268629AECC9300509560 /* DiscoverItemView.swift */,
-				0AF1707C29B071B10022D268 /* FeaturedView.swift */,
+				0A59578529CABC66008ED873 /* SettingsView.swift */,
+				0A59578629CABC66008ED873 /* DiscoverView.swift */,
+				0A59578729CABC66008ED873 /* DiscoverItemView.swift */,
+				0A59578829CABC66008ED873 /* FeaturedView.swift */,
 			);
 			path = IgnoredForNow;
+			sourceTree = "<group>";
+		};
+		0A59578D29CABC66008ED873 /* SmoothieRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				0A59578E29CABC66008ED873 /* SmoothieRecipeView.swift */,
+				0A59578F29CABC66008ED873 /* SmoothieThumbnailView.swift */,
+				0A59579029CABC66008ED873 /* HeaderImage.swift */,
+				0A59579129CABC66008ED873 /* RecipeSection.swift */,
+			);
+			path = SmoothieRecipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A24FC4A29A2A56F007DE5BC /* SmoothieSavvy */ = {
+		0A59575229CABC33008ED873 /* SmoothieSavvy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A24FC5A29A2A570007DE5BC /* Build configuration list for PBXNativeTarget "SmoothieSavvy" */;
+			buildConfigurationList = 0A59576129CABC34008ED873 /* Build configuration list for PBXNativeTarget "SmoothieSavvy" */;
 			buildPhases = (
-				0A24FC4729A2A56F007DE5BC /* Sources */,
-				0A24FC4829A2A56F007DE5BC /* Frameworks */,
-				0A24FC4929A2A56F007DE5BC /* Resources */,
+				0A59574F29CABC33008ED873 /* Sources */,
+				0A59575029CABC33008ED873 /* Frameworks */,
+				0A59575129CABC33008ED873 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SmoothieSavvy;
-			packageProductDependencies = (
-				0A73467129C6B99C003DFB3B /* Camera-SwiftUI */,
-			);
 			productName = SmoothieSavvy;
-			productReference = 0A24FC4B29A2A56F007DE5BC /* SmoothieSavvy.app */;
+			productReference = 0A59575329CABC33008ED873 /* SmoothieSavvy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A24FC4329A2A56F007DE5BC /* Project object */ = {
+		0A59574B29CABC33008ED873 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					0A24FC4A29A2A56F007DE5BC = {
+					0A59575229CABC33008ED873 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 0A24FC4629A2A56F007DE5BC /* Build configuration list for PBXProject "SmoothieSavvy" */;
+			buildConfigurationList = 0A59574E29CABC33008ED873 /* Build configuration list for PBXProject "SmoothieSavvy" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -246,69 +268,72 @@
 				en,
 				Base,
 			);
-			mainGroup = 0A24FC4229A2A56F007DE5BC;
-			packageReferences = (
-				0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */,
-				0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */,
-			);
-			productRefGroup = 0A24FC4C29A2A56F007DE5BC /* Products */;
+			mainGroup = 0A59574A29CABC33008ED873;
+			productRefGroup = 0A59575429CABC33008ED873 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A24FC4A29A2A56F007DE5BC /* SmoothieSavvy */,
+				0A59575229CABC33008ED873 /* SmoothieSavvy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A24FC4929A2A56F007DE5BC /* Resources */ = {
+		0A59575129CABC33008ED873 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A24FC5729A2A570007DE5BC /* Preview Assets.xcassets in Resources */,
-				0A24FC5329A2A570007DE5BC /* Assets.xcassets in Resources */,
+				0A59579B29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.31.png in Resources */,
+				0A59579E29CABC66008ED873 /* Preview Assets.xcassets in Resources */,
+				0A59579629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png in Resources */,
+				0A59579729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png in Resources */,
+				0A59579C29CABC66008ED873 /* README.md in Resources */,
+				0A59579929CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.42.png in Resources */,
+				0A59579A29CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.35.56.png in Resources */,
+				0A59579D29CABC66008ED873 /* Assets.xcassets in Resources */,
+				0A59579829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A24FC4729A2A56F007DE5BC /* Sources */ = {
+		0A59574F29CABC33008ED873 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A24FC6A29A31E8B007DE5BC /* SmoothieRecipeView.swift in Sources */,
-				0A24FC6129A31BEC007DE5BC /* SmoothieRecipe.swift in Sources */,
-				0A6B268A29AED1F000509560 /* Color+Theme.swift in Sources */,
-				0A740C0229C8B20A00274E87 /* RecipeSection.swift in Sources */,
-				0AF1707529B030220022D268 /* SmoothieThumbnailView.swift in Sources */,
-				0AF1707929B0384E0022D268 /* FavoritesView.swift in Sources */,
-				0A75AEA629B6E09900D74C9D /* SmoothieRecipe+Recipes.swift in Sources */,
-				0AC666BC29B6DCB800E7C1E5 /* ContentView.swift in Sources */,
-				0AF1707B29B054B10022D268 /* IngredientsView.swift in Sources */,
-				0A740C0429CA532700274E87 /* DefaultView.swift in Sources */,
-				0A740C0029C8B14A00274E87 /* HeaderImage.swift in Sources */,
-				0A3CE0EA29BE97E5005172D6 /* Ingredient+Ingredients.swift in Sources */,
-				0A6B267C29AD747B00509560 /* Ingredient.swift in Sources */,
-				0A606E2729C2C5D6001F3252 /* SmoothieSavvy.xcdatamodeld in Sources */,
-				0AF1707329B0218D0022D268 /* Collection+EnumeratedArray.swift in Sources */,
-				0A606E1D29BECC22001F3252 /* ListWithBackground.swift in Sources */,
-				0A740BFD29C8A7CD00274E87 /* RecipeImageView.swift in Sources */,
-				0A73467429C79BDA003DFB3B /* Direction.swift in Sources */,
-				0AF1707729B036590022D268 /* RecipesView.swift in Sources */,
-				0A740BF829C7CBFC00274E87 /* URL+IsDirectory.swift in Sources */,
-				0A740BFB29C8A78600274E87 /* AddRecipeViewModel.swift in Sources */,
-				0A606E2029BF6AE9001F3252 /* AddRecipeView.swift in Sources */,
-				0A6B267A29AD00E700509560 /* SmoothieRecipeData.swift in Sources */,
-				0A24FC4F29A2A56F007DE5BC /* SmoothieSavvyApp.swift in Sources */,
-				0A6B268C29AED2A400509560 /* BackgroundView.swift in Sources */,
+				0A5957AC29CABC66008ED873 /* AddRecipeView.swift in Sources */,
+				0A5957BA29CABC66008ED873 /* IngredientsView.swift in Sources */,
+				0A5957A329CABC66008ED873 /* URL+IsDirectory.swift in Sources */,
+				0A5957B529CABC66008ED873 /* BackgroundView.swift in Sources */,
+				0A5957A429CABC66008ED873 /* SmoothieSavvyApp.swift in Sources */,
+				0A5957B729CABC66008ED873 /* SmoothieThumbnailView.swift in Sources */,
+				0A5957B629CABC66008ED873 /* SmoothieRecipeView.swift in Sources */,
+				0A5957A529CABC66008ED873 /* SmoothieRecipeData.swift in Sources */,
+				0A5957B929CABC66008ED873 /* RecipeSection.swift in Sources */,
+				0A5957A829CABC66008ED873 /* SmoothieRecipe.swift in Sources */,
+				0A5957A129CABC66008ED873 /* Collection+EnumeratedArray.swift in Sources */,
+				0A5957AB29CABC66008ED873 /* RecipeImageView.swift in Sources */,
+				0A5957A629CABC66008ED873 /* Ingredient.swift in Sources */,
+				0A5957A929CABC66008ED873 /* Direction.swift in Sources */,
+				0A5957A729CABC66008ED873 /* SmoothieSavvy.xcdatamodeld in Sources */,
+				0A5957AA29CABC66008ED873 /* FavoritesView.swift in Sources */,
+				0A5957B829CABC66008ED873 /* HeaderImage.swift in Sources */,
+				0A5957A229CABC66008ED873 /* SmoothieRecipe+Recipes.swift in Sources */,
+				0A59579F29CABC66008ED873 /* Ingredient+Ingredients.swift in Sources */,
+				0A5957A029CABC66008ED873 /* Color+Theme.swift in Sources */,
+				0A5957AD29CABC66008ED873 /* AddRecipeViewModel.swift in Sources */,
+				0A5957B229CABC66008ED873 /* ListWithBackground.swift in Sources */,
+				0A5957BB29CABC66008ED873 /* ContentView.swift in Sources */,
+				0A5957B429CABC66008ED873 /* RecipesView.swift in Sources */,
+				0A5957B329CABC66008ED873 /* DefaultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0A24FC5829A2A570007DE5BC /* Debug */ = {
+		0A59575F29CABC34008ED873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -358,15 +383,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		0A24FC5929A2A570007DE5BC /* Release */ = {
+		0A59576029CABC34008ED873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -410,48 +437,41 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		0A24FC5B29A2A570007DE5BC /* Debug */ = {
+		0A59576229CABC34008ED873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SmoothieSavvy/SmoothieSavvy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmoothieSavvy/Preview Content\"";
 				DEVELOPMENT_TEAM = DR789XTL34;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take pictures of your smoothies";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.copley.SmoothieSavvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -461,41 +481,31 @@
 			};
 			name = Debug;
 		};
-		0A24FC5C29A2A570007DE5BC /* Release */ = {
+		0A59576329CABC34008ED873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SmoothieSavvy/SmoothieSavvy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SmoothieSavvy/Preview Content\"";
 				DEVELOPMENT_TEAM = DR789XTL34;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmoothieSavvy/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take pictures of your smoothies";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.copley.SmoothieSavvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -508,65 +518,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A24FC4629A2A56F007DE5BC /* Build configuration list for PBXProject "SmoothieSavvy" */ = {
+		0A59574E29CABC33008ED873 /* Build configuration list for PBXProject "SmoothieSavvy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A24FC5829A2A570007DE5BC /* Debug */,
-				0A24FC5929A2A570007DE5BC /* Release */,
+				0A59575F29CABC34008ED873 /* Debug */,
+				0A59576029CABC34008ED873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A24FC5A29A2A570007DE5BC /* Build configuration list for PBXNativeTarget "SmoothieSavvy" */ = {
+		0A59576129CABC34008ED873 /* Build configuration list for PBXNativeTarget "SmoothieSavvy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A24FC5B29A2A570007DE5BC /* Debug */,
-				0A24FC5C29A2A570007DE5BC /* Release */,
+				0A59576229CABC34008ED873 /* Debug */,
+				0A59576329CABC34008ED873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		0A24FC6229A31D1E007DE5BC /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/grpc/grpc-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rorodriguez116/Camera-SwiftUI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0A73467129C6B99C003DFB3B /* Camera-SwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0A73467029C6B99C003DFB3B /* XCRemoteSwiftPackageReference "Camera-SwiftUI" */;
-			productName = "Camera-SwiftUI";
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		0A606E2529C2C5D5001F3252 /* SmoothieSavvy.xcdatamodeld */ = {
+		0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */,
+				0A59577B29CABC66008ED873 /* SmoothieSavvy.xcdatamodel */,
 			);
-			currentVersion = 0A606E2629C2C5D6001F3252 /* SmoothieSavvy.xcdatamodel */;
+			currentVersion = 0A59577B29CABC66008ED873 /* SmoothieSavvy.xcdatamodel */;
 			path = SmoothieSavvy.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 0A24FC4329A2A56F007DE5BC /* Project object */;
+	rootObject = 0A59574B29CABC33008ED873 /* Project object */;
 }

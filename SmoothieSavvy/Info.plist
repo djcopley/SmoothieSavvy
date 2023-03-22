@@ -5,10 +5,6 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Smoothie Recipe</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
@@ -26,8 +22,8 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Smoothie Recipe</string>
-			<key>UTTypeIcons</key>
-			<dict/>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
 			<string>dev.copley.smoothie-recipe</string>
 			<key>UTTypeTagSpecification</key>

@@ -13,11 +13,11 @@ struct RecipeImageView: View {
     
     var body: some View {
         switch imageState {
-        case .success(let recipeImage):
-            recipeImage.image
+        case .success(let image):
+            image
                 .resizable()
-                .draggable(recipeImage) {
-                    recipeImage.image
+                .draggable(image) {
+                    image
                         .resizable()
                         .scaledToFill()
                         .frame(width: width, height: height)
