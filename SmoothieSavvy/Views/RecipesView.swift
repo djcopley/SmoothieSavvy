@@ -33,7 +33,16 @@ struct RecipesView: View {
             DefaultView(when: filteredRecipes.isEmpty, show: noMatchingRecipes) {
                 List {
                     ForEach(filteredRecipes) { recipe in
-                        NavigationLink(recipe.name, value: recipe)
+                        NavigationLink(value: recipe) {
+                            HStack {
+                                Text(recipe.name)
+                                Spacer()
+                                Image(systemName: "heart.fill")
+                                    .font(.subheadline)
+                                    .foregroundColor(.red)
+                                    .opacity(recipe.isFavorite ? 1 : 0)
+                            }
+                        }
                     }
                     .onDelete { indices in
                         for index in indices {

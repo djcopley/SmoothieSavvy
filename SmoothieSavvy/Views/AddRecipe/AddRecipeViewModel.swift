@@ -2,7 +2,7 @@
 See LICENSE folder for this sample’s licensing information.
 
 Abstract:
-An observable state object that contains profile details.
+An observable state object that contains recipe details.
 */
 
 import SwiftUI
@@ -68,25 +68,20 @@ enum ImageState {
 }
 
 struct RecipeImage: Transferable {
-    let image: Image
+    private let uiImage: UIImage
     
+    var image: Image {
+        Image(uiImage: uiImage)
+    }
+
     static var transferRepresentation: some TransferRepresentation {
-        DataRepresentation(importedContentType: .image) { data in
-        #if canImport(AppKit)
-            guard let nsImage = NSImage(data: data) else {
-                throw TransferError.importFailed
-            }
-            let image = Image(nsImage: nsImage)
-            return RecipeImage(image: image)
-        #elseif canImport(UIKit)
+        DataRepresentation(contentType: .image) { recipeImage in
+            recipeImage.uiImage.pngData() ?? Data()
+        } importing: { data in
             guard let uiImage = UIImage(data: data) else {
                 throw TransferError.importFailed
             }
-            let image = Image(uiImage: uiImage)
-            return RecipeImage(image: image)
-        #else
-            throw TransferError.importFailed
-        #endif
+            return RecipeImage(uiImage: uiImage)
         }
     }
 }

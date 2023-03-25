@@ -91,13 +91,6 @@ struct AddRecipeView: View {
                 Section("Notes") {
                     TextEditor(text: $viewModel.notes)
                         .frame(height: 100)
-                    
-                    PasteButton(payloadType: SmoothieRecipe.self) { recipes in
-                        guard let firstRecipe = recipes.first else {
-                            return
-                        }
-                        print(firstRecipe)
-                    }
                 }
             }
             .scrollContentBackground(.hidden)

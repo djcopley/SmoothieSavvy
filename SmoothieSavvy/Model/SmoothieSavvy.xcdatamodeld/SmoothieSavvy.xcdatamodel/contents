@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="SmoothieRecipe2" representedClassName="SmoothieRecipe2" syncable="YES" codeGenerationType="class">
-        <attribute name="descriptions" optional="YES" attributeType="String"/>
-        <attribute name="directions" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" allowsCloudEncryption="YES"/>
-        <attribute name="ingredients" optional="YES" attributeType="String"/>
+    <entity name="Direction2" representedClassName="Direction2" syncable="YES" codeGenerationType="class">
+        <attribute name="step" optional="YES" attributeType="String"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SmoothieRecipe2" inverseName="directions" inverseEntity="SmoothieRecipe2"/>
+    </entity>
+    <entity name="Ingredient2" representedClassName="Ingredient2" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SmoothieRecipe2" inverseName="ingredients" inverseEntity="SmoothieRecipe2"/>
+    </entity>
+    <entity name="SmoothieRecipe2" representedClassName="SmoothieRecipe2" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="directions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Direction2" inverseName="recipe" inverseEntity="Direction2"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient2" inverseName="recipe" inverseEntity="Ingredient2"/>
     </entity>
 </model>
