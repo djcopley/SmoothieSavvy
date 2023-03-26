@@ -1,5 +1,5 @@
 //
-//  ListWithBackground.swift
+//  ListBackground.swift
 //  SmoothieSavvy
 //
 //  Created by Daniel Copley on 3/12/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListWithBackground<Item: Identifiable, DefaultContent: View, RowContent: View>: View {
+struct ListBackground<Item: Identifiable, DefaultContent: View, RowContent: View>: View {
     var items: [Item]
     var defaultView: DefaultContent
     @ViewBuilder var rowContent: (Item) -> RowContent
@@ -27,7 +27,7 @@ struct ListWithBackground<Item: Identifiable, DefaultContent: View, RowContent: 
                     .scrollContentBackground(.hidden)
             }
         }
-        .background(BackgroundView())
+        .background(GradientBackground())
     }
 }
 
@@ -36,7 +36,7 @@ struct ListWithBackground_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationStack {
-            ListWithBackground(recipeData.recipes, defaultView: Text("Testing")) { item in
+            ListBackground(recipeData.recipes, defaultView: Text("Testing")) { item in
                 NavigationLink(item.name, value: item)
             }
         }

@@ -82,7 +82,7 @@ struct SmoothieRecipeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(relatedRecipes) { relatedRecipe in
-                                SmoothieThumbnailView(recipe: relatedRecipe)
+                                SmoothieThumbnail(recipe: relatedRecipe)
                             }
                         }
                         .padding(.horizontal)
@@ -103,7 +103,7 @@ struct SmoothieRecipeView: View {
             }
         }
         .navigationTitle(recipe.name)
-        .background(BackgroundView())
+        .background(GradientBackground())
     }
     
     /// Recommends a list of smoothie recipes that are similar

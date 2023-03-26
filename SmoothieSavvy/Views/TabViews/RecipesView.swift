@@ -30,7 +30,7 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationStack {
-            DefaultView(when: filteredRecipes.isEmpty, show: noMatchingRecipes) {
+            DefaultStack(when: filteredRecipes.isEmpty, show: noMatchingRecipes) {
                 List {
                     ForEach(filteredRecipes) { recipe in
                         NavigationLink(value: recipe) {
@@ -52,7 +52,7 @@ struct RecipesView: View {
                 }
                 .scrollContentBackground(.hidden)
             }
-            .background(BackgroundView())
+            .background(GradientBackground())
             .searchable(text: $searchText, placement: .toolbar)
             .navigationTitle("Recipes")
             .navigationDestination(for: SmoothieRecipe.self) { recipe in
@@ -75,7 +75,7 @@ struct RecipesView: View {
                 }
             }
             .sheet(isPresented: $ingredientPickerIsPreseneted) {
-                IngredientsView(selectedIngredients: $selectedIngredients)
+                SelectIngredientsView(selectedIngredients: $selectedIngredients)
             }
             .sheet(isPresented: $addRecipeViewIsPresented) {
                 AddRecipeView()

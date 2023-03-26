@@ -23,11 +23,11 @@ struct FavoritesView: View {
     
     var body: some View {
         NavigationStack {
-            ListWithBackground(filteredFavorites, defaultView: noFavoriteRecipes) { recipe in
+            ListBackground(filteredFavorites, defaultView: noFavoriteRecipes) { recipe in
                 NavigationLink(recipe.name, value: recipe)
             }
             .searchable(text: $searchText)
-            .background(BackgroundView())
+            .background(GradientBackground())
             .navigationTitle("Favorites")
             .navigationDestination(for: SmoothieRecipe.self) { recipe in
                 SmoothieRecipeView(recipe: recipeData.getBinding(for: recipe)!)

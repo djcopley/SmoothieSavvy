@@ -94,7 +94,7 @@ struct AddRecipeView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(BackgroundView())
+            .background(GradientBackground())
             .navigationTitle("Add Recipe")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

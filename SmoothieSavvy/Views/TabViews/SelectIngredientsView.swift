@@ -1,5 +1,5 @@
 //
-//  IngredientsView.swift
+//  IngredientSelecter.swift
 //  SmoothieSavvy
 //
 //  Created by Daniel Copley on 3/1/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientsView: View {
+struct SelectIngredientsView: View {
     // MARK: View State
     @Binding var selectedIngredients: Set<Ingredient.ID>
     @State private var searchText = ""
@@ -42,7 +42,7 @@ struct IngredientsView: View {
                 .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(BackgroundView())
+            .background(GradientBackground())
             .searchable(text: $searchText)
             .toolbar {
                 Button("Done") { dismiss() }
@@ -76,6 +76,6 @@ struct Ingredients_Previews: PreviewProvider {
     @State static var selectedIngredients: Set<Ingredient.ID> = []
     
     static var previews: some View {
-        IngredientsView(selectedIngredients: $selectedIngredients)
+        SelectIngredientsView(selectedIngredients: $selectedIngredients)
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BackgroundView: View {
+struct GradientBackground: View {
     @Environment(\.colorScheme) var colorScheme
     
     func bgGradient(_ radius: CGFloat) -> RadialGradient {
@@ -35,6 +35,6 @@ struct BackgroundView: View {
 
 struct Background_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView()
+        GradientBackground()
     }
 }

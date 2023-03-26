@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SmoothieThumbnailView: View {
+struct SmoothieThumbnail: View {
     var recipe: SmoothieRecipe
     
     var body: some View {
@@ -28,6 +28,6 @@ struct SmoothieThumbnailView: View {
 
 struct SmoothieThumbnail_Previews: PreviewProvider {
     static var previews: some View {
-        SmoothieThumbnailView(recipe: SmoothieRecipe.breakfastSmoothie)
+        SmoothieThumbnail(recipe: SmoothieRecipe.breakfastSmoothie)
     }
 }
