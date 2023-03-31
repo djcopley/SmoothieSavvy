@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct HeaderImage: View {
-    var imageAssetName: String
-    @Binding var isFavorite: Bool
+    @ObservedObject var recipe: Recipe
     
-    init(_ imageAssetName: String, isFavorite: Binding<Bool>) {
-        self.imageAssetName = imageAssetName
-        _isFavorite = isFavorite
-    }
-
     var body: some View {
-        Image(imageAssetName)
+        smoothieImage
             .resizable()
             .scaledToFill()
             .frame(maxHeight: 300)
@@ -30,20 +24,27 @@ struct HeaderImage: View {
 
     @ViewBuilder
     var favoriteButton: some View {
-        Image(systemName: isFavorite ? "heart.fill" : "heart")
+        Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
             .foregroundColor(.red)
             .padding(10)
             .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .onTapGesture {
-                isFavorite.toggle()
+                recipe.isFavorite.toggle()
             }
             .padding()
     }
-}
-
-struct HeaderImage_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderImage("defaultSmoothie", isFavorite: .constant(true))
+    
+    var smoothieImage: Image {
+        guard let uiImage = recipe.uiImage else {
+            return Image("defaultSmoothie")
+        }
+        return Image(uiImage: uiImage)
     }
 }
+
+//struct HeaderImage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HeaderImage("defaultSmoothie", isFavorite: .constant(true))
+//    }
+//}

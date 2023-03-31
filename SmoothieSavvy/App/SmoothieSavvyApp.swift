@@ -10,10 +10,8 @@ import UniformTypeIdentifiers
 
 @main
 struct SmoothieSavvyApp: App {
-    @StateObject var recipeData = SmoothieRecipeData()
-    
-    @State private var showingImportAlertIsPresented = false
-    @State private var importedRecipe: SmoothieRecipe?
+//    @State private var showingImportAlertIsPresented = false
+//    @State private var importedRecipe: SmoothieRecipe?
 
     init() {
         // https://leaves.one/2023/01/16/swiftui-fix-alert-and-action-sheet-buttons-not-using-accent-color/
@@ -23,38 +21,32 @@ struct SmoothieSavvyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(recipeData)
-                .task {
-                    recipeData.load()
-                }
-                .onChange(of: recipeData.recipes) { _ in
-                    recipeData.save()
-                }
-                .onOpenURL { url in
-                    guard url.pathExtension == UTType.smoothieRecipe.preferredFilenameExtension else {
-                        print("File does not end with .smoothierecipe extension")
-                        return
-                    }
-
-                    guard let data = try? Data(contentsOf: url) else {
-                        print("Error reading data from file")
-                        return
-                    }
-
-                    guard let recipe = try? JSONDecoder().decode(SmoothieRecipe.self, from: data) else {
-                        print("Unable to decode recipe file")
-                        return
-                    }
-
-                    importedRecipe = recipe
-                    showingImportAlertIsPresented = true
-                }
-                .alert("Import Recipe", isPresented: $showingImportAlertIsPresented, presenting: importedRecipe) { recipe in
-                    Button("Import") { recipeData.add(recipe: recipe) }
-                    Button("Cancel", role: .cancel) { }
-                } message: { recipe in
-                    Text("Do you want to import the recipe:\n\(recipe.name)?")
-                }
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//                .onOpenURL { url in
+//                    guard url.pathExtension == UTType.smoothieRecipe.preferredFilenameExtension else {
+//                        print("File does not end with .smoothierecipe extension")
+//                        return
+//                    }
+//
+//                    guard let data = try? Data(contentsOf: url) else {
+//                        print("Error reading data from file")
+//                        return
+//                    }
+//
+//                    guard let recipe = try? JSONDecoder().decode(SmoothieRecipe.self, from: data) else {
+//                        print("Unable to decode recipe file")
+//                        return
+//                    }
+//
+//                    importedRecipe = recipe
+//                    showingImportAlertIsPresented = true
+//                }
+//                .alert("Import Recipe", isPresented: $showingImportAlertIsPresented, presenting: importedRecipe) { recipe in
+//                    Button("Import") { recipeData.add(recipe: recipe) }
+//                    Button("Cancel", role: .cancel) { }
+//                } message: { recipe in
+//                    Text("Do you want to import the recipe:\n\(recipe.name)?")
+//                }
         }
     }
 }

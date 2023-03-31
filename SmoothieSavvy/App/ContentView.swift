@@ -22,6 +22,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
+            
+            EditRecipeView(viewModel: EditRecipeViewModel(persistenceController: .preview))
+                .tabItem {
+                    Label("Test", systemImage: "hammer")
+                }
         }
     }
 }
@@ -29,6 +34,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(SmoothieRecipeData())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -8,38 +8,40 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @EnvironmentObject var recipeData: SmoothieRecipeData
+    @Environment(\.managedObjectContext) var viewContext
+    
     @State private var searchText = ""
     
-    var filteredFavorites: [SmoothieRecipe] {
-        let favorites = recipeData.favorites
-        guard !searchText.isEmpty else {
-            return favorites
-        }
-        return favorites.filter { recipe in
-            recipe.name.localizedCaseInsensitiveContains(searchText)
-        }
-    }
+    @FetchRequest(
+        sortDescriptors: [],
+        predicate: NSPredicate(format: "isFavorite == %@", "YES"),
+        animation: .default
+    ) var favorites: FetchedResults<Recipe>
     
     var body: some View {
         NavigationStack {
-            ListBackground(filteredFavorites, defaultView: noFavoriteRecipes) { recipe in
-                NavigationLink(recipe.name, value: recipe)
+            DefaultStack(when: favorites.isEmpty, show: noFavoriteRecipes) {
+                List {
+                    ForEach(favorites) { recipe in
+                        NavigationLink(recipe.name, value: recipe)
+                    }
+                }
+                .scrollContentBackground(.hidden)
             }
             .searchable(text: $searchText)
             .background(GradientBackground())
             .navigationTitle("Favorites")
-            .navigationDestination(for: SmoothieRecipe.self) { recipe in
-                SmoothieRecipeView(recipe: recipeData.getBinding(for: recipe)!)
+            .navigationDestination(for: Recipe.self) { recipe in
+                SmoothieRecipeView(recipe: recipe)
             }
         }
     }
     
     // MARK: Computed views
     @ViewBuilder
-    var noFavoriteRecipes: some View {
+    private func noFavoriteRecipes() -> some View {
         VStack(spacing: 8) {
-            if recipeData.favorites.isEmpty {
+            if favorites.isEmpty {
                 Text("No Favorites Yet")
                     .font(.largeTitle)
                 Text("Head back over to your favorite smoothie recipes and use the ❤️ button to save them here.")
@@ -60,6 +62,6 @@ struct FavoritesView: View {
 struct Favorites_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
-            .environmentObject(SmoothieRecipeData())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -13,13 +13,19 @@ struct SelectIngredientsView: View {
     @State private var searchText = ""
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [SortDescriptor(\.name)],
+        animation: .default
+    ) private var ingredients: FetchedResults<Ingredient>
     
     // MARK: Body property
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(ingredients, id: \.self) { ingredient in
+                    ForEach(ingredients) { ingredient in
                         ZStack {
                             Color.clear
                                 .background(.regularMaterial)
@@ -34,7 +40,7 @@ struct SelectIngredientsView: View {
                                 .onTapGesture {
                                     userTapped(ingredient)
                                 }
-                            Text(ingredient.name)
+                            Text("\(ingredient.emoji) \(ingredient.name)")
                                 .foregroundColor(.white)
                         }
                     }
@@ -55,14 +61,6 @@ struct SelectIngredientsView: View {
     private let columns = [GridItem(.adaptive(minimum: 175))]
     
     // MARK: Ingredient helpers
-    var ingredients: [Ingredient] {
-        guard !searchText.isEmpty else {
-            return Ingredient.ingredients
-        }
-        return Ingredient.ingredients.filter { ingredient in
-            ingredient.name.localizedCaseInsensitiveContains(searchText)
-        }
-    }
     
     func userTapped(_ ingredient: Ingredient) {
         guard let _ = selectedIngredients.remove(ingredient.id) else {

@@ -10,8 +10,8 @@ import SwiftUI
 struct SmoothieRecipeView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @EnvironmentObject var recipeData: SmoothieRecipeData
-    @Binding var recipe: SmoothieRecipe
+    @ObservedObject var recipe: Recipe
+    
     @FocusState var notesIsFocused
     
     let columns: [GridItem] = [GridItem(.adaptive(minimum: 150))]
@@ -19,53 +19,54 @@ struct SmoothieRecipeView: View {
     private var accentColor: Color {
         colorScheme == .dark ? .darkBgAccent : .lightBgAccent
     }
+    
+    private let tempSmoothieImageName = "defaultSmoothie"
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
-                HeaderImage(recipe.imageAssetName, isFavorite: $recipe.isFavorite)
+                HeaderImage(recipe: recipe)
                     .padding(.horizontal)
 
-                Text(recipe.description)
-                    .padding(.horizontal)
+                if let info = recipe.info {
+                    Text(info)
+                        .padding(.horizontal)
+                }
+                
+                if !recipe.sortedIngredients.isEmpty {
+                    RecipeSection("Ingredients") {
+                        LazyVGrid(columns: columns) {
+                            ForEach(recipe.sortedIngredients) { ingredient in
+                                ZStack {
+                                    Color.clear
+                                        .background(accentColor)
+                                        .clipShape(Capsule())
 
-                RecipeSection("Ingredients") {
-                    LazyVGrid(columns: columns) {
-                        ForEach(recipe.ingredients) { ingredient in
-                            ZStack {
-                                Color.clear
-                                    .background(accentColor)
-                                    .clipShape(Capsule())
-                                
-                                Text(ingredient.name)
-                                    .lineLimit(1)
-                                    .padding(8)
+                                    
+                                    Text("\(ingredient.emoji) \(ingredient.name)")
+                                        .lineLimit(1)
+                                        .padding(8)
+                                }
                             }
                         }
                     }
+                    .padding(.horizontal)
+                }
 
-                    ForEach(recipe.ingredientMeasurements.enumeratedArray(), id: \.element) { (offset, element) in
-                        HStack(alignment: .top) {
-                            Text("\(offset + 1). ")
-                            Text(element)
+                if !recipe.directions.isEmpty {
+                    RecipeSection("Directions") {
+                        ForEach(recipe.directions.enumeratedArray(), id: \.element) { (offset, element) in
+                            HStack(alignment: .top) {
+                                Text("\(offset + 1). ")
+                                Text(element)
+                            }
                         }
                     }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
 
-                RecipeSection("Directions") {
-                    ForEach(recipe.directions.enumeratedArray(), id: \.element) { (offset, element) in
-                        HStack(alignment: .top) {
-                            Text("\(offset + 1). ")
-                            Text(element)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-
-                
                 RecipeSection("Notes") {
-                    TextEditor(text: $recipe.notes)
+                    TextEditor(text: $recipe.notes.with(default: ""))
                         .focused($notesIsFocused)
                         .scrollContentBackground(.hidden)
                         .background(accentColor)
@@ -73,26 +74,26 @@ struct SmoothieRecipeView: View {
                         .frame(height: 150)
                 }
                 .padding(.horizontal)
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Related Smoothies")
-                        .font(.headline)
-                        .padding(.horizontal)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(relatedRecipes) { relatedRecipe in
-                                SmoothieThumbnail(recipe: relatedRecipe)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                }
+
+//                VStack(alignment: .leading, spacing: 10) {
+//                    Text("Related Smoothies")
+//                        .font(.headline)
+//                        .padding(.horizontal)
+//
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        HStack {
+//                            ForEach(relatedRecipes) { relatedRecipe in
+//                                SmoothieThumbnail(recipe: relatedRecipe)
+//                            }
+//                        }
+//                        .padding(.horizontal)
+//                    }
+//                }
             }
         }
-        .toolbar {
-            ShareLink(item: recipe, preview: SharePreview(recipe.name, image: Image(recipe.imageAssetName)))
-        }
+//        .toolbar {
+//            ShareLink(item: recipe, preview: SharePreview(recipe.name, image: Image(recipe.imageAssetName)))
+//        }
         .toolbar {
             if notesIsFocused {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -106,28 +107,28 @@ struct SmoothieRecipeView: View {
         .background(GradientBackground())
     }
     
-    /// Recommends a list of smoothie recipes that are similar
-    /// - Parameter recipe: recipe from which to generate recommendations
-    /// - Returns: similar smoothie recommendations
-    var relatedRecipes: [SmoothieRecipe] {
-        recipeData.recipes
-    }
+//    /// Recommends a list of smoothie recipes that are similar
+//    /// - Parameter recipe: recipe from which to generate recommendations
+//    /// - Returns: similar smoothie recommendations
+//    var relatedRecipes: [Recipe] {
+//        recipes
+//    }
 }
 
 // MARK: Previews
-struct Smoothie_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SmoothieRecipeView(recipe: .constant(.breakfastSmoothie))
-        }
-        .environmentObject(SmoothieRecipeData())
-        .previewDisplayName("Rise & Shine")
-
-        
-        NavigationStack {
-            SmoothieRecipeView(recipe: .constant(.breakfastBar))
-        }
-        .environmentObject(SmoothieRecipeData())
-        .previewDisplayName("Banana Breakfast Shake")
-    }
-}
+//struct Smoothie_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            SmoothieRecipeView(recipe: .constant(.breakfastSmoothie))
+//        }
+//        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//        .previewDisplayName("Rise & Shine")
+//
+//        
+//        NavigationStack {
+//            SmoothieRecipeView(recipe: .constant(.breakfastBar))
+//        }
+//        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//        .previewDisplayName("Banana Breakfast Shake")
+//    }
+//}

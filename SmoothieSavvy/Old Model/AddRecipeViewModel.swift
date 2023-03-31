@@ -11,13 +11,14 @@ import CoreTransferable
 
 @MainActor
 class AddRecipeViewModel: ObservableObject {
+    @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - Recipe Details
     
     @Published var name = ""
     @Published var description = ""
     @Published var ingredients: [Ingredient] = []
-    @Published var directions: [Direction] = []
+    @Published var directions: [String] = []
     @Published var notes = ""
     
     // MARK: - Recipe Image
