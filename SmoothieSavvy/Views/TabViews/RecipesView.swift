@@ -14,6 +14,15 @@ struct RecipesView: View {
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
     @State private var searchText = ""
+
+    private var query: Binding<String> {
+        Binding {
+            searchText
+        } set: { queryText in
+            searchText = queryText
+            recipes.nsPredicate = queryText.isEmpty ? nil : NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
+        }
+    }
     
     @FetchRequest(
         sortDescriptors: [],
@@ -35,7 +44,7 @@ struct RecipesView: View {
                 .scrollContentBackground(.hidden)
             }
             .background(GradientBackground())
-            .searchable(text: $searchText, placement: .toolbar)
+            .searchable(text: query, placement: .toolbar)
             .navigationTitle("Recipes")
             .navigationDestination(for: Recipe.self) { recipe in
                 SmoothieRecipeView(recipe: recipe)
@@ -60,7 +69,7 @@ struct RecipesView: View {
                 SelectIngredientsView(selectedIngredients: $selectedIngredients)
             }
             .sheet(isPresented: $addRecipeViewIsPresented) {
-                EditRecipeView(viewModel: .init(persistenceController: .preview))
+                EditRecipeView(viewModel: .init(persistenceController: .preview), recipe: Recipe(name: "", context: viewContext))
             }
         }
     }
