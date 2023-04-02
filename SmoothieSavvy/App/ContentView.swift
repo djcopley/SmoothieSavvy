@@ -22,11 +22,6 @@ struct ContentView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
-            
-            EditRecipeView(viewModel: EditRecipeViewModel(persistenceController: .preview))
-                .tabItem {
-                    Label("Test", systemImage: "hammer")
-                }
         }
     }
 }
