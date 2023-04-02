@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct SelectIngredientsView: View {
-    // MARK: View State
     @Binding var selectedIngredients: Set<Ingredient.ID>
-    @State private var searchText = ""
-    
+
     @Environment(\.dismiss) var dismiss
-    @Environment(\.managedObjectContext) var viewContext
-    
+
     @FetchRequest(
-        sortDescriptors: [SortDescriptor(\.name)],
+        sortDescriptors: [SortDescriptor(\.name_)],
         animation: .default
     ) private var ingredients: FetchedResults<Ingredient>
     
-    // MARK: Body property
+    @State private var searchText = ""
+    private var query: Binding<String> {
+        Binding {
+            searchText
+        } set: { queryText in
+            searchText = queryText
+            ingredients.nsPredicate = queryText.isEmpty ? nil : NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -49,7 +55,7 @@ struct SelectIngredientsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(GradientBackground())
-            .searchable(text: $searchText)
+            .searchable(text: query)
             .toolbar {
                 Button("Done") { dismiss() }
             }
@@ -58,6 +64,7 @@ struct SelectIngredientsView: View {
     }
     
     // MARK: Constants
+
     private let columns = [GridItem(.adaptive(minimum: 175))]
     
     // MARK: Ingredient helpers
