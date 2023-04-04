@@ -54,7 +54,7 @@ struct SelectIngredientsView: View {
                 .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(GradientBackground())
+            .background(LinearGradientBackground())
             .searchable(text: query)
             .toolbar {
                 Button("Done") { dismiss() }

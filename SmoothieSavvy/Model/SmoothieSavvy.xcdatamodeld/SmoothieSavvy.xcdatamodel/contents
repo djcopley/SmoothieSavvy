@@ -34,4 +34,8 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="ZMaybeDirection" representedClassName="ZMaybeDirection" syncable="YES" codeGenerationType="class">
+        <attribute name="direction_" attributeType="String" defaultValueString=""/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
 </model>

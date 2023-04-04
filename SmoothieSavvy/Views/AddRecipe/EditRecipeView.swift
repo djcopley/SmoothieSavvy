@@ -11,10 +11,20 @@ import PhotosUI
 struct EditRecipeView: View {
     @StateObject var viewModel: EditRecipeViewModel
     
+    // The state passed to this view (viewModel and recipe) are causing a weird graphical hiccup when the popover is presented
+    
     @Environment(\.dismiss) var dismiss
     @FocusState var focusedIngredient: Ingredient?
-    @FocusState var focusedDirection: String.ID?
-
+    @FocusState var focusedDirection: Int?
+    @Environment(\.managedObjectContext) var moc
+    
+    @StateObject var recipe: Recipe
+    @FetchRequest(
+        sortDescriptors: [SortDescriptor(\.name_)],
+        //        predicate: NSPredicate(format: ""),
+        animation: .default
+    ) var ingredients: FetchedResults<Ingredient>
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -43,51 +53,41 @@ struct EditRecipeView: View {
                     TextField("Name", text: $viewModel.recipe.name)
                     TextField("Description", text: $viewModel.recipe.info.with(default: ""))
                 }
-
+                
                 Section("Ingredients") {
-                    ForEach($viewModel.ingredients) { $ingredient in
-                        TextField("New Ingredient", text: $ingredient.name)
+                    ForEach(recipe.sortedIngredients) { ingredient in
+                        TextField("New Ingredient", text: .constant(ingredient.name))
                             .focused($focusedIngredient, equals: ingredient)
                     }
-                    .onDelete {
-                        viewModel.ingredients.remove(atOffsets: $0)
-                    }
-
+                    
                     Button { // TODO: there is a lot of stuff in this module
-                        focusedIngredient = viewModel.newIngredient()
+                        recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
                     }
                 }
-//
-//                Section("Directions") {
-//                    ForEach($viewModel.directions) { $direction in
-//                        TextField("New Step", text: $direction)
-//                            .focused($focusedDirection, equals: direction.id)
-//                    }
-//                    .onDelete {
-//                        viewModel.directions.remove(atOffsets: $0)
-//                    }
-//                    .onMove {
-//                        viewModel.directions.move(fromOffsets: $0, toOffset: $1)
-//                    }
-//
-//                    Button {
-//                        let newStep = ""
-//                        viewModel.directions.append(newStep)
-//                        focusedDirection = newStep.id
-//                    } label: {
-//                        Label("Add Step", systemImage: "plus")
-//                    }
-//                }
-
+                
+                Section("Directions") {
+                    ForEach($recipe.directions.enumeratedArray(), id: \.offset) { (index, $direction) in
+                        TextField("New Step", text: $direction)
+                            .focused($focusedDirection, equals: index)
+                    }
+                    
+                    Button {
+                        let newDirection = "New Direction"
+                        recipe.directions.append(newDirection)
+                    } label: {
+                        Label("Add Step", systemImage: "plus")
+                    }
+                }
+                
                 Section("Notes") {
                     TextEditor(text: $viewModel.recipe.notes.with(default: ""))
                         .frame(height: 100)
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(GradientBackground())
+            .background(LinearGradientBackground())
             .navigationTitle("Add Recipe")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

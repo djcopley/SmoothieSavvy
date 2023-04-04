@@ -15,12 +15,12 @@ import SwiftUI
 class EditRecipeViewModel: ObservableObject {
     // MARK: - Initialize context
     
-    @Published var recipe: Recipe
+    @ObservedObject var recipe: Recipe
     
     let context: NSManagedObjectContext
     let persistenceController: PersistenceController
     
-    init(persistenceController: PersistenceController, recipe: Recipe? = nil) {
+    init(persistenceController: PersistenceController, editing recipe: Recipe? = nil) {
         self.context = persistenceController.childViewContext()
         if let recipe = recipe {
             self.recipe = recipe
@@ -34,13 +34,15 @@ class EditRecipeViewModel: ObservableObject {
         persistenceController.persist(recipe)
     }
     
-    func newIngredient() {
+    func newIngredient() -> Ingredient {
+        objectWillChange.send()
         let newIngredient = Ingredient(name: "", emoji: "", context: context)
         self.recipe.addToIngredients(newIngredient)
         return newIngredient
     }
     
-    func newDirection() {
+    func newDirection() -> String {
+        objectWillChange.send()
         let newDirection = ""
         self.recipe.directions.append(newDirection)
         return newDirection
@@ -78,16 +80,7 @@ class EditRecipeViewModel: ObservableObject {
         }
     }
     
-    @Published var imageState: ImageState = .empty {
-        didSet {
-            switch imageState {
-            case .success(let image):
-                print("")
-            default:
-                print("")
-            }
-        }
-    }
+    @Published var imageState: ImageState = .empty
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
             if let imageSelection {

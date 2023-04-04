@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
-        TabView {
-            RecipesView()
-                .tabItem {
-                    Label("Recipes", systemImage: "book")
-                }
-            
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "heart")
-                }
+        NavigationSplitView {
+            RecipesSidebarView()
+        } detail: {
+            Text("No Recipe Selected")
+                .font(.title2)
+                .foregroundColor(.secondary)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(LinearGradientBackground())
         }
     }
 }

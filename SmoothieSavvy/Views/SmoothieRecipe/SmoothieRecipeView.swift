@@ -104,7 +104,7 @@ struct SmoothieRecipeView: View {
             }
         }
         .navigationTitle(recipe.name)
-        .background(GradientBackground())
+        .background(LinearGradientBackground())
     }
     
 //    /// Recommends a list of smoothie recipes that are similar
