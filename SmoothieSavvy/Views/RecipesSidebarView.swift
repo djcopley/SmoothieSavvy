@@ -10,6 +10,8 @@ import SwiftUI
 struct RecipesSidebarView: View {
     @Environment(\.managedObjectContext) var viewContext
     
+    @Binding var selectedRecipe: Recipe?
+    
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
@@ -46,7 +48,7 @@ struct RecipesSidebarView: View {
     ) private var nonFavoriteRecipes: FetchedResults<Recipe>
 
     var body: some View {
-        List {
+        List(selection: $selectedRecipe) {
             Section("Favorites") {
                 ForEach(favoriteRecipes) { recipe in
                     NavigationLink(value: recipe) {
