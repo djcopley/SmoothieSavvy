@@ -13,30 +13,38 @@ struct RecipesSidebarView: View {
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
-    @State private var searchText = ""
 
+    @State private var searchText = ""
     private var query: Binding<String> {
         Binding {
             searchText
         } set: { queryText in
             searchText = queryText
-            nonFavoriteRecipes.nsPredicate = queryText.isEmpty ? nil : NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
+            
+            guard !queryText.isEmpty else {
+                favoriteRecipes.nsPredicate = Self.isFavoritePredicate
+                nonFavoriteRecipes.nsPredicate = Self.isNotFavoritePredicate
+                return
+            }
+    
+            let searchPredicate = NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
+            favoriteRecipes.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Self.isFavoritePredicate, searchPredicate])
+            nonFavoriteRecipes.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Self.isNotFavoritePredicate, searchPredicate])
         }
     }
     
     @FetchRequest(
         sortDescriptors: [SortDescriptor(\.name_)],
-        predicate: NSPredicate(format: "isFavorite == YES"),
+        predicate: isFavoritePredicate,
         animation: .default
     ) private var favoriteRecipes: FetchedResults<Recipe>
     
     @FetchRequest(
         sortDescriptors: [SortDescriptor(\.name_)],
-        predicate: NSPredicate(format: "isFavorite == NO"),
+        predicate: isNotFavoritePredicate,
         animation: .default
     ) private var nonFavoriteRecipes: FetchedResults<Recipe>
 
-    
     var body: some View {
         List {
             Section("Favorites") {
@@ -61,9 +69,6 @@ struct RecipesSidebarView: View {
         .background(LinearGradientBackground())
         .searchable(text: query, placement: .toolbar)
         .navigationTitle("Recipes")
-        .navigationDestination(for: Recipe.self) { recipe in
-            SmoothieRecipeView(recipe: recipe)
-        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -134,11 +139,15 @@ struct RecipesSidebarView: View {
         .font(.callout)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+    
+    private static let isFavoritePredicate = NSPredicate(format: "isFavorite == YES")
+    private static let isNotFavoritePredicate = NSPredicate(format: "isFavorite == NO")
+
 }
 
-struct Recipes_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipesSidebarView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct Recipes_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipesSidebarView()
+//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
