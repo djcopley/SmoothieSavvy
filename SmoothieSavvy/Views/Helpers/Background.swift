@@ -69,6 +69,10 @@ struct LinearGradientBackground: View {
 
 struct Background_Previews: PreviewProvider {
     static var previews: some View {
-        LinearGradientBackground()
+        VStack {
+            FlatBackground()
+            LinearGradientBackground()
+            RadialGradientBackground()
+        }
     }
 }

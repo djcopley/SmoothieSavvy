@@ -43,8 +43,12 @@ struct HeaderImage: View {
     }
 }
 
-//struct HeaderImage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HeaderImage("defaultSmoothie", isFavorite: .constant(true))
-//    }
-//}
+struct HeaderImage_Previews: PreviewProvider {
+    static let moc = PersistenceController.preview.container.viewContext
+    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
+    
+    static var previews: some View {
+        HeaderImage(recipe: recipe)
+            .environment(\.managedObjectContext, moc)
+    }
+}

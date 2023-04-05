@@ -145,12 +145,16 @@ struct RecipesSidebarView: View {
     
     private static let isFavoritePredicate = NSPredicate(format: "isFavorite == YES")
     private static let isNotFavoritePredicate = NSPredicate(format: "isFavorite == NO")
-
 }
 
-//struct Recipes_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RecipesSidebarView()
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct Recipes_Previews: PreviewProvider {
+    static let moc = PersistenceController.preview.container.viewContext
+    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
+
+    static var previews: some View {
+        NavigationStack {
+            RecipesSidebarView(selectedRecipe: .constant(nil))
+                .environment(\.managedObjectContext, moc)
+        }
+    }
+}

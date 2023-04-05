@@ -111,8 +111,11 @@ struct EditRecipeView: View {
     }
 }
 
-//struct AddRecipeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditRecipeView()
-//    }
-//}
+struct AddRecipeView_Previews: PreviewProvider {
+    static let moc = PersistenceController.preview.container.viewContext
+    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
+
+    static var previews: some View {
+        EditRecipeView(viewModel: EditRecipeViewModel())
+    }
+}

@@ -32,7 +32,7 @@ struct RecipeSection<Content: View>: View {
 struct RecipeSection_Previews: PreviewProvider {
     static var previews: some View {
         RecipeSection("Test") {
-            
+            Text("This is the text")
         }
     }
 }

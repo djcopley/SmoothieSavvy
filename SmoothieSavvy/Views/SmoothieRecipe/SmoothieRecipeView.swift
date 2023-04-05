@@ -100,43 +100,39 @@ struct SmoothieRecipeView: View {
             EditRecipeView(viewModel: EditRecipeViewModel(editing: recipe))
         }
         .toolbar {
-//            if notesIsFocused {
-                ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if notesIsFocused {
+                    Button("Done") {
+                        notesIsFocused = false
+                    }
+                } else {
                     Button("Edit") {
                         editViewIsPresented = true
                     }
-//                    Button("Done") {
-//                        notesIsFocused = false
-//                    }
-//                }
+                }
             }
         }
         .navigationTitle(recipe.name)
         .background(LinearGradientBackground())
     }
     
-//    /// Recommends a list of smoothie recipes that are similar
-//    /// - Parameter recipe: recipe from which to generate recommendations
-//    /// - Returns: similar smoothie recommendations
-//    var relatedRecipes: [Recipe] {
-//        recipes
-//    }
+    /// Recommends a list of smoothie recipes that are similar
+    /// - Parameter recipe: recipe from which to generate recommendations
+    /// - Returns: similar smoothie recommendations
+    var relatedRecipes: [Recipe] {
+        return []
+    }
 }
 
 // MARK: Previews
-//struct Smoothie_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            SmoothieRecipeView(recipe: .constant(.breakfastSmoothie))
-//        }
-//        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//        .previewDisplayName("Rise & Shine")
-//
-//        
-//        NavigationStack {
-//            SmoothieRecipeView(recipe: .constant(.breakfastBar))
-//        }
-//        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//        .previewDisplayName("Banana Breakfast Shake")
-//    }
-//}
+struct Smoothie_Previews: PreviewProvider {
+    static let moc = PersistenceController.preview.container.viewContext
+    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
+    
+    static var previews: some View {
+        NavigationStack {
+            SmoothieRecipeView(recipe: recipe)
+        }
+        .environment(\.managedObjectContext, moc)
+    }
+}

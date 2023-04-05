@@ -28,8 +28,12 @@ struct SmoothieThumbnail: View {
     }
 }
 
-//struct SmoothieThumbnail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SmoothieThumbnail(recipe: SmoothieRecipe.breakfastSmoothie)
-//    }
-//}
+struct SmoothieThumbnail_Previews: PreviewProvider {
+    static let moc = PersistenceController.preview.container.viewContext
+    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
+
+    static var previews: some View {
+        SmoothieThumbnail(recipe: recipe)
+            .environment(\.managedObjectContext, moc)
+    }
+}
