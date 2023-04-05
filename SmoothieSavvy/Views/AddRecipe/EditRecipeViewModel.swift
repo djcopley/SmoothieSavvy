@@ -20,9 +20,9 @@ class EditRecipeViewModel: ObservableObject {
     @Published var recipe: Recipe
 
     init(persistenceController: PersistenceController, editing recipe: Recipe? = nil) {
-        self.context = persistenceController.childViewContext()
+        context = persistenceController.childViewContext()
         if let recipe = recipe {
-            self.recipe = recipe
+            self.recipe = persistenceController.copyForEditing(of: recipe, in: context)
             if let uiImage = recipe.uiImage { self.imageState = .success(RecipeImage(uiImage: uiImage)) }
         } else {
             self.recipe = persistenceController.newTemporaryInstance(in: context)
