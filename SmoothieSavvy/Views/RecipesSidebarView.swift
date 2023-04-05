@@ -11,24 +11,23 @@ struct RecipesSidebarView: View {
     @Environment(\.managedObjectContext) var viewContext
     
     @Binding var selectedRecipe: Recipe?
-    
+
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
     @State private var selectedIngredients: Set<Ingredient.ID> = []
-
     @State private var searchText = ""
     private var query: Binding<String> {
         Binding {
             searchText
         } set: { queryText in
             searchText = queryText
-            
+
             guard !queryText.isEmpty else {
                 favoriteRecipes.nsPredicate = Self.isFavoritePredicate
                 nonFavoriteRecipes.nsPredicate = Self.isNotFavoritePredicate
                 return
             }
-    
+
             let searchPredicate = NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
             favoriteRecipes.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Self.isFavoritePredicate, searchPredicate])
             nonFavoriteRecipes.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Self.isNotFavoritePredicate, searchPredicate])
@@ -90,27 +89,29 @@ struct RecipesSidebarView: View {
         .sheet(isPresented: $ingredientPickerIsPreseneted) {
             SelectIngredientsView(selectedIngredients: $selectedIngredients)
         }
-//        .sheet(isPresented: $addRecipeViewIsPresented) {
-//            EditRecipeView(recipe: Recipe(name: "New Recipe", context: viewContext))
-//        }
+        .sheet(isPresented: $addRecipeViewIsPresented) {
+            EditRecipeView(viewModel: EditRecipeViewModel(persistenceController: .preview))
+        }
     }
     
     // MARK: - Helpers
+
     private func deleteFavorites(at offsets: IndexSet) {
         withAnimation {
             offsets.map { favoriteRecipes[$0] }.forEach(viewContext.delete)
         }
-        PersistenceController.shared.save()
+        try! viewContext.save()
     }
     
     private func deleteNonFavorites(at offsets: IndexSet) {
         withAnimation {
             offsets.map { nonFavoriteRecipes[$0] }.forEach(viewContext.delete)
         }
-        PersistenceController.shared.save()
+        try! viewContext.save()
     }
     
     // MARK: - Computed Views
+
     @ViewBuilder
     private func recipeRow(for recipe: Recipe) -> some View {
         HStack {

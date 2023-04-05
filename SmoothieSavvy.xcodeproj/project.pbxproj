@@ -21,7 +21,6 @@
 		0A5957A329CABC66008ED873 /* URL+IsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577529CABC66008ED873 /* URL+IsDirectory.swift */; };
 		0A5957A429CABC66008ED873 /* SmoothieSavvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577629CABC66008ED873 /* SmoothieSavvyApp.swift */; };
 		0A5957A729CABC66008ED873 /* SmoothieSavvy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */; };
-		0A5957B329CABC66008ED873 /* DefaultStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578A29CABC66008ED873 /* DefaultStack.swift */; };
 		0A5957B429CABC66008ED873 /* RecipesSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578B29CABC66008ED873 /* RecipesSidebarView.swift */; };
 		0A5957B529CABC66008ED873 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59578C29CABC66008ED873 /* Background.swift */; };
 		0A5957BB29CABC66008ED873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579429CABC66008ED873 /* ContentView.swift */; };
@@ -59,7 +58,6 @@
 		0A59577B29CABC66008ED873 /* SmoothieSavvy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmoothieSavvy.xcdatamodel; sourceTree = "<group>"; };
 		0A59578129CABC66008ED873 /* RecipeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
 		0A59578229CABC66008ED873 /* EditRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRecipeView.swift; sourceTree = "<group>"; };
-		0A59578A29CABC66008ED873 /* DefaultStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStack.swift; sourceTree = "<group>"; };
 		0A59578B29CABC66008ED873 /* RecipesSidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesSidebarView.swift; sourceTree = "<group>"; };
 		0A59578C29CABC66008ED873 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		0A59578E29CABC66008ED873 /* SmoothieRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieRecipeView.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 		0AFDDE8F29CF700400522851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0A59578A29CABC66008ED873 /* DefaultStack.swift */,
 				0A59578C29CABC66008ED873 /* Background.swift */,
 			);
 			path = Helpers;
@@ -318,7 +315,6 @@
 				0ADD5E0D29D3E8F5005CC1D1 /* EditRecipeViewModel.swift in Sources */,
 				0A5957B429CABC66008ED873 /* RecipesSidebarView.swift in Sources */,
 				0A6CD39429D5173F0068BF4B /* Tag+Wrappers.swift in Sources */,
-				0A5957B329CABC66008ED873 /* DefaultStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

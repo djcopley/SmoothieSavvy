@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct EditRecipeView: View {
+//    @State var viewModel = TestViewModel(persistenceController: .preview)
     @StateObject var viewModel: EditRecipeViewModel
     
     // The state passed to this view (viewModel and recipe) are causing a weird graphical hiccup when the popover is presented
@@ -18,10 +19,8 @@ struct EditRecipeView: View {
     @FocusState var focusedDirection: Int?
     @Environment(\.managedObjectContext) var moc
     
-    @StateObject var recipe: Recipe
     @FetchRequest(
         sortDescriptors: [SortDescriptor(\.name_)],
-        //        predicate: NSPredicate(format: ""),
         animation: .default
     ) var ingredients: FetchedResults<Ingredient>
     
@@ -32,9 +31,9 @@ struct EditRecipeView: View {
                     PhotosPicker(selection: $viewModel.imageSelection, matching: .images) {
                         HStack {
                             Label("Smoothie Photo", systemImage: "photo.on.rectangle.angled")
-                            
+
                             Spacer()
-                            
+
                             RoundedRectangleRecipeImageView(imageState: viewModel.imageState)
                         }
                         .frame(height: 60)
@@ -48,39 +47,39 @@ struct EditRecipeView: View {
                         return true
                     } isTargeted: { _ in }
                 }
-                
+
                 Section("Details") {
                     TextField("Name", text: $viewModel.recipe.name)
                     TextField("Description", text: $viewModel.recipe.info.with(default: ""))
                 }
-                
-                Section("Ingredients") {
-                    ForEach(recipe.sortedIngredients) { ingredient in
-                        TextField("New Ingredient", text: .constant(ingredient.name))
-                            .focused($focusedIngredient, equals: ingredient)
-                    }
-                    
-                    Button { // TODO: there is a lot of stuff in this module
-                        recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
-                    } label: {
-                        Label("Add Ingredient", systemImage: "plus")
-                    }
-                }
-                
-                Section("Directions") {
-                    ForEach($recipe.directions.enumeratedArray(), id: \.offset) { (index, $direction) in
-                        TextField("New Step", text: $direction)
-                            .focused($focusedDirection, equals: index)
-                    }
-                    
-                    Button {
-                        let newDirection = "New Direction"
-                        recipe.directions.append(newDirection)
-                    } label: {
-                        Label("Add Step", systemImage: "plus")
-                    }
-                }
-                
+
+//                Section("Ingredients") {
+//                    ForEach(viewModel.recipe.sortedIngredients) { ingredient in
+//                        TextField("New Ingredient", text: .constant(ingredient.name))
+//                            .focused($focusedIngredient, equals: ingredient)
+//                    }
+//
+//                    Button { // TODO: there is a lot of stuff in this module
+//                        viewModel.recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
+//                    } label: {
+//                        Label("Add Ingredient", systemImage: "plus")
+//                    }
+//                }
+//
+//                Section("Directions") {
+//                    ForEach($viewModel.recipe.directions.enumeratedArray(), id: \.offset) { (index, $direction) in
+//                        TextField("New Step", text: $direction)
+//                            .focused($focusedDirection, equals: index)
+//                    }
+//
+//                    Button {
+//                        let newDirection = "New Direction"
+//                        viewModel.recipe.directions.append(newDirection)
+//                    } label: {
+//                        Label("Add Step", systemImage: "plus")
+//                    }
+//                }
+
                 Section("Notes") {
                     TextEditor(text: $viewModel.recipe.notes.with(default: ""))
                         .frame(height: 100)
@@ -99,18 +98,18 @@ struct EditRecipeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        viewModel.persist()
+//                        viewModel.persist()
                         dismiss()
                     }
-                    .disabled(!recipeIsValid)
+//                    .disabled(!recipeIsValid)
                 }
             }
         }
     }
     
-    var recipeIsValid: Bool {
-        !viewModel.recipe.name.trimmingCharacters(in: .whitespaces).isEmpty
-    }
+//    var recipeIsValid: Bool {
+//        !viewModel.recipe.name.trimmingCharacters(in: .whitespaces).isEmpty
+//    }
 }
 
 //struct AddRecipeView_Previews: PreviewProvider {

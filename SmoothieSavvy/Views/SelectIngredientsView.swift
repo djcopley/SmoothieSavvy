@@ -57,7 +57,9 @@ struct SelectIngredientsView: View {
             .background(LinearGradientBackground())
             .searchable(text: query)
             .toolbar {
-                Button("Done") { dismiss() }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Done") { dismiss() }
+                }
             }
             .navigationTitle("Ingredients")
         }
