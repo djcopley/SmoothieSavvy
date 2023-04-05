@@ -42,7 +42,7 @@ struct EditRecipeView: View {
                             viewModel.imageState = .failure(EditRecipeViewModel.TransferError.importFailed)
                             return false
                         }
-                        viewModel.imageState = .success(recipeImage.image)
+                        viewModel.imageState = .success(recipeImage)
                         return true
                     } isTargeted: { _ in }
                 }
@@ -97,18 +97,18 @@ struct EditRecipeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-//                        viewModel.persist()
+                        viewModel.persist()
                         dismiss()
                     }
-//                    .disabled(!recipeIsValid)
+                    .disabled(!recipeIsValid)
                 }
             }
         }
     }
     
-//    var recipeIsValid: Bool {
-//        !viewModel.recipe.name.trimmingCharacters(in: .whitespaces).isEmpty
-//    }
+    var recipeIsValid: Bool {
+        !viewModel.recipe.name.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 }
 
 //struct AddRecipeView_Previews: PreviewProvider {

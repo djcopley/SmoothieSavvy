@@ -19,22 +19,11 @@ class EditRecipeViewModel: ObservableObject {
     let persistenceController: PersistenceController
     @Published var recipe: Recipe
 
-    init() {
-        let p = PersistenceController.preview
-        let c = p.childViewContext()
-        let recipe: Recipe = p.newTemporaryInstance(in: c)
-        recipe.name = "New Recipe"
-        self.recipe = recipe
-        
-        self.context = PersistenceController.preview.container.viewContext
-        self.persistenceController = .preview
-        print("Created")
-    }
-
     init(persistenceController: PersistenceController, editing recipe: Recipe? = nil) {
         self.context = persistenceController.childViewContext()
         if let recipe = recipe {
             self.recipe = recipe
+            if let uiImage = recipe.uiImage { self.imageState = .success(RecipeImage(uiImage: uiImage)) }
         } else {
             self.recipe = persistenceController.newTemporaryInstance(in: context)
         }
@@ -66,7 +55,7 @@ class EditRecipeViewModel: ObservableObject {
     enum ImageState {
         case empty
         case loading(Progress)
-        case success(Image)
+        case success(RecipeImage)
         case failure(Error)
     }
 
@@ -89,7 +78,16 @@ class EditRecipeViewModel: ObservableObject {
         }
     }
     
-    @Published var imageState: ImageState = .empty
+    @Published var imageState: ImageState = .empty {
+        didSet {
+            switch imageState {
+            case .success(let recipeImage):
+                self.recipe.uiImage = recipeImage.uiImage
+            default:
+                break
+            }
+        }
+    }
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
             if let imageSelection {
@@ -110,7 +108,7 @@ class EditRecipeViewModel: ObservableObject {
                 }
                 switch result {
                 case .success(let recipeImage?):
-                    self.imageState = .success(recipeImage.image)
+                    self.imageState = .success(recipeImage)
                 case .success(nil):
                     self.imageState = .empty
                 case .failure(let error):

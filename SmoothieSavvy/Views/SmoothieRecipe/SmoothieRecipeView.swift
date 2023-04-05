@@ -12,6 +12,8 @@ struct SmoothieRecipeView: View {
     
     @ObservedObject var recipe: Recipe
     
+    @State private var editViewIsPresented = false
+    
     @FocusState var notesIsFocused
     
     let columns: [GridItem] = [GridItem(.adaptive(minimum: 150))]
@@ -94,13 +96,19 @@ struct SmoothieRecipeView: View {
 //        .toolbar {
 //            ShareLink(item: recipe, preview: SharePreview(recipe.name, image: Image(recipe.imageAssetName)))
 //        }
+        .sheet(isPresented: $editViewIsPresented) {
+            EditRecipeView(viewModel: EditRecipeViewModel(persistenceController: .preview, editing: recipe))
+        }
         .toolbar {
-            if notesIsFocused {
+//            if notesIsFocused {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        notesIsFocused = false
+                    Button("Edit") {
+                        editViewIsPresented = true
                     }
-                }
+//                    Button("Done") {
+//                        notesIsFocused = false
+//                    }
+//                }
             }
         }
         .navigationTitle(recipe.name)

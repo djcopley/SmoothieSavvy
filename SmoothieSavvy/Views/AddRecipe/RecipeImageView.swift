@@ -13,7 +13,8 @@ struct RecipeImageView: View {
     
     var body: some View {
         switch imageState {
-        case .success(let image):
+        case .success(let recipeImage):
+            let image = recipeImage.image
             image
                 .resizable()
                 .draggable(image) {
