@@ -9,7 +9,6 @@ import SwiftUI
 import PhotosUI
 
 struct EditRecipeView: View {
-//    @State var viewModel = TestViewModel(persistenceController: .preview)
     @StateObject var viewModel: EditRecipeViewModel
     
     // The state passed to this view (viewModel and recipe) are causing a weird graphical hiccup when the popover is presented

@@ -11,39 +11,6 @@ import PhotosUI
 import CoreTransferable
 import SwiftUI
 
-//struct TestViewModel {
-//    let context: NSManagedObjectContext
-//    let persistenceController: PersistenceController
-//    
-//    var recipe: Recipe
-//
-//    init(persistenceController: PersistenceController, editing recipe: Recipe? = nil) {
-//        self.context = persistenceController.childViewContext()
-//        if let recipe = recipe {
-//            self.recipe = recipe
-//        } else {
-//            self.recipe = persistenceController.newTemporaryInstance(in: context)
-//        }
-//        self.persistenceController = persistenceController
-//    }
-//
-//    func persist() {
-//        persistenceController.persist(recipe)
-//    }
-//
-//    func newIngredient() -> Ingredient {
-//        let newIngredient = Ingredient(name: "", emoji: "", context: context)
-//        self.recipe.addToIngredients(newIngredient)
-//        return newIngredient
-//    }
-//
-//    func newDirection() -> String {
-//        let newDirection = ""
-//        self.recipe.directions.append(newDirection)
-//        return newDirection
-//    }
-//}
-
 @MainActor
 class EditRecipeViewModel: ObservableObject {
     // MARK: - Initialize context
