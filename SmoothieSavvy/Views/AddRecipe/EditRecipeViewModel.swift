@@ -15,11 +15,13 @@ import SwiftUI
 class EditRecipeViewModel: ObservableObject {
     // MARK: - Initialize context
 
-    let context: NSManagedObjectContext
-    let persistenceController: PersistenceController
     @Published var recipe: Recipe
+    let context: NSManagedObjectContext
+    let persistenceController: PersistenceController = .shared
+    
+    @Environment(\.managedObjectContext) var moc
 
-    init(persistenceController: PersistenceController, editing recipe: Recipe? = nil) {
+    init(editing recipe: Recipe? = nil) {
         context = persistenceController.childViewContext()
         if let recipe = recipe {
             self.recipe = persistenceController.copyForEditing(of: recipe, in: context)
@@ -27,7 +29,6 @@ class EditRecipeViewModel: ObservableObject {
         } else {
             self.recipe = persistenceController.newTemporaryInstance(in: context)
         }
-        self.persistenceController = persistenceController
     }
 
     func persist() {

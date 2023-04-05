@@ -21,7 +21,7 @@ struct SmoothieSavvyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 //                .onOpenURL { url in
 //                    guard url.pathExtension == UTType.smoothieRecipe.preferredFilenameExtension else {
 //                        print("File does not end with .smoothierecipe extension")

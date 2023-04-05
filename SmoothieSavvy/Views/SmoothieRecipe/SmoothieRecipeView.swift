@@ -97,7 +97,7 @@ struct SmoothieRecipeView: View {
 //            ShareLink(item: recipe, preview: SharePreview(recipe.name, image: Image(recipe.imageAssetName)))
 //        }
         .sheet(isPresented: $editViewIsPresented) {
-            EditRecipeView(viewModel: EditRecipeViewModel(persistenceController: .preview, editing: recipe))
+            EditRecipeView(viewModel: EditRecipeViewModel(editing: recipe))
         }
         .toolbar {
 //            if notesIsFocused {
