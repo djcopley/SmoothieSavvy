@@ -14,7 +14,7 @@ struct RecipesSidebarView: View {
 
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
-    @State private var selectedIngredients: Set<Ingredient.ID> = []
+    @State private var selectedIngredients: Set<Ingredient> = []
     @State private var searchText = ""
     private var query: Binding<String> {
         Binding {

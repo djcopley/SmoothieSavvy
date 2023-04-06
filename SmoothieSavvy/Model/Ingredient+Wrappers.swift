@@ -8,6 +8,11 @@
 import CoreData
 
 extension Ingredient {
+    convenience init(name: String, context: NSManagedObjectContext) {
+        self.init(context: context)
+        self.name = name
+    }
+
     convenience init(name: String, emoji: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.name = name
@@ -19,14 +24,6 @@ extension Ingredient {
             name_!
         } set {
             name_ = newValue
-        }
-    }
-    
-    var emoji: String {
-        get {
-            emoji_!
-        } set {
-            emoji_ = newValue
         }
     }
 }

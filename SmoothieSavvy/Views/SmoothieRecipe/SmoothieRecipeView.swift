@@ -45,7 +45,7 @@ struct SmoothieRecipeView: View {
                                         .clipShape(Capsule())
 
                                     
-                                    Text("\(ingredient.emoji) \(ingredient.name)")
+                                    Text("\(ingredient.emoji ?? "") \(ingredient.name)")
                                         .lineLimit(1)
                                         .padding(8)
                                 }

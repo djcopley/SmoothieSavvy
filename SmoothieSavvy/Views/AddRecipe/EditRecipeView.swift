@@ -52,32 +52,32 @@ struct EditRecipeView: View {
                     TextField("Description", text: $viewModel.recipe.info.with(default: ""))
                 }
 
-//                Section("Ingredients") {
-//                    ForEach(viewModel.recipe.sortedIngredients) { ingredient in
-//                        TextField("New Ingredient", text: .constant(ingredient.name))
-//                            .focused($focusedIngredient, equals: ingredient)
-//                    }
-//
-//                    Button { // TODO: there is a lot of stuff in this module
-//                        viewModel.recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
-//                    } label: {
-//                        Label("Add Ingredient", systemImage: "plus")
-//                    }
-//                }
-//
-//                Section("Directions") {
-//                    ForEach($viewModel.recipe.directions.enumeratedArray(), id: \.offset) { (index, $direction) in
-//                        TextField("New Step", text: $direction)
-//                            .focused($focusedDirection, equals: index)
-//                    }
-//
-//                    Button {
-//                        let newDirection = "New Direction"
-//                        viewModel.recipe.directions.append(newDirection)
-//                    } label: {
-//                        Label("Add Step", systemImage: "plus")
-//                    }
-//                }
+                Section("Ingredients") {
+                    ForEach(viewModel.recipe.sortedIngredients) { ingredient in
+                        TextField("New Ingredient", text: .constant(ingredient.name))
+                            .focused($focusedIngredient, equals: ingredient)
+                    }
+
+                    Button { // TODO: there is a lot of stuff in this module
+                        viewModel.recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
+                    } label: {
+                        Label("Add Ingredient", systemImage: "plus")
+                    }
+                }
+
+                Section("Directions") {
+                    ForEach($viewModel.recipe.directions.enumeratedArray(), id: \.offset) { (index, $direction) in
+                        TextField("New Step", text: $direction)
+                            .focused($focusedDirection, equals: index)
+                    }
+
+                    Button {
+                        let newDirection = "New Direction"
+                        viewModel.recipe.directions.append(newDirection)
+                    } label: {
+                        Label("Add Step", systemImage: "plus")
+                    }
+                }
 
                 Section("Notes") {
                     TextEditor(text: $viewModel.recipe.notes.with(default: ""))
