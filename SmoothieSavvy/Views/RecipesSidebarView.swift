@@ -90,7 +90,7 @@ struct RecipesSidebarView: View {
             SelectIngredientsView(selectedIngredients: $selectedIngredients)
         }
         .sheet(isPresented: $addRecipeViewIsPresented) {
-            EditRecipeView(viewModel: EditRecipeViewModel())
+            EditRecipeView()
         }
     }
     

@@ -21,7 +21,7 @@ class EditRecipeViewModel: ObservableObject {
     
     @Environment(\.managedObjectContext) var moc
 
-    init(editing recipe: Recipe? = nil) {
+    init(recipe: Recipe? = nil) {
         context = persistenceController.childViewContext()
         if let recipe = recipe {
             self.recipe = persistenceController.copyForEditing(of: recipe, in: context)

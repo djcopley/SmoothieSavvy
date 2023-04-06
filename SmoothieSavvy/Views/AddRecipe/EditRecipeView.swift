@@ -9,7 +9,11 @@ import SwiftUI
 import PhotosUI
 
 struct EditRecipeView: View {
-    @StateObject var viewModel: EditRecipeViewModel
+    @StateObject private var viewModel: EditRecipeViewModel
+    
+    init(recipe: Recipe? = nil) {
+        _viewModel = StateObject(wrappedValue: .init(recipe: recipe))
+    }
     
     // The state passed to this view (viewModel and recipe) are causing a weird graphical hiccup when the popover is presented
     
@@ -116,6 +120,6 @@ struct AddRecipeView_Previews: PreviewProvider {
     static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
 
     static var previews: some View {
-        EditRecipeView(viewModel: EditRecipeViewModel())
+        EditRecipeView()
     }
 }
