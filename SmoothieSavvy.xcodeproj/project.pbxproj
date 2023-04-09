@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A588F0829E2131E00601DE9 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 0A588F0729E2131E00601DE9 /* EmojiPicker */; };
+		0A588F0A29E217A200601DE9 /* String+RandomEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */; };
 		0A59579629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */; };
 		0A59579729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */; };
 		0A59579829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png */; };
@@ -38,9 +40,11 @@
 		0ADD5E0929D29067005CC1D1 /* SelectIngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59579229CABC66008ED873 /* SelectIngredientsView.swift */; };
 		0ADD5E0B29D3687C005CC1D1 /* PersistenceController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD5E0A29D3687C005CC1D1 /* PersistenceController+Preview.swift */; };
 		0ADD5E0D29D3E8F5005CC1D1 /* EditRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD5E0C29D3E8F5005CC1D1 /* EditRecipeViewModel.swift */; };
+		0AE4664529E22D6700DD2455 /* IngredientEmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4664429E22D6700DD2455 /* IngredientEmojiProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomEmoji.swift"; sourceTree = "<group>"; };
 		0A59575329CABC33008ED873 /* SmoothieSavvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieSavvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png"; sourceTree = "<group>"; };
 		0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png"; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 		0ADD5E0729D28EE0005CC1D1 /* Binding+WithDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+WithDefault.swift"; sourceTree = "<group>"; };
 		0ADD5E0A29D3687C005CC1D1 /* PersistenceController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Preview.swift"; sourceTree = "<group>"; };
 		0ADD5E0C29D3E8F5005CC1D1 /* EditRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewModel.swift; sourceTree = "<group>"; };
+		0AE4664429E22D6700DD2455 /* IngredientEmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEmojiProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A588F0829E2131E00601DE9 /* EmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +151,7 @@
 				0A59577329CABC66008ED873 /* Collection+EnumeratedArray.swift */,
 				0A59577529CABC66008ED873 /* URL+IsDirectory.swift */,
 				0ADD5E0729D28EE0005CC1D1 /* Binding+WithDefault.swift */,
+				0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,6 +163,7 @@
 				0ADD5E0A29D3687C005CC1D1 /* PersistenceController+Preview.swift */,
 				0ADD5DF929D26A6E005CC1D1 /* Recipe+Wrappers.swift */,
 				0ADD5DFB29D26B39005CC1D1 /* Ingredient+Wrappers.swift */,
+				0AE4664429E22D6700DD2455 /* IngredientEmojiProvider.swift */,
 				0A6CD39329D5173F0068BF4B /* Tag+Wrappers.swift */,
 				0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */,
 			);
@@ -232,6 +240,9 @@
 			dependencies = (
 			);
 			name = SmoothieSavvy;
+			packageProductDependencies = (
+				0A588F0729E2131E00601DE9 /* EmojiPicker */,
+			);
 			productName = SmoothieSavvy;
 			productReference = 0A59575329CABC33008ED873 /* SmoothieSavvy.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +271,9 @@
 				Base,
 			);
 			mainGroup = 0A59574A29CABC33008ED873;
+			packageReferences = (
+				0A588F0629E2131E00601DE9 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+			);
 			productRefGroup = 0A59575429CABC33008ED873 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE4664529E22D6700DD2455 /* IngredientEmojiProvider.swift in Sources */,
 				0ADD5DFA29D26A6E005CC1D1 /* Recipe+Wrappers.swift in Sources */,
 				0ADD5E0629D28E14005CC1D1 /* RecipeImageView.swift in Sources */,
 				0A5957A329CABC66008ED873 /* URL+IsDirectory.swift in Sources */,
@@ -308,6 +323,7 @@
 				0ADD5E0129D27998005CC1D1 /* HeaderImage.swift in Sources */,
 				0A5957A729CABC66008ED873 /* SmoothieSavvy.xcdatamodeld in Sources */,
 				0ADD5DFF29D2795F005CC1D1 /* SmoothieRecipeView.swift in Sources */,
+				0A588F0A29E217A200601DE9 /* String+RandomEmoji.swift in Sources */,
 				0A5957A029CABC66008ED873 /* Color+Theme.swift in Sources */,
 				0ADD5DFC29D26B39005CC1D1 /* Ingredient+Wrappers.swift in Sources */,
 				0A6CD39529D630F20068BF4B /* EditRecipeView.swift in Sources */,
@@ -527,6 +543,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A588F0629E2131E00601DE9 /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kelvas09/EmojiPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A588F0729E2131E00601DE9 /* EmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A588F0629E2131E00601DE9 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
+			productName = EmojiPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */ = {

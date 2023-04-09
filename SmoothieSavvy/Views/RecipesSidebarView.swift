@@ -14,7 +14,7 @@ struct RecipesSidebarView: View {
 
     @State private var addRecipeViewIsPresented = false
     @State private var ingredientPickerIsPreseneted = false
-    @State private var selectedIngredients: Set<Ingredient> = []
+
     @State private var searchText = ""
     private var query: Binding<String> {
         Binding {
@@ -33,6 +33,9 @@ struct RecipesSidebarView: View {
             nonFavoriteRecipes.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Self.isNotFavoritePredicate, searchPredicate])
         }
     }
+
+    // Get the intersection of ingredients->recipes
+    @State private var selectedIngredients: Set<Ingredient> = []
     
     @FetchRequest(
         sortDescriptors: [SortDescriptor(\.name_)],

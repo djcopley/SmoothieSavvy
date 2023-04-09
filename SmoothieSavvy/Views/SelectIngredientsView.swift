@@ -46,7 +46,7 @@ struct SelectIngredientsView: View {
                                 .onTapGesture {
                                     userTapped(ingredient)
                                 }
-                            Text("\(ingredient.emoji ?? "") \(ingredient.name)")
+                            Text("\(ingredient.emoji) \(ingredient.name)")
                         }
                     }
                 }

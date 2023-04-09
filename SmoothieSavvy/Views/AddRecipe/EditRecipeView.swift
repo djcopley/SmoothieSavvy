@@ -7,26 +7,22 @@
 
 import SwiftUI
 import PhotosUI
+import EmojiPicker
 
 struct EditRecipeView: View {
     @StateObject private var viewModel: EditRecipeViewModel
-    
+
     init(recipe: Recipe? = nil) {
         _viewModel = StateObject(wrappedValue: .init(recipe: recipe))
     }
-    
-    // The state passed to this view (viewModel and recipe) are causing a weird graphical hiccup when the popover is presented
     
     @Environment(\.dismiss) var dismiss
     @FocusState var focusedIngredient: Ingredient?
     @FocusState var focusedDirection: Int?
     @Environment(\.managedObjectContext) var moc
     
-    @FetchRequest(
-        sortDescriptors: [SortDescriptor(\.name_)],
-        animation: .default
-    ) var ingredients: FetchedResults<Ingredient>
-    
+    @State var emojiPickerIsPresented = false
+
     var body: some View {
         NavigationStack {
             Form {
@@ -58,12 +54,27 @@ struct EditRecipeView: View {
 
                 Section("Ingredients") {
                     ForEach(viewModel.recipe.sortedIngredients) { ingredient in
-                        TextField("New Ingredient", text: .constant(ingredient.name))
-                            .focused($focusedIngredient, equals: ingredient)
+                        HStack {
+                            TextField("New Ingredient", text: ingredient.nameBinding)
+                                .focused($focusedIngredient, equals: ingredient)
+                            EmojiView(emoji: ingredient.emojiBinding)
+                                .onTapGesture {
+                                    emojiPickerIsPresented = true
+                                }
+                                .sheet(isPresented: $emojiPickerIsPresented) {
+                                    NavigationStack {
+                                        EmojiPickerView(selectedEmoji: Binding(ingredient.emojiBinding), emojiProvider: IngredientEmojiProvider())
+                                            .navigationTitle("Ingredient Emoji")
+                                    }
+                                }
+                        }
+                    }
+                    .onDelete { offsets in
+                        viewModel.deleteIngredient(from: offsets)
                     }
 
-                    Button { // TODO: there is a lot of stuff in this module
-                        viewModel.recipe.addToIngredients(Ingredient(name: "Lol", emoji: "😀", context: moc))
+                    Button {
+                        focusedIngredient = viewModel.newIngredient()
                     } label: {
                         Label("Add Ingredient", systemImage: "plus")
                     }
@@ -74,10 +85,15 @@ struct EditRecipeView: View {
                         TextField("New Step", text: $direction)
                             .focused($focusedDirection, equals: index)
                     }
+                    .onDelete { offsets in
+                        viewModel.deleteDirection(from: offsets)
+                    }
+                    .onMove { offsets, offset in
+                        viewModel.moveDirection(from: offsets, to: offset)
+                    }
 
                     Button {
-                        let newDirection = "New Direction"
-                        viewModel.recipe.directions.append(newDirection)
+                        let _ = viewModel.newDirection()
                     } label: {
                         Label("Add Step", systemImage: "plus")
                     }
@@ -104,14 +120,25 @@ struct EditRecipeView: View {
                         viewModel.persist()
                         dismiss()
                     }
-                    .disabled(!recipeIsValid)
+                    .disabled(!viewModel.recipeIsValid)
                 }
             }
         }
     }
-    
-    var recipeIsValid: Bool {
-        !viewModel.recipe.name.trimmingCharacters(in: .whitespaces).isEmpty
+}
+
+
+struct EmojiView: View {
+    @Binding var emoji: Emoji
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 8)
+            .fill(.primary.opacity(0.1))
+            .overlay {
+                Text(emoji.value)
+                    .font(.title)
+            }
+            .frame(width: 45, height: 45)
     }
 }
 

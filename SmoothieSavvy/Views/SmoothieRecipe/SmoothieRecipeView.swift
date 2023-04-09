@@ -10,7 +10,7 @@ import SwiftUI
 struct SmoothieRecipeView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject var recipe: Recipe
+    @StateObject var recipe: Recipe
     
     @State private var editViewIsPresented = false
     
@@ -22,8 +22,6 @@ struct SmoothieRecipeView: View {
         colorScheme == .dark ? .darkBgAccent : .lightBgAccent
     }
     
-    private let tempSmoothieImageName = "defaultSmoothie"
-
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
@@ -45,7 +43,7 @@ struct SmoothieRecipeView: View {
                                         .clipShape(Capsule())
 
                                     
-                                    Text("\(ingredient.emoji ?? "") \(ingredient.name)")
+                                    Text("\(ingredient.emoji) \(ingredient.name)")
                                         .lineLimit(1)
                                         .padding(8)
                                 }
