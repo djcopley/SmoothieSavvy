@@ -55,15 +55,15 @@ struct EditRecipeView: View {
                 Section("Ingredients") {
                     ForEach(viewModel.recipe.sortedIngredients) { ingredient in
                         HStack {
-                            TextField("New Ingredient", text: ingredient.nameBinding)
+                            TextField("New Ingredient", text: viewModel.getNameBinding(for: ingredient))
                                 .focused($focusedIngredient, equals: ingredient)
-                            EmojiView(emoji: ingredient.emojiBinding)
+                            EmojiView(emoji: ingredient.emoji)
                                 .onTapGesture {
                                     emojiPickerIsPresented = true
                                 }
                                 .sheet(isPresented: $emojiPickerIsPresented) {
                                     NavigationStack {
-                                        EmojiPickerView(selectedEmoji: Binding(ingredient.emojiBinding), emojiProvider: IngredientEmojiProvider())
+                                        EmojiPickerView(selectedEmoji: viewModel.getEmojiBinding(for: ingredient), emojiProvider: IngredientEmojiProvider())
                                             .navigationTitle("Ingredient Emoji")
                                     }
                                 }
@@ -129,16 +129,16 @@ struct EditRecipeView: View {
 
 
 struct EmojiView: View {
-    @Binding var emoji: Emoji
-
+    let emoji: String
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
             .fill(.primary.opacity(0.1))
             .overlay {
-                Text(emoji.value)
-                    .font(.title)
+                Text(emoji)
+                    .font(.title2)
             }
-            .frame(width: 45, height: 45)
+            .frame(width: 50)
     }
 }
 

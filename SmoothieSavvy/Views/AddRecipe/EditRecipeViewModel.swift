@@ -10,6 +10,7 @@ import CoreData
 import PhotosUI
 import CoreTransferable
 import SwiftUI
+import EmojiPicker
 
 @MainActor
 class EditRecipeViewModel: ObservableObject {
@@ -53,6 +54,24 @@ class EditRecipeViewModel: ObservableObject {
         let newDirection = ""
         self.recipe.directions.append(newDirection)
         return newDirection
+    }
+    
+    func getNameBinding(for ingredient: Ingredient) -> Binding<String> {
+        Binding {
+            return ingredient.name
+        } set: { newValue in
+            self.objectWillChange.send()
+            ingredient.name = newValue
+        }
+    }
+    
+    func getEmojiBinding(for ingredient: Ingredient) -> Binding<Emoji?> {
+        Binding {
+            return Emoji(value: ingredient.emoji, name: "")
+        } set: { newEmoji in
+            self.objectWillChange.send()
+            ingredient.emoji = newEmoji!.value
+        }
     }
     
     func deleteIngredient(from offsets: IndexSet) {

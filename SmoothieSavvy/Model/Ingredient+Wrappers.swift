@@ -37,22 +37,6 @@ extension Ingredient {
             emoji_ = newValue
         }
     }
-    
-    var nameBinding: Binding<String> {
-        Binding {
-            self.name
-        } set: { newValue in
-            self.name = newValue
-        }
-    }
-    
-    var emojiBinding: Binding<Emoji> {
-        Binding {
-            return Emoji(value: self.emoji, name: "")
-        } set: { newEmoji in
-            self.emoji = newEmoji.value
-        }
-    }
 
     var sortedRecipes: [Recipe] {
         return (recipes as? Set<Recipe> ?? []).sorted { $0.name < $1.name }
