@@ -31,6 +31,7 @@ struct HeaderImage: View {
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .onTapGesture {
                 recipe.isFavorite.toggle()
+                PersistenceController.shared.save()
             }
             .padding()
     }

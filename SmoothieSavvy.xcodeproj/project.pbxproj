@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A52BB7129E6487E00CAFB4F /* String+RandomEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52BB7029E6487E00CAFB4F /* String+RandomEmoji.swift */; };
 		0A588F0829E2131E00601DE9 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 0A588F0729E2131E00601DE9 /* EmojiPicker */; };
-		0A588F0A29E217A200601DE9 /* String+RandomEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */; };
 		0A59579629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */; };
 		0A59579729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */; };
 		0A59579829CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A59576729CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.51.png */; };
@@ -44,7 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomEmoji.swift"; sourceTree = "<group>"; };
+		0A52BB7029E6487E00CAFB4F /* String+RandomEmoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RandomEmoji.swift"; sourceTree = "<group>"; };
 		0A59575329CABC33008ED873 /* SmoothieSavvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieSavvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A59576529CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.36.09.png"; sourceTree = "<group>"; };
 		0A59576629CABC66008ED873 /* Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 14 Pro - 2023-03-20 at 12.39.49.png"; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				0A98C62829CFE16700960214 /* App */,
-				0A59577E29CABC66008ED873 /* Views */,
 				0A59577729CABC66008ED873 /* Model */,
+				0A59577E29CABC66008ED873 /* Views */,
 				0A59577029CABC66008ED873 /* Extensions */,
 			);
 			path = SmoothieSavvy;
@@ -147,11 +147,11 @@
 		0A59577029CABC66008ED873 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0A52BB7029E6487E00CAFB4F /* String+RandomEmoji.swift */,
 				0A59577229CABC66008ED873 /* Color+Theme.swift */,
 				0A59577329CABC66008ED873 /* Collection+EnumeratedArray.swift */,
 				0A59577529CABC66008ED873 /* URL+IsDirectory.swift */,
 				0ADD5E0729D28EE0005CC1D1 /* Binding+WithDefault.swift */,
-				0A588F0929E217A200601DE9 /* String+RandomEmoji.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 				0ADD5E0A29D3687C005CC1D1 /* PersistenceController+Preview.swift */,
 				0ADD5DF929D26A6E005CC1D1 /* Recipe+Wrappers.swift */,
 				0ADD5DFB29D26B39005CC1D1 /* Ingredient+Wrappers.swift */,
-				0AE4664429E22D6700DD2455 /* IngredientEmojiProvider.swift */,
 				0A6CD39329D5173F0068BF4B /* Tag+Wrappers.swift */,
+				0AE4664429E22D6700DD2455 /* IngredientEmojiProvider.swift */,
 				0A59577A29CABC66008ED873 /* SmoothieSavvy.xcdatamodeld */,
 			);
 			path = Model;
@@ -308,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE4664529E22D6700DD2455 /* IngredientEmojiProvider.swift in Sources */,
+				0A52BB7129E6487E00CAFB4F /* String+RandomEmoji.swift in Sources */,
 				0ADD5DFA29D26A6E005CC1D1 /* Recipe+Wrappers.swift in Sources */,
 				0ADD5E0629D28E14005CC1D1 /* RecipeImageView.swift in Sources */,
 				0A5957A329CABC66008ED873 /* URL+IsDirectory.swift in Sources */,
@@ -323,7 +324,6 @@
 				0ADD5E0129D27998005CC1D1 /* HeaderImage.swift in Sources */,
 				0A5957A729CABC66008ED873 /* SmoothieSavvy.xcdatamodeld in Sources */,
 				0ADD5DFF29D2795F005CC1D1 /* SmoothieRecipeView.swift in Sources */,
-				0A588F0A29E217A200601DE9 /* String+RandomEmoji.swift in Sources */,
 				0A5957A029CABC66008ED873 /* Color+Theme.swift in Sources */,
 				0ADD5DFC29D26B39005CC1D1 /* Ingredient+Wrappers.swift in Sources */,
 				0A6CD39529D630F20068BF4B /* EditRecipeView.swift in Sources */,
@@ -470,6 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,6 +506,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
