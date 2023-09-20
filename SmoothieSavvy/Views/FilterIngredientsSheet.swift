@@ -1,31 +1,21 @@
 //
-//  IngredientSelecter.swift
+//  FilterIngredientsSheet.swift
 //  SmoothieSavvy
 //
 //  Created by Daniel Copley on 3/1/23.
 //
 
 import SwiftUI
+import SwiftData
 
-struct SelectIngredientsView: View {
+struct FilterIngredientsSheet: View {
     @Binding var selectedIngredients: Set<Ingredient>
 
     @Environment(\.dismiss) var dismiss
 
-    @FetchRequest(
-        sortDescriptors: [SortDescriptor(\.name_)],
-        animation: .default
-    ) private var ingredients: FetchedResults<Ingredient>
+    @Query(sort: \Ingredient.name) var ingredients: [Ingredient]
 
-    @State private var searchText = ""
-    private var query: Binding<String> {
-        Binding {
-            searchText
-        } set: { queryText in
-            searchText = queryText
-            ingredients.nsPredicate = queryText.isEmpty ? nil : NSPredicate(format: "name_ BEGINSWITH[c] %@", queryText)
-        }
-    }
+    private let columns = [GridItem(.adaptive(minimum: 175))]
 
     var body: some View {
         NavigationStack {
@@ -54,7 +44,6 @@ struct SelectIngredientsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(LinearGradientBackground())
-            .searchable(text: query)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Done") { dismiss() }
@@ -63,10 +52,6 @@ struct SelectIngredientsView: View {
             .navigationTitle("Ingredients")
         }
     }
-
-    // MARK: Constants
-
-    private let columns = [GridItem(.adaptive(minimum: 175))]
 
     // MARK: Ingredient helpers
 
@@ -79,11 +64,7 @@ struct SelectIngredientsView: View {
     }
 }
 
-struct Ingredients_Previews: PreviewProvider {
-    @State static var selectedIngredients: Set<Ingredient> = []
-
-    static var previews: some View {
-        SelectIngredientsView(selectedIngredients: $selectedIngredients)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
+#Preview {
+    FilterIngredientsSheet(selectedIngredients: .constant(.init()))
+        .modelContainer(PreviewSampleData.container)
 }

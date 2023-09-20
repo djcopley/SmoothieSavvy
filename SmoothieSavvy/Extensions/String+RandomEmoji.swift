@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     static var randomEmoji: String {
-        IngredientEmojiProvider.allEmojis.randomElement()!.value
+//        IngredientEmojiProvider.allEmojis.randomElement()!.value
+        return ":)"
     }
 }

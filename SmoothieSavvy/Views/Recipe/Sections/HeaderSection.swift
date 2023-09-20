@@ -1,14 +1,23 @@
 //
-//  HeaderImage.swift
+//  HeaderSection.swift
 //  SmoothieSavvy
 //
-//  Created by Daniel Copley on 3/20/23.
+//  Created by Daniel Copley on 9/17/23.
 //
 
 import SwiftUI
 
+struct HeaderSection: View {
+    var recipe: Recipe
+
+    var body: some View {
+        HeaderImage(recipe: recipe)
+            .padding(.horizontal)
+    }
+}
+
 struct HeaderImage: View {
-    @ObservedObject var recipe: Recipe
+    var recipe: Recipe
     
     var body: some View {
         smoothieImage
@@ -30,8 +39,9 @@ struct HeaderImage: View {
             .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .onTapGesture {
-                recipe.isFavorite.toggle()
-                PersistenceController.shared.save()
+                withAnimation {
+                    recipe.isFavorite.toggle()
+                }
             }
             .padding()
     }
@@ -41,15 +51,5 @@ struct HeaderImage: View {
             return Image("defaultSmoothie")
         }
         return Image(uiImage: uiImage)
-    }
-}
-
-struct HeaderImage_Previews: PreviewProvider {
-    static let moc = PersistenceController.preview.container.viewContext
-    static let recipe = try! moc.fetch(Recipe.fetchRequest()).first!
-    
-    static var previews: some View {
-        HeaderImage(recipe: recipe)
-            .environment(\.managedObjectContext, moc)
     }
 }

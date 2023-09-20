@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct RecipeImageView: View {
-    let imageState: EditRecipeViewModel.ImageState
+    let imageState: ImageViewModel.ImageState
     
     var body: some View {
         switch imageState {
@@ -39,7 +39,7 @@ struct RecipeImageView: View {
 }
 
 struct RoundedRectangleRecipeImageView: View {
-    let imageState: EditRecipeViewModel.ImageState
+    let imageState: ImageViewModel.ImageState
     
     var body: some View {
         RecipeImageView(imageState: imageState)
