@@ -10,11 +10,10 @@ import PhotosUI
 
 struct RecipeEditor: View {
     let recipe: Recipe?
-    @StateObject private var viewModel: ImageViewModel
+    @StateObject private var viewModel = ImageViewModel()
     
     init(recipe: Recipe? = nil) {
         self.recipe = recipe
-        _viewModel = StateObject(wrappedValue: ImageViewModel(recipe: recipe!))
     }
     
     private var title: String {
@@ -120,12 +119,16 @@ struct RecipeEditor: View {
             .scrollContentBackground(.hidden)
             .background(LinearGradientBackground())
             .onAppear {
-                if let recipe {
-                    name = recipe.name
-                    info = recipe.info
-                    notes = recipe.notes
-                    directions = recipe.directions
-                    ingredients = recipe.ingredients
+                guard let recipe else {
+                    return
+                }
+                name = recipe.name
+                info = recipe.info
+                notes = recipe.notes
+                directions = recipe.directions
+                ingredients = recipe.ingredients
+                if let image = recipe.uiImage {
+                    viewModel.imageState = .success(.init(uiImage: image))
                 }
             }
             .toolbar {
@@ -140,6 +143,7 @@ struct RecipeEditor: View {
                         save()
                         dismiss()
                     }
+                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
         }
@@ -152,9 +156,11 @@ struct RecipeEditor: View {
             recipe.notes = notes
             recipe.directions = directions
             recipe.ingredients = ingredients
+            recipe.uiImage = viewModel.image?.uiImage
         } else {
             let newRecipe = Recipe(name: name, directions: directions, info: info, notes: notes)
             newRecipe.ingredients = ingredients
+            newRecipe.uiImage = viewModel.image?.uiImage
             modelContext.insert(newRecipe)
         }
     }

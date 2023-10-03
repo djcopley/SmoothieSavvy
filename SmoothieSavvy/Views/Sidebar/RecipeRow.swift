@@ -12,12 +12,14 @@ struct RecipeRow: View {
     
     var body: some View {
         HStack {
+            if let image = recipe.uiImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+            }
             Text(recipe.name)
-            Spacer()
-            Image(systemName: "heart.fill")
-                .font(.subheadline)
-                .foregroundColor(.red)
-                .opacity(recipe.isFavorite ? 1 : 0)
         }
         .swipeActions(edge: .leading) { swipeActions(recipe: recipe) }
     }    
@@ -40,5 +42,17 @@ struct RecipeRow: View {
 }
 
 #Preview {
-    RecipeRow(recipe: Recipe(name: "Banana Smoothie"))
+    MainActor.assumeIsolated {
+        let container = PreviewSampleData.container
+        
+        return List {
+            Section("Favorites") {
+                RecipeRow(recipe: .appleSpinachKiwiSmoothie)
+            }
+            Section("Smoothies") {
+                RecipeRow(recipe: .strawberryBananaSmoothie)
+            }
+        }
+        .modelContainer(container)
+    }
 }

@@ -14,25 +14,6 @@ import EmojiPicker
 
 @MainActor
 class ImageViewModel: ObservableObject {
-    var recipe: Recipe
-    
-    init(recipe: Recipe) {
-        self.recipe = recipe
-    }
-    
-    // MARK: - Recipe Image Loading
-
-    enum TransferError: Error {
-        case importFailed
-    }
-
-    enum ImageState {
-        case empty
-        case loading(Progress)
-        case success(RecipeImage)
-        case failure(Error)
-    }
-
     struct RecipeImage: Transferable {
         let uiImage: UIImage
         
@@ -52,16 +33,27 @@ class ImageViewModel: ObservableObject {
         }
     }
     
-    @Published var imageState: ImageState = .empty {
-        didSet {
-            switch imageState {
-            case .success(let recipeImage):
-                self.recipe.uiImage = recipeImage.uiImage
-            default:
-                break
-            }
+    enum TransferError: Error {
+        case importFailed
+    }
+
+    enum ImageState {
+        case empty
+        case loading(Progress)
+        case success(RecipeImage)
+        case failure(Error)
+    }
+
+    
+    var image: RecipeImage? {
+        switch imageState {
+        case .success(let recipeImage):
+            return recipeImage
+        default:
+            return nil
         }
     }
+    @Published var imageState: ImageState = .empty
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
             if let imageSelection {

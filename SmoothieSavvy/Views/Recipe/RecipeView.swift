@@ -43,5 +43,10 @@ struct RecipeView: View {
 }
 
 #Preview {
-    RecipeView(recipe: Recipe(name: "Sample Smoothie"))
+    MainActor.assumeIsolated {
+        let container = PreviewSampleData.container
+        
+        return RecipeView(recipe: .greenDetoxSmoothie)
+            .modelContainer(container)
+    }
 }

@@ -24,10 +24,18 @@ struct RecipeList: View {
     
     var body: some View {
         List(selection: $selectedRecipe) {
-            ForEach(recipes) { recipe in
-                NavigationLink(value: recipe) { RecipeRow(recipe: recipe) }
+            Section("Favorites") {
+                ForEach(recipes.filter { $0.isFavorite }) { recipe in
+                    NavigationLink(value: recipe) { RecipeRow(recipe: recipe) }
+                }
+                .onDelete(perform: removeRecipes(at:))
             }
-            .onDelete(perform: removeRecipes(at:))
+            Section("Smoothies") {
+                ForEach(recipes.filter { !$0.isFavorite }) { recipe in
+                    NavigationLink(value: recipe) { RecipeRow(recipe: recipe) }
+                }
+                .onDelete(perform: removeRecipes(at:))
+            }
         }
         .scrollContentBackground(.hidden)
         .background(LinearGradientBackground())

@@ -29,10 +29,8 @@ struct RecipeSection<Content: View>: View {
     var spacing: CGFloat = 10
 }
 
-struct RecipeSection_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeSection("Test") {
-            Text("This is the text")
-        }
+#Preview {
+    RecipeSection("Test") {
+        Text("This is the text")
     }
 }

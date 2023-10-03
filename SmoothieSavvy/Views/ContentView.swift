@@ -41,7 +41,12 @@ extension ContentView {
     @ToolbarContentBuilder
     var toolbarContent: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarTrailing) {
-            IngredientFilterButton(ingredientFilterIsPresented: $ingredientFilterSheetIsPresented)
+            Button {
+                ingredientFilterSheetIsPresented = true
+            } label: {
+                Label("Ingredient Filter", systemImage: "line.3.horizontal.decrease")
+            }
+            
             Button {
                 newRecipeSheetIsPresented = true
             } label: {
